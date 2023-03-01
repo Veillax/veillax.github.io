@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+	<html lang="en">
   <head>
     <!--tab title/tab name-->
-    <title>Home | Veillax135</title>
+    <title>Art | Veillax135</title>
     <!--html character encoding format-->
     <meta charset="utf-8">
     <!--viewport meta element: important for responsive web design and mobile-first design-->
@@ -19,6 +20,10 @@
     <!--css stylesheet link-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+	<!--JS imports-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js" integrity="sha512-ruQ4xI8Jfep9W+qJQ8FLbxsjPVR0WvEt31XNw0mZxri2Nya9eQr7VTFsi+S7OvW0bIUI7vxF8zoaPNSq/PsvxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js" integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	  
 		<!--Navbar-->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -29,28 +34,22 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="art.html">Art
-            <span class="visually-hidden">(current)</span>
+          <a class="nav-link" href="index.html">Home
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="">Github<img source="https://cdn0.iconfinder.com/data/icons/web-icons-22/32/external-512.png"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				<li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Art</a>
+					<span class="visually-hidden">(current)</span>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            <a class="dropdown-item active" href="art.html">Art</a>
+            <a class="dropdown-item" href="models.html">3D Models</a>
           </div>
+				</li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/veillax1354">Gtihub</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
         </li>
       </ul>
     </div>

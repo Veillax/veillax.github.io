@@ -37,24 +37,18 @@
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="art.html">Art</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/Veillax/veillax.github.io" target="_blank">Github</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+				<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Art</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            <a class="dropdown-item" href="art.html">Art</a>
+            <a class="dropdown-item" href="models.html">3D Models</a>
           </div>
+				</li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/veillax1354">Gtihub</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
         </li>
       </ul>
     </div>
@@ -62,8 +56,19 @@
 </nav>
 	<!--WIP Alert-->
 		<div class="alert alert-dismissible alert-danger">
-  <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a href="https://github.com/Veillax/veillax.github.io/issues" target="_blank">here</a>.
+  <strong>Oh snap!</strong> This site isn't fully finished yet! Click <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">here</a> to learn more
 </div>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Learn More</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      This site is currently being developed by Veillax, so some features may not work. If you would like to report them, open an Issue <a href="https://github.com/Veillax/veillax.github.io/issues" target="_blank">here</a>.
+  </div>
+</div>
+		</div>
   </head>
   <body>
 	<!--Main Content-->
@@ -73,9 +78,8 @@
 	  	  <p>Welcome to my site! Here you can find all sorts of things, like art, 3D models, and more!</p>
 		  <h4>More stuff coming soon!</h4>
 	  </center>
+		
 	
 	</body>
-	<div class="alert alert-dismissible alert-warning">
-		<h4 class="alert-heading"><br></h4>
-	</div>
+		<div class="alert alert-dismissible alert-warning" id="footer"></div>
 </html>
