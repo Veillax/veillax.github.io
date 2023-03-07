@@ -3,10 +3,10 @@
           box-sizing: border-box;
 }
 
-#ignore {
-font-size: .83em; !important
-font-weight: bolder; !important
-height: 13.28 px; !important
+#ignore { 
+font-size: .83em !important; 
+font-weight: bolder !important; 
+height: 13.28 px !important; 
 }
 
 body {
