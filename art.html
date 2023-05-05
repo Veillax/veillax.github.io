@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-	<html lang="en">
-  <head>
+<html lang="en">
+<head>
     <!--tab title/tab name-->
     <title>Art | Veillax135</title>
     <!--html character encoding format-->
     <meta charset="utf-8">
     <!--viewport meta element: important for responsive web design and mobile-first design-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <!--site/page description-->
-    <meta name="description" content="Home page for Veillax's personal website">
+    <meta content="Home page for Veillax's personal website" name="description">
     <!--site/page author-->
-    <meta name="author" content="Veillax">
+    <meta content="Veillax" name="author">
     <!--open graph meta elements-->
-    <meta property="og:title" content="Home | Veillax">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://veillax.github.io">
-    <meta property="og:description" content="Home page for Veillax's personal website">
+    <meta content="Home | Veillax" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="https://veillax.github.io" property="og:url">
+    <meta content="Home page for Veillax's personal website" property="og:description">
     <!--css stylesheet link-->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-	<!--JS imports-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js" integrity="sha512-ruQ4xI8Jfep9W+qJQ8FLbxsjPVR0WvEt31XNw0mZxri2Nya9eQr7VTFsi+S7OvW0bIUI7vxF8zoaPNSq/PsvxA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js" integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	  
-<!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home
-          </a>
-        </li>
-				<li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Art</a>
-					<span class="visually-hidden">(current)</span>
-          <div class="dropdown-menu">
-            <a class="dropdown-item active" href="art.html">Art</a>
-            <a class="dropdown-item" href="models.html">3D Models</a>
-          </div>
-				</li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/veillax1354">Gtihub</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
-        </li>
-      </ul>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--JS imports-->
+    <script crossorigin="anonymous"
+            integrity="sha512-ruQ4xI8Jfep9W+qJQ8FLbxsjPVR0WvEt31XNw0mZxri2Nya9eQr7VTFsi+S7OvW0bIUI7vxF8zoaPNSq/PsvxA=="
+            referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+            referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home
+                            <span class="visually-hidden"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="art.html">Art
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="models.html">3D Models
+                            <span class="visually-hidden"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/veillax1354">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--WIP Alert-->
+    <div class="alert alert-dismissible alert-danger">
+        <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a
+            href="https://github.com/Veillax/veillax.github.io/issues" target="_blank">here</a>.
     </div>
-  </div>
-</nav>
-<!--WIP Alert-->
-<div class="alert alert-dismissible alert-danger">
-  <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a href="https://github.com/Veillax/veillax.github.io/issues" target="_blank">here</a>.
-</div>
-  </head>
-  <body>
-  <!--main content here-->
-		<br><br>
-		<center><h1>Art</h1><br><h4>Wonderful art made by Veillax! Scroll down to view.</h4></center>
-		<!--Links:
+</head>
+<body>
+<!--main content here-->
+<br><br>
+<center><h1>Art</h1><br><h4>Wonderful art made by Veillax! Scroll down to view.</h4></center>
+<!--Links:
 https://www.pixilart.com/art/axolotl-sr2db5014b3e434
 https://www.pixilart.com/art/fox-drawing-sr2bbf8f6b60424
 https://www.pixilart.com/art/black-on-white-pawn-sr2678947c11239
@@ -77,42 +88,57 @@ https://www.pixilart.com/art/black-queen-sr280cc95ac5fdb
 https://www.pixilart.com/art/white-queen-sr2e4261dd352da
 https://www.pixilart.com/art/black-king-sr2f1780a3b0178
 https://www.pixilart.com/art/white-king-sr22dae9e687c76
-		-->
-		<br><br><br><br><hr>
-<center>
-	
-			<!--Axolotl-->
-			<a href="https://www.pixilart.com/art/axolotl-sr2db5014b3e434" target="_blank"><img src="https://art.pixilart.com/sr2db5014b3e434.png" height="300px"></a>
-			<!--Fox-->
-			<a href="https://www.pixilart.com/art/fox-drawing-sr2bbf8f6b60424" target="_blank"><img src="https://art.pixilart.com/sr2cdfe4c01f394.png" height="300px"></a>
-	<hr>
-			<!--Black Pawn-->
-			<a href="https://www.pixilart.com/art/black-on-white-pawn-sr2678947c11239" target="_blank"><img src="https://art.pixilart.com/sr2157103f3182d.png" height="300px"></a>
-			<!--White Pawn-->
-			<a href="https://www.pixilart.com/art/white-on-black-pawn-sr2fc91dd0edafb" target="_blank"><img src="https://art.pixilart.com/sr2a511f0f9276b.png" height="300px"></a>
-	<!--Black Rook-->
-	<a href="https://www.pixilart.com/art/black-rook-sr2dd0c09a05207" target="_blank"><img src="https://art.pixilart.com/sr2dd0c09a05207.png" height="300px"></a>
-	<!--White Rook-->
-	<a href="https://www.pixilart.com/art/white-rook-sr2370e11907530" target="_blank"><img src="https://art.pixilart.com/sr2370e11907530.png" height="300px"></a>
-	<hr>
-	<!--Black Bishop-->
-	<a href="https://www.pixilart.com/art/black-bishop-sr2cbaa786970d5" target="_blank"><img src="https://art.pixilart.com/sr2cbaa786970d5.png" height="300px"></a>
-	<!--White Bishop-->
-	<a href="https://www.pixilart.com/art/white-bishop-sr24598132a255b" target="_blank"><img src="https://art.pixilart.com/sr24598132a255b.png" height="300px"></a>
-	<!--Black Queen-->
-	<a href="https://www.pixilart.com/art/black-queen-sr280cc95ac5fdb" target="_blank"><img src="https://art.pixilart.com/sr280cc95ac5fdb.png" height="300px"></a>
-	<!--White Queen-->
-	<a href="https://www.pixilart.com/art/white-queen-sr2e4261dd352da" target="_blank"><img src="https://art.pixilart.com/sr2e4261dd352da.png" height="300px"></a>
+-->
+<br><br><br><br>
 <hr>
-	<!--Black King-->
-	<a href="https://www.pixilart.com/art/black-king-sr2f1780a3b0178" target="_blank"><img src="https://art.pixilart.com/sr2f1780a3b0178.png" height="300px"></a>
-	<!--White Queen-->
-	<a href="https://www.pixilart.com/art/white-king-sr22dae9e687c76" target="_blank"><img src="https://art.pixilart.com/sr22dae9e687c76.png" height="300px"></a>
-		</center>
-		<br><br><br>
-		
-	</body>
-	<div class="alert alert-dismissible alert-warning">
-		<h4 class="alert-heading"><br></h4>
+<center>
+
+    <a href="download.html?name=Duck&file=duck.png">Test Download Link</a>
+
+    <!--Axolotl-->
+    <a href="https://www.pixilart.com/art/axolotl-sr2db5014b3e434" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2db5014b3e434.png"></a>
+    <!--Fox-->
+    <a href="https://www.pixilart.com/art/fox-drawing-sr2bbf8f6b60424" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2cdfe4c01f394.png"></a>
+    <hr>
+    <!--Black Pawn-->
+    <a href="https://www.pixilart.com/art/black-on-white-pawn-sr2678947c11239" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2157103f3182d.png"></a>
+    <!--White Pawn-->
+    <a href="https://www.pixilart.com/art/white-on-black-pawn-sr2fc91dd0edafb" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2a511f0f9276b.png"></a>
+    <!--Black Rook-->
+    <a href="https://www.pixilart.com/art/black-rook-sr2dd0c09a05207" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2dd0c09a05207.png"></a>
+    <!--White Rook-->
+    <a href="https://www.pixilart.com/art/white-rook-sr2370e11907530" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2370e11907530.png"></a>
+    <hr>
+    <!--Black Bishop-->
+    <a href="https://www.pixilart.com/art/black-bishop-sr2cbaa786970d5" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2cbaa786970d5.png"></a>
+    <!--White Bishop-->
+    <a href="https://www.pixilart.com/art/white-bishop-sr24598132a255b" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr24598132a255b.png"></a>
+    <!--Black Queen-->
+    <a href="https://www.pixilart.com/art/black-queen-sr280cc95ac5fdb" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr280cc95ac5fdb.png"></a>
+    <!--White Queen-->
+    <a href="https://www.pixilart.com/art/white-queen-sr2e4261dd352da" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2e4261dd352da.png"></a>
+    <hr>
+    <!--Black King-->
+    <a href="https://www.pixilart.com/art/black-king-sr2f1780a3b0178" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr2f1780a3b0178.png"></a>
+    <!--White Queen-->
+    <a href="https://www.pixilart.com/art/white-king-sr22dae9e687c76" target="_blank"><img
+            height="300px" src="https://art.pixilart.com/sr22dae9e687c76.png"></a>
+</center>
+<br><br><br>
+
+</body>
+<div class="alert alert-dismissible alert-warning">
+    <h4 class="alert-heading"><br></h4>
 </div>
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--tab title/tab name-->
+    <title>Download | Veillax135</title>
+    <!--html character encoding format-->
+    <meta charset="utf-8">
+    <!--viewport meta element: important for responsive web design and mobile-first design-->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!--site/page description-->
+    <meta content="Download page Veillax's personal website" name="description">
+    <!--site/page author-->
+    <meta content="Veillax" name="author">
+    <!--open graph meta elements-->
+    <meta content="Download | Veillax" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="https://veillax.github.io" property="og:url">
+    <meta content="Redirect page for Veillax's personal website" property="og:description">
+    <!--Favicon-->
+    <link href="/img/1683320143.ico" rel="shortcut icon" type="image/x-icon">
+    <!--css stylesheet link-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--JS imports-->
+    <script crossorigin="anonymous"
+            integrity="sha512-ruQ4xI8Jfep9W+qJQ8FLbxsjPVR0WvEt31XNw0mZxri2Nya9eQr7VTFsi+S7OvW0bIUI7vxF8zoaPNSq/PsvxA=="
+            referrerpolicy="no-referrer"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+            referrerpolicy="no-referrer"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<style>
+   #site {
+      color: #8DBF69;
+   }
+   #download {
+      color: #ABD904;
+   }
+
+
+</style>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="art.html">Art
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="models.html">3D Models
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="redirect.html?https://github.com/veillax1354">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--WIP Alert-->
+<div class="alert alert-dismissible alert-danger">
+    <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a
+        href="https://github.com/Veillax/veillax.github.io/issues" target="_blank">here</a>.
+</div>
+<center>
+    <h3>Downloading <span id="filename"></span> in <span id="countdown">5</span> seconds.</h3>
+    <p id="dlnow">Click <a download href="" id="download">here</a> to download now.</p>
+</center>
+<script>
+function downloadFile(url, filename) {
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'download';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+function countdown(seconds) {
+  return new Promise(resolve => {
+    let count = seconds;
+    const intervalId = setInterval(() => {
+      document.getElementById('countdown').textContent = count;
+      count--;
+      if (count === -1) {
+        clearInterval(intervalId);
+        resolve();
+        setTimeout(window.history.back(), 2000);
+      }
+    }, 1000);
+  });
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const file = urlParams.get('file');
+const name = urlParams.get('name');
+var dlink = `downloadables/` + file
+document.getElementById("download").href = dlink;
+document.getElementById("filename").innerHTML = name;
+
+async function main() {
+  console.log('Starting countdown...');
+  await countdown(4);
+  console.log('Countdown finished!');
+  downloadFile(dlink, name);
+}
+
+main();
+
+function goBack() {
+  setTimeout(() => {
+    window.history.back();
+  }, 2000);
+}
+
+document.getElementById('dlnow').addEventListener('click', event => {
+  event.preventDefault();
+  goBack();
+});
+
+</script>
+</body>
+</html>
