@@ -17,68 +17,111 @@
     <meta content="https://veillax.github.io" property="og:url">
     <meta content="Home page for Veillax's personal website" property="og:description">
     <!--Favicon-->
-    <link rel="shortcut icon" type="image/x-icon" href="/img/1683320143.ico">
+    <link href="/img/1683320143.ico" rel="shortcut icon" type="image/x-icon">
     <!--css stylesheet link-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <!--JS imports-->
     <script crossorigin="anonymous"
             integrity="sha512-ruQ4xI8Jfep9W+qJQ8FLbxsjPVR0WvEt31XNw0mZxri2Nya9eQr7VTFsi+S7OvW0bIUI7vxF8zoaPNSq/PsvxA=="
-            referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js"></script>
+            referrerpolicy="no-referrer"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js"></script>
     <script crossorigin="anonymous"
             integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
-            referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+            referrerpolicy="no-referrer"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
 
 
 </head>
 <body>
 <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-                    data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home
-                            <span class="visually-hidden">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="art.html">Art
-                            <span class="visually-hidden"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="models.html">3D Models
-                            <span class="visually-hidden"></span>
-                        </a>
-                    </li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="art.html">Art
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="models.html">3D Models
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="redirect.html?https://github.com/veillax1354" target="_blank">Github</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                </ul>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="redirect.html?https://github.com/veillax1354" target="_blank">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
         </div>
-    </nav>
-    <!--WIP Alert-->
-    <div class="alert alert-dismissible alert-danger">
-        <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a
-            href="https://github.com/Veillax/veillax.github.io/issues" target="_blank">here</a>.
     </div>
+</nav>
+<!--WIP Alert-->
+<div class="alert alert-dismissible alert-danger">
+    <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a
+        href="https://github.com/Veillax/veillax.github.io/issues" target="_blank">here</a>.
+</div>
 <!--Main Content-->
 <center>
     <h1>Home</h1>
     <hr>
     <p>Welcome to my site! Here you can find all sorts of things, like art, 3D models, and more!</p>
     <h4>More stuff coming soon!</h4>
+    <hr>
+    <h4>Here's a doggo for today! <3</h4>
+<div id="media-container"></div>
+
+<script>
+function refreshMedia(link) {
+  const mediaElement = document.getElementById("media-element");
+  if (link.endsWith('.mp4')) {
+    mediaElement.tagName === 'VIDEO' ? mediaElement.src = link : mediaElement.replaceWith(document.createElement('video'));
+    mediaElement.muted = true;
+    mediaElement.autoplay = true;
+    mediaElement.loop = true;
+    mediaElement.playsinline = true;
+  } else {
+    mediaElement.tagName === 'IMG' ? mediaElement.src = link : mediaElement.replaceWith(document.createElement('img'));
+    mediaElement.height = 400;
+  }
+}
+
+// Load the JSON file
+fetch("https://random.dog/doggos")
+  .then(response => response.json())
+  .then(data => {
+    // Get a random link from the data array
+    const randomLink = data[Math.floor(Math.random() * data.length)];
+    const link = 'https://random.dog/' + randomLink;
+    console.log('Random Dog Media Link: ' + link);
+    const mediaContainer = document.getElementById("media-container");
+    const mediaElement = link.endsWith('.mp4') ? document.createElement('video') : document.createElement('img');
+    mediaElement.src = link;
+    mediaElement.height = 400;
+    if (mediaElement.tagName === 'VIDEO') {
+      mediaElement.muted = true;
+      mediaElement.autoplay = true;
+      mediaElement.loop = true;
+      mediaElement.playsinline = true;
+    }
+    mediaContainer.replaceWith(mediaElement);
+  });
+</script>
 </center>
 
 
