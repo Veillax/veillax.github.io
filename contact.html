@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--tab title/tab name-->
+    <title>Home | Veillax135</title>
+    <!--html character encoding format-->
+    <meta charset="utf-8">
+    <!--viewport meta element: important for responsive web design and mobile-first design-->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!--site/page description-->
+    <meta content="Home page for Veillax's personal website" name="description">
+    <!--site/page author-->
+    <meta content="Veillax" name="author">
+    <!--open graph meta elements-->
+    <meta content="Contact Us | Veillax" property="og:title">
+    <meta content="website" property="og:type">
+    <meta content="https://veillax.github.io" property="og:url">
+    <meta content="Contact  page for Veillax's personal website" property="og:description">
+    <!--Favicon-->
+    <link href="/img/1683320143.ico" rel="shortcut icon" type="image/x-icon">
+    <!--css stylesheet link-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--JS imports-->
+    <script crossorigin="anonymous"
+            integrity="sha512-ruQ4xI8Jfep9W+qJQ8FLbxsjPVR0WvEt31XNw0mZxri2Nya9eQr7VTFsi+S7OvW0bIUI7vxF8zoaPNSq/PsvxA=="
+            referrerpolicy="no-referrer"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+            referrerpolicy="no-referrer"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="art.html">Art
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="models.html">3D Models
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="redirect.html?https://github.com/veillax1354" target="_blank">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="Contact Us">
+    <div class="form-group" id="emailinput">
+    <label class="form-label mt-4" for="exampleInputEmail1">Email address</label>
+    <input aria-describedby="emailHelp" class="form-control" id="exampleInputEmail1" placeholder="Enter email"
+           type="email">
+    <small class="form-text text-muted" id="emailHelp">We'll never share your email with anyone else.</small>
+</div>
+    <div class="form-group">
+        <label class="form-label mt-4" for="exampleSelect1">Contact reason</label>
+        <select class="form-select" id="exampleSelect1">
+            <option>Site error/bug</option>
+            <option>Opportunities/Offers</option>
+            <option>Content</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="form-label mt-4" for="formFile">Screenshot *</label>
+        <input class="form-control" id="formFile" type="file">
+        <small class="form-text text-muted" id="optional">* Optional field</small>
+    </div>
+</div>
+<script>
+    const input = document.getElementById('exampleInputEmail1');
+    const formGroup = document.getElementById('emailinput');
+    const small = formGroup.querySelector('small');
+
+    input.addEventListener('input', () => {
+        if (input.checkValidity()) {
+            formGroup.classList.remove('has-danger');
+            formGroup.classList.add('has-success');
+            input.classList.remove('is-invalid');
+            input.classList.add('is-valid');
+            small.textContent = 'Valid Email Address';
+        } else {
+            formGroup.classList.remove('has-success');
+            formGroup.classList.add('has-danger');
+            input.classList.remove('is-valid');
+            input.classList.add('is-invalid');
+            small.textContent = 'Invalid Email Address.';
+        }
+    });
+</script>
+</body>
+</html>
