@@ -84,44 +84,47 @@
     <h4>More stuff coming soon!</h4>
     <hr>
     <h4>Here's a doggo for today! <3</h4>
-<div id="media-container"></div>
+    <div id="media-container"></div>
+    <br>
+    <button type="button" class="btn btn-secondary">Test</button> <button type="button" class="btn btn-secondary">Test 2</button>
+    <script>
+        function refreshMedia(link) {
+          const mediaElement = document.getElementById("media-element");
+          if (link.endsWith('.mp4')) {
+            mediaElement.tagName === 'VIDEO' ? mediaElement.src = link : mediaElement.replaceWith(document.createElement('video'));
+            mediaElement.muted = true;
+            mediaElement.autoplay = true;
+            mediaElement.loop = true;
+            mediaElement.playsinline = true;
+          } else {
+            mediaElement.tagName === 'IMG' ? mediaElement.src = link : mediaElement.replaceWith(document.createElement('img'));
+            mediaElement.height = 400;
+          }
+        }
 
-<script>
-function refreshMedia(link) {
-  const mediaElement = document.getElementById("media-element");
-  if (link.endsWith('.mp4')) {
-    mediaElement.tagName === 'VIDEO' ? mediaElement.src = link : mediaElement.replaceWith(document.createElement('video'));
-    mediaElement.muted = true;
-    mediaElement.autoplay = true;
-    mediaElement.loop = true;
-    mediaElement.playsinline = true;
-  } else {
-    mediaElement.tagName === 'IMG' ? mediaElement.src = link : mediaElement.replaceWith(document.createElement('img'));
-    mediaElement.height = 400;
-  }
-}
 
-// Load the JSON file
-fetch("https://random.dog/doggos")
-  .then(response => response.json())
-  .then(data => {
-    // Get a random link from the data array
-    const randomLink = data[Math.floor(Math.random() * data.length)];
-    const link = 'https://random.dog/' + randomLink;
-    console.log('Random Dog Media Link: ' + link);
-    const mediaContainer = document.getElementById("media-container");
-    const mediaElement = link.endsWith('.mp4') ? document.createElement('video') : document.createElement('img');
-    mediaElement.src = link;
-    mediaElement.height = 400;
-    if (mediaElement.tagName === 'VIDEO') {
-      mediaElement.muted = true;
-      mediaElement.autoplay = true;
-      mediaElement.loop = true;
-      mediaElement.playsinline = true;
-    }
-    mediaContainer.replaceWith(mediaElement);
-  });
-</script>
+        // Load the JSON file
+        fetch("https://random.dog/doggos")
+          .then(response => response.json())
+          .then(data => {
+            // Get a random link from the data array
+            const randomLink = data[Math.floor(Math.random() * data.length)];
+            const link = 'https://random.dog/' + randomLink;
+            console.log('Random Dog Media Link: ' + link);
+            const mediaContainer = document.getElementById("media-container");
+            const mediaElement = link.endsWith('.mp4') ? document.createElement('video') : document.createElement('img');
+            mediaElement.src = link;
+            mediaElement.height = 400;
+            if (mediaElement.tagName === 'VIDEO') {
+              mediaElement.muted = true;
+              mediaElement.autoplay = true;
+              mediaElement.loop = true;
+              mediaElement.playsinline = true;
+            }
+            mediaContainer.replaceWith(mediaElement);
+          });
+
+    </script>
 </center>
 
 

@@ -88,14 +88,31 @@
     <p id="dlnow">Click <a download href="" id="download">here</a> to download now.</p>
 </center>
 <script>
-function downloadFile(url, filename) {
+const urlParams = new URLSearchParams(window.location.search);
+const file = urlParams.get('file');
+console.log(file + " | " + name)
+
+let dlink;
+try {
+  new URL(file);
+  dlink = file;
+} catch (_) {
+  dlink = `downloadables/${file}`;
+}
+
+async function downloadFile(url, filename) {
+  const response = await fetch(url);
+  const blob = await response.blob();
   const link = document.createElement('a');
-  link.href = url;
-  link.download = 'download';
+  link.href = window.URL.createObjectURL(blob);
+  console.log(link.href)
+  link.download = download;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
+
+document.getElementById("filename").innerHTML = name;
 
 function countdown(seconds) {
   return new Promise(resolve => {
@@ -106,18 +123,12 @@ function countdown(seconds) {
       if (count === -1) {
         clearInterval(intervalId);
         resolve();
-        setTimeout(window.history.back(), 2000);
       }
     }, 1000);
   });
 }
 
-const urlParams = new URLSearchParams(window.location.search);
-const file = urlParams.get('file');
-const name = urlParams.get('name');
-var dlink = `downloadables/` + file
-document.getElementById("download").href = dlink;
-document.getElementById("filename").innerHTML = name;
+
 
 async function main() {
   console.log('Starting countdown...');
@@ -131,13 +142,14 @@ main();
 function goBack() {
   setTimeout(() => {
     window.history.back();
-  }, 2000);
+  }, 3000);
 }
 
 document.getElementById('dlnow').addEventListener('click', event => {
   event.preventDefault();
   goBack();
 });
+
 
 </script>
 </body>
