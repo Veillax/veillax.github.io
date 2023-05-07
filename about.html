@@ -55,7 +55,7 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">Home
-                            <span class="visually-hidden">(current)</span>
+                            <span class="visually-hidden"></span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -143,14 +143,19 @@ document.getElementById('format12').addEventListener('click', () => {
     <h3>
         Projects
     </h3>
-    <p>
+    <small>(Hover over words/phrases with "*" next to them to see what they mean)</small>
+    <br><br><br>
+    <span>
         The first project I started was my website, this thing. I've been steadily working on it since around January
         5th, 2023, and slowly adding features to it over time.
-        <br>
+        <br><br>
         Next after that, came a project I called
-        <span data-bs-placement="top" data-bs-toggle="tooltip" id="tooltip-PyMF" title="PyMF stands for Python Multifunction, it is a Multifunctional python application">PyMF</span>.
-
-    </p>
+        <span data-bs-placement="top" data-bs-toggle="tooltip" id="tooltip-PyMF" title="PyMF stands for Python Multifunction, it is a Multifunctional python application">PyMF<span>*</span>.
+        The purpose of the project was to experiment with coding in python and to see if I liked it, which I did. That project
+        can be found over on
+    </span>
+       <a class="nav-link" href="redirect.html?https://github.com/veillax1354/PYMF/tree/Beta"
+                           target="_blank">Github</a>
 </center>
 </body>
 </html>
