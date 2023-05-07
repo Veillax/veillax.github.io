@@ -1,90 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!--tab title/tab name-->
-        <title>New Tab</title>
-        <!--html character encoding format-->
-        <meta charset="utf-8">
-        <!--viewport meta element: important for responsive web design and mobile-first design-->
-        <meta content="width=device-width, initial-scale=1" name="viewport">
-        <!--site/page description-->
-        <meta content="Custom New Tab Page for Veillax" name="description">
-        <!--site/page author-->
-        <meta content="Veillax" name="author">
-        <!--open graph meta elements-->
-        <meta content="New Tab" property="og:title">
-        <meta content="New Tab" property="og:type">
-        <meta content="https://veillax.github.io" property="og:url">
-        <meta content="Custom New Tab page for Veillax" property="og:description">
-        <!--Favicon-->
-        <link href="/img/1683320143.ico" rel="shortcut icon" type="image/x-icon">
-        <!--css stylesheet link-->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <!--JS imports-->
-        <script src="https://kit.fontawesome.com/38015a0b17.js" crossorigin="anonymous"></script>
-        <script crossorigin="anonymous"
-                integrity="sha512-ruQ4xI8Jfep9W+qJQ8FLbxsjPVR0WvEt31XNw0mZxri2Nya9eQr7VTFsi+S7OvW0bIUI7vxF8zoaPNSq/PsvxA=="
-                referrerpolicy="no-referrer"
-                src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js"></script>
-        <script crossorigin="anonymous"
-                integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
-                referrerpolicy="no-referrer"
-                src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+<head>
+    <!--tab title/tab name-->
+    <title>New Tab</title>
+    <!--html character encoding format-->
+    <meta charset="utf-8">
+    <!--viewport meta element: important for responsive web design and mobile-first design-->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!--site/page description-->
+    <meta content="Custom New Tab Page for Veillax" name="description">
+    <!--site/page author-->
+    <meta content="Veillax" name="author">
+    <!--open graph meta elements-->
+    <meta content="New Tab" property="og:title">
+    <meta content="New Tab" property="og:type">
+    <meta content="https://veillax.github.io" property="og:url">
+    <meta content="Custom New Tab page for Veillax" property="og:description">
+    <!--Favicon-->
+    <link href="/img/1683320143.ico" rel="shortcut icon" type="image/x-icon">
+    <!--css stylesheet link-->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--JS imports-->
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/38015a0b17.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha512-ruQ4xI8Jfep9W+qJQ8FLbxsjPVR0WvEt31XNw0mZxri2Nya9eQr7VTFsi+S7OvW0bIUI7vxF8zoaPNSq/PsvxA=="
+            referrerpolicy="no-referrer"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.esm.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha512-i9cEfJwUwViEPFKdC1enz4ZRGBj8YQo6QByFTF92YXHi7waCqyexvRD75S5NVTsSiTv7rKWqG9Y5eFxmRsOn0A=="
+            referrerpolicy="no-referrer"
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
 
-        <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="img/1683420300-32.ico"></a>
-                <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
-                        class="navbar-toggler"
-                        data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home
-                                <span class="visually-hidden">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="art.html">Art
-                                <span class="visually-hidden"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="models.html">3D Models
-                                <span class="visually-hidden"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="redirect.html?https://github.com/veillax1354"
-                               target="_blank">Github</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item dropdown clock">
-                            <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-                               id="timeFormatDropdown" role="button">
-                                <span id="time"></span>
-                                <span> | </span>
-                                <span id="date"></span>
-                            </a>
-                            <ul aria-labelledby="timeFormatDropdown" class="dropdown-menu dropdown-menu-end">
-                                <li>
-                                    <button class="dropdown-item" id="format12" type="button">Switch between 12 & 24 hour
-                                        display
-                                    </button>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="img/1683420300-32.ico"></a>
+            <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="art.html">Art
+                            <span class="visually-hidden"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="models.html">3D Models
+                            <span class="visually-hidden"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="redirect.html?https://github.com/veillax1354"
+                           target="_blank">Github</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item dropdown clock">
+                        <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                           id="timeFormatDropdown" role="button">
+                            <span id="time"></span>
+                            <span> | </span>
+                            <span id="date"></span>
+                        </a>
+                        <ul aria-labelledby="timeFormatDropdown" class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <button class="dropdown-item" id="format12" type="button">Switch between 12 & 24 hour
+                                    display
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <script id="navbar-js">
+        </div>
+    </nav>
+    <script id="navbar-js">
     let is24HourFormat = false;
 
     function updateTime() {
@@ -107,8 +107,10 @@
     document.getElementById('format12').addEventListener('click', () => {
       is24HourFormat = !is24HourFormat;
     });
-        </script>
-        <style>
+
+
+    </script>
+    <style>
             #search-form .rounded-start-1 {
               border-top-left-radius: 0.25rem;
               border-bottom-left-radius: 0.25rem;
@@ -118,48 +120,71 @@
               border-top-right-radius: 0.75rem;
               border-bottom-right-radius: 0.75rem;
             }
-        </style>
-        <!--WIP Alert-->
+
+
+    </style>
+    <!--WIP Alert-->
     <div class="alert alert-dismissible alert-danger">
         <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a
             href="https://github.com/Veillax/veillax.github.io/issues" target="_blank">here</a>.
     </div>
-    </head>
-    <body>
+</head>
+<body>
+<button class="btn btn-warning" id="modal-btn" type="button">Choose your search engine</button>
+<ul class="nav nav-tabs" role="tablist" id="tablist" style="margin-left: 16.5%;">
+    <li class="nav-item" role="presentation">
+        <a aria-selected="true" class="nav-link active" data-bs-toggle="tab" href="#search" role="tab">Search</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a aria-selected="false" class="nav-link" data-bs-toggle="tab" href="#image" role="tab"
+           tabindex="-1">Image Search</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade active show" id="search" role="tabpanel">
         <div class="container" id="search-form">
             <br>
-            <h2>New Tab</h2>
-            <button class="btn btn-warning" id="modal-btn" type="button">Choose your search engine</button>
+            <h2>Search the Web</h2>
             <div id="search-box" style="display: none;">
                 <div class="input-group mb-3 form-floating">
-                    <input aria-describedby="button-addon2" aria-label="Search" class="form-control rounded-start-3" id="floatingInput" id="search-input"
+                    <input aria-describedby="button-addon2" aria-label="Search" class="form-control rounded-start-3"
+                           id="search-input"
                            placeholder="Search or enter web address"
                            type="text">
-                    <button class="btn btn-outline-secondary rounded-end-3" id="button-addon2" id="search-button" type="button"><i class="fa fa-search"></i></button>
-                    <label for="floatingInput">Search the web or enter a valid URL</label>
+                    <button class="btn btn-outline-secondary rounded-end-3" id="search-button" type="button"><i
+                            class="fa fa-search"></i></button>
+                    <label for="search-input">Search the web or enter a valid URL</label>
                 </div>
             </div>
-            <div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="offcanvasExample" tabindex="-1">
+            <div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="offcanvasExample"
+                 tabindex="-1">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasExampleLabel">New Tab Cookie Policy</h5>
-                    <button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button"></button>
+                    <button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            type="button"></button>
                 </div>
                 <div class="offcanvas-body">
                     <div>
-                        <p>We use cookies on our new tab page to enhance your user experience and provide you with the best
+                        <p>We use cookies on our new tab page to enhance your user experience and provide you with the
+                            best
                             service possible.
                             <br><br>
-                            Cookies are small text files that are stored on your device by your web browser when you visit our
+                            Cookies are small text files that are stored on your device by your web browser when you
+                            visit our
                             new tab page.
                             <br><br>
-                            We use essential cookies to remember your preferred search engine and whether you have seen the
-                            modal or not. These cookies are necessary for the functionality of our new tab page and cannot be
+                            We use essential cookies to remember your preferred search engine and whether you have seen
+                            the
+                            modal or not. These cookies are necessary for the functionality of our new tab page and
+                            cannot be
                             switched off.
                             <br><br>
-                            Our cookies expire after one year, unless you delete them sooner. You can find more information
+                            Our cookies expire after one year, unless you delete them sooner. You can find more
+                            information
                             about how to delete or manage cookies in your browser settings.
                             <br><br>
-                            Please note that if you disable or reject cookies, some features or functionalities of our new tab
+                            Please note that if you disable or reject cookies, some features or functionalities of our
+                            new tab
                             page may not work properly or be available to you.
                         </p>
                     </div>
@@ -186,11 +211,14 @@
                                     <option>Other</option>
                                 </select>
                             </div>
-                            <small>Your choice will automatically be stored in your browser via Cookies. By clicking "Save Changes", you agree to our <a
-                                    aria-controls="offcanvasExample" data-bs-toggle="offcanvas" href="#offcanvasExample"
-                                    role="button">
-                                Cookie Policy
-                            </a></small>
+                            <small>Your choice will automatically be stored in your browser via Cookies. By clicking
+                                "Save
+                                Changes", you agree to our <a
+                                        aria-controls="offcanvasExample" data-bs-toggle="offcanvas"
+                                        href="#offcanvasExample"
+                                        role="button">
+                                    Cookie Policy
+                                </a></small>
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-primary" id="save-btn" type="button">Save changes</button>
@@ -201,7 +229,252 @@
                 </div>
             </div>
         </div>
-        <script id="modal-js">
+        <script id="search-web-js">
+        let searchBtn = document.getElementById("search-button");
+        let searchInput = document.getElementById("search-input")
+
+
+            // Define a function to get cookie value by name
+            function getCookie(name) {
+              // Add a semicolon before the cookie name
+              const value = "; " + document.cookie;
+              // Split the cookie string by the name
+              const parts = value.split("; " + name + "=");
+              // If the name is found, return the value
+              if (parts.length === 2) return parts.pop().split(";").shift();
+            }
+
+
+
+           // Get the browser from the cookie
+            var browser = getCookie("searchEngine");
+            // Define a variable to store the search URL
+            var searchURL;
+            // Use a switch case statement to assign the search URL based on the browser
+            switch (browser) {
+              case "Google":
+                searchURL = "https://www.google.com/search?q=";
+                break;
+              case "Bing":
+                searchURL = "https://www.bing.com/search?q=";
+                break;
+              case "Yahoo":
+                searchURL = "https://search.yahoo.com/search?p=";
+                break;
+              case "DuckDuckGo":
+                searchURL = "https://duckduckgo.com/?q=";
+                break;
+              default:
+                // If no browser is specified, use Google as the default
+                searchURL = "https://www.google.com/search?q=";
+                break;
+            }
+            console.log(browser + " | " + searchURL)
+            // Append the input value to the search URL
+            search1 = searchURL + searchInput.value;
+
+            function search() {
+            console.log(search1);
+            console.log(searchInput.value);
+            search1 = search1 + searchInput.value
+            console.log(search1);
+            window.open(search1);
+            }
+
+             // Add a click event listener to the modal button to show the modal
+            searchBtn.addEventListener("click", search);
+
+
+
+        </script>
+    </div>
+    <div class="tab-pane fade" id="image" role="tabpanel">
+        <div class="container" id="imagesearch-form">
+            <br>
+            <h2>Image Search</h2>
+            <div id="imagesearch-box">
+                <div class="input-group mb-3 form-floating">
+                    <input aria-describedby="button-addon2" aria-label="Search" class="form-control rounded-start-3"
+                           id="imagesearch-input"
+                           placeholder="Search or enter web address"
+                           type="text">
+                    <button class="btn btn-outline-secondary rounded-end-3" id="imagesearch-button" type="button"><i
+                            class="fa fa-search"></i></button>
+                    <label for="search-input">Search the web or enter a valid URL</label>
+                </div>
+            </div>
+            <div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="imageoffcanvasExample"
+                 tabindex="-1">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasExampleLabel">New Tab Cookie Policy</h5>
+                    <button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            type="button"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div>
+                        <p>We use cookies on our new tab page to enhance your user experience and provide you with the
+                            best
+                            service possible.
+                            <br><br>
+                            Cookies are small text files that are stored on your device by your web browser when you
+                            visit our
+                            new tab page.
+                            <br><br>
+                            We use essential cookies to remember your preferred search engine and whether you have seen
+                            the
+                            modal or not. These cookies are necessary for the functionality of our new tab page and
+                            cannot be
+                            switched off.
+                            <br><br>
+                            Our cookies expire after one year, unless you delete them sooner. You can find more
+                            information
+                            about how to delete or manage cookies in your browser settings.
+                            <br><br>
+                            Please note that if you disable or reject cookies, some features or functionalities of our
+                            new tab
+                            page may not work properly or be available to you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script id="search-image-js">
+        let searchBtn = document.getElementById("search-button");
+        let searchInput = document.getElementById("search-input")
+
+
+            // Define a function to get cookie value by name
+            function getCookie(name) {
+              // Add a semicolon before the cookie name
+              const value = "; " + document.cookie;
+              // Split the cookie string by the name
+              const parts = value.split("; " + name + "=");
+              // If the name is found, return the value
+              if (parts.length === 2) return parts.pop().split(";").shift();
+            }
+
+
+
+           // Get the browser from the cookie
+            var browser = getCookie("searchEngine");
+            // Define a variable to store the search URL
+            var searchURL;
+            // Use a switch case statement to assign the search URL based on the browser
+            switch (browser) {
+              case "Google":
+                searchURL = "https://www.google.com/search?q=";
+                break;
+              case "Bing":
+                searchURL = "https://www.bing.com/search?q=";
+                break;
+              case "Yahoo":
+                searchURL = "https://search.yahoo.com/search?p=";
+                break;
+              case "DuckDuckGo":
+                searchURL = "https://duckduckgo.com/?q=";
+                break;
+              default:
+                // If no browser is specified, use Google as the default
+                searchURL = "https://www.google.com/search?q=";
+                break;
+            }
+            console.log(browser + " | " + searchURL)
+            // Append the input value to the search URL
+            search1 = searchURL + searchInput.value;
+
+            function search() {
+            console.log(search1);
+            console.log(searchInput.value);
+            search1 = search1 + searchInput.value
+            console.log(search1);
+            window.open(search1);
+            }
+
+             // Add a click event listener to the modal button to show the modal
+            searchBtn.addEventListener("click", search);
+        </script>
+    </div>
+</div>
+
+<!--<div class="container" id="search-form">
+    <br>
+    <h2>New Tab</h2>
+    <button class="btn btn-warning" id="modal-btn" type="button">Choose your search engine</button>
+    <div id="search-box" style="display: none;">
+        <div class="input-group mb-3 form-floating">
+            <input aria-describedby="button-addon2" aria-label="Search" class="form-control rounded-start-3"
+                   id="search-input"
+                   placeholder="Search or enter web address"
+                   type="text">
+            <button class="btn btn-outline-secondary rounded-end-3" id="search-button" type="button"><i
+                    class="fa fa-search"></i></button>
+            <label for="search-input">Search the web or enter a valid URL</label>
+        </div>
+    </div>
+    <div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="offcanvasExample" tabindex="-1">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">New Tab Cookie Policy</h5>
+            <button aria-label="Close" class="btn-close text-reset" data-bs-dismiss="offcanvas" type="button"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <p>We use cookies on our new tab page to enhance your user experience and provide you with the best
+                    service possible.
+                    <br><br>
+                    Cookies are small text files that are stored on your device by your web browser when you visit our
+                    new tab page.
+                    <br><br>
+                    We use essential cookies to remember your preferred search engine and whether you have seen the
+                    modal or not. These cookies are necessary for the functionality of our new tab page and cannot be
+                    switched off.
+                    <br><br>
+                    Our cookies expire after one year, unless you delete them sooner. You can find more information
+                    about how to delete or manage cookies in your browser settings.
+                    <br><br>
+                    Please note that if you disable or reject cookies, some features or functionalities of our new tab
+                    page may not work properly or be available to you.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Choose your search engine</h5>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please select your preferred search engine from the list below:</p>
+                    <div class="form-group">
+                        <label class="form-label mt-4" for="exampleSelect1"></label>
+                        <select class="form-select" id="exampleSelect1">
+                            <option>Google</option>
+                            <option>Bing</option>
+                            <option>Yahoo</option>
+                            <option>DuckDuckGo</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <small>Your choice will automatically be stored in your browser via Cookies. By clicking "Save
+                        Changes", you agree to our <a
+                                aria-controls="offcanvasExample" data-bs-toggle="offcanvas" href="#offcanvasExample"
+                                role="button">
+                            Cookie Policy
+                        </a></small>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="save-btn" type="button">Save changes</button>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" id="close-btn" type="button">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+<script id="modal-js">
                 // Get the elements by their id
             let modalBtn = document.getElementById("modal-btn");
             let modal = document.getElementById("modal");
@@ -209,6 +482,7 @@
             let saveBtn = document.getElementById("save-btn");
             let select = document.getElementById("exampleSelect1");
             let searchBox = document.getElementById("search-box");
+            let tablist = document.getElementById("tablist");
 
             // Define a function to show the modal
             function showModal() {
@@ -273,45 +547,65 @@
             }
 
 
-        </script>
-        <script id="search-web-js">
+
+
+</script>
+<!--<script id="search-web-js">
+        let searchBtn = document.getElementById("search-button");
+        let searchInput = document.getElementById("search-input")
+
+
             // Define a function to get cookie value by name
-function getCookie(name) {
-  // Add a semicolon before the cookie name
-  const value = "; " + document.cookie;
-  // Split the cookie string by the name
-  const parts = value.split("; " + name + "=");
-  // If the name is found, return the value
-  if (parts.length === 2) return parts.pop().split(";").shift();
-}
+            function getCookie(name) {
+              // Add a semicolon before the cookie name
+              const value = "; " + document.cookie;
+              // Split the cookie string by the name
+              const parts = value.split("; " + name + "=");
+              // If the name is found, return the value
+              if (parts.length === 2) return parts.pop().split(";").shift();
+            }
 
-// Get the input and button elements
-var input = document.getElementById("search-input");
-var button = document.getElementById("search-button");
 
-// Define a regular expression for web address format
-var regex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 
-// Add a click event listener to the button
-button.addEventListener("click", function() {
-  // Get the input value
-  var value = input.value;
+           // Get the browser from the cookie
+            var browser = getCookie("searchEngine");
+            // Define a variable to store the search URL
+            var searchURL;
+            // Use a switch case statement to assign the search URL based on the browser
+            switch (browser) {
+              case "Google":
+                searchURL = "https://www.google.com/search?q=";
+                break;
+              case "Bing":
+                searchURL = "https://www.bing.com/search?q=";
+                break;
+              case "Yahoo":
+                searchURL = "https://search.yahoo.com/search?p=";
+                break;
+              case "DuckDuckGo":
+                searchURL = "https://duckduckgo.com/?q=";
+                break;
+              default:
+                // If no browser is specified, use Google as the default
+                searchURL = "https://www.google.com/search?q=";
+                break;
+            }
+            console.log(browser + " | " + searchURL)
+            // Append the input value to the search URL
+            search1 = searchURL + searchInput.value;
 
-  // Check if it matches the web address format
-  if (regex.test(value)) {
-    // Get the browser from the cookie
-    var browser = getCookie("searchEngine");
-    // If the browser is not null, append it to the web address
-    if (browser) {
-      value = value + "?browser=" + browser;
-    }
-    // Open the web address in a new tab or window
-    window.open(value);
-  } else {
-    // Alert the user that the input is not valid
-    alert("Please enter a valid web address.");
-  }
-});
-        </script>
-    </body>
+            function search() {
+            console.log(search1);
+            console.log(searchInput.value);
+            search1 = search1 + searchInput.value
+            console.log(search1);
+            window.open(search1);
+            }
+
+             // Add a click event listener to the modal button to show the modal
+            searchBtn.addEventListener("click", search);
+
+
+</script>-->
+</body>
 </html>
