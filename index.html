@@ -67,6 +67,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
                 </li>
+
+                <!-- Add this span element where you want the clock to appear -->
+                <li class="nav-item dropdown">
+                    <span aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="clock"
+                          role="button"></span>
+                    <!-- Add this ul element for the dropdown options -->
+                    <ul aria-labelledby="clock" class="dropdown-menu">
+                        <!-- Add your options for changing the timezone and format here -->
+                        <li><a class="dropdown-item" href="#">UTC</a></li>
+                        <li><a class="dropdown-item" href="#">GMT</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">12-hour</a></li>
+                        <li><a class="dropdown-item" href="#">24-hour</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </div>
@@ -86,7 +104,8 @@
     <h4>Here's a doggo for today! <3</h4>
     <div id="media-container"></div>
     <br>
-    <button type="button" class="btn btn-secondary">Test</button> <button type="button" class="btn btn-secondary">Test 2</button>
+    <button class="btn btn-secondary" type="button">Test</button>
+    <button class="btn btn-secondary" type="button">Test 2</button>
     <script>
         function refreshMedia(link) {
           const mediaElement = document.getElementById("media-element");
@@ -112,7 +131,7 @@
             const link = 'https://random.dog/' + randomLink;
             console.log('Random Dog Media Link: ' + link);
             const mediaContainer = document.getElementById("media-container");
-            const mediaElement = link.endsWith('.mp4') ? document.createElement('video') : document.createElement('img');
+            const mediaElement = link.endsWith('.mp4') ? document.createElement('video') : link.endsWith('.webm') ? document.createElement('video') : document.createElement('img')
             mediaElement.src = link;
             mediaElement.height = 400;
             if (mediaElement.tagName === 'VIDEO') {
@@ -124,73 +143,179 @@
             mediaContainer.replaceWith(mediaElement);
           });
 
+
+
     </script>
 </center>
 
+<script type=\"text/javascript\">
 
+var clockElement = document.getElementById ('clock');
+  var timezonesElement = document.getElementById ('timezones');
+
+  function clock () {
+    var date = new Date ();
+    // Get the user's preferred format from cookies or use a default one
+    var format = getCookie('format') || 'en-US';
+    // Use this format for displaying the date and time
+    clockElement.textContent = date.toLocaleString (format);
+  }
+
+  setInterval (clock, 1000); // Update the clock every second
+
+  // Get an array of supported time zones
+  var timezones = Intl.supportedValuesOf('timeZone');
+
+  // Loop through the array and create a dropdown item for each time zone
+  for (var i = 0; i < timezones.length; i++) {
+    var timezone = timezones[i];
+    // Create a li element
+    var li = document.createElement('li');
+    // Create a link element
+    var a = document.createElement('a');
+    // Set the link attributes
+    a.className = 'dropdown-item';
+    a.href = '#';
+    a.textContent = timezone;
+    // Add an event listener to change the timezone when clicked
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Get the selected timezone
+      var selectedTimezone = e.target.textContent;
+      // Get the local timezone
+      var localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      // Calculate the offset in milliseconds between the two timezones
+      var offset = new Date().toLocaleString('en-US', {timeZone: selectedTimezone}) - new Date().toLocaleString('en-US', {timeZone: localTimezone});
+      // Adjust the date object by adding the offset
+      var date = new Date(new Date().getTime() + offset);
+         // Use the same format as before
+      var format = getCookie('format') || 'en-US';
+      // Display the date and time in the selected timezone
+      clockElement.textContent = date.toLocaleString (format);
+    });
+    // Append the link to the li element
+    li.appendChild(a);
+    // Append the li element to the ul element
+    timezonesElement.appendChild(li);
+  }
+
+  // A function to create a cookie with a name, value and expiration date
+  function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+  }
+
+  // A function to get the value of a cookie by name
+  function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  }
+
+  // A function to erase a cookie by name
+  function eraseCookie(name) {
+    document.cookie = name+'=; Max-Age=-99999999;';
+  }
+
+  // Add an event listener to change the format when the clock is clicked
+  clockElement.addEventListener('click', function (e) {
+    e.preventDefault();
+    // Get the current format from cookies or use a default one
+    var currentFormat = getCookie('format') || 'en-US';
+    // Define an array of possible formats
+    var formats = ['en-US', 'en-GB', 'fr-FR', 'de-DE', 'ja-JP'];
+    // Find the index of the current format in the array
+    var index = formats.indexOf(currentFormat);
+    // Increment the index by one or reset it to zero if it reaches the end of the array
+    index = (index + 1) % formats.length;
+    // Get the next format from the array
+    var nextFormat = formats[index];
+    // Set the cookie with the next format and expire in one year
+    setCookie('format', nextFormat, 365);
+    // Update the clock with the new format
+    clock();
+  });
+
+
+</script>
 </body>
 <hr>
 <div id="SiteFooter">
-<footer id="footer" class="footer-1">
-<div class="main-footer widgets-dark typo-light">
-<div class="container">
-<div class="row">
+    <footer class="footer-1" id="footer">
+        <div class="main-footer widgets-dark typo-light">
+            <div class="container">
+                <div class="row">
 
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget subscribe no-box">
-<h3 class="widget-title">Veillax<span></span></h3>
-<p>Beginner Python Developer, web developer, musician, and artist</p>
-</div>
-</div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget subscribe no-box">
+                            <h3 class="widget-title">Veillax<span></span></h3>
+                            <p>Beginner Python Developer, web developer, musician, and artist</p>
+                        </div>
+                    </div>
 
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget no-box">
-<h5 class="widget-title">Quick Links<span></span></h5>
-<ul class="thumbnail-widget">
-<li>
-<div class="thumb-content"><a class="texthover" href="https://www.pixilart.com/veillax/gallery">Pixel Art</a></div>
-</li>
-<li>
-<div class="thumb-content"><a class="texthover" href="Patreon">https://www.patreon.com/Veillax</a></div>
-</li>
-<li>
-<div class="thumb-content"><a href="about.html">About</a></div>
-</li>
-</ul>
-</div>
-</div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Quick Links<span></span></h5>
+                            <ul class="thumbnail-widget">
+                                <li>
+                                    <div class="thumb-content"><a class="texthover"
+                                                                  href="https://www.pixilart.com/veillax/gallery">Pixel
+                                        Art</a></div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a class="texthover"
+                                                                  href="https://www.patreon.com/Veillax">Patreon</a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="about.html">About</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-<div class="col-xs-12 col-sm-6 col-md-3">
-<div class="widget no-box">
-<h5 class="widget-title">Get Started<span></span></h5>
-<ul class="thumbnail-widget">
-<li>
-<p>Beginner Python/Web Developer,<br>Songwriter, and Artist</p>
-</li>
-<li>
-<div class="thumb-content"><a href="contact.html">Get in touch</a></div>
-</li>
-</ul>
-</div>
-</div>
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Get Started<span></span></h5>
+                            <ul class="thumbnail-widget">
+                                <li>
+                                    <p>Beginner Python/Web Developer,<br>Songwriter, and Artist</p>
+                                </li>
+                                <li>
+                                    <div class="thumb-content"><a href="contact.html">Get in touch</a></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-<div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="col-xs-12 col-sm-6 col-md-3">
 
-<div class="widget no-box">
-<h5 class="widget-title">Contact Us<span></span></h5>
+                        <div class="widget no-box">
+                            <h5 class="widget-title">Contact Us<span></span></h5>
 
-<p><a class="hovertext" href="troop-contact.html" title="glorythemes">Contact</a></p>
+                            <p><a class="hovertext" href="troop-contact.html" title="glorythemes">Contact</a></p>
 
-    <br><br><br>
-    <p style="float: right; color: #757c8a; position:relative; left:6px; thumb-content;">Made with ♥️ By T456 Webmasters</p>
+                            <br><br><br>
+                            <p style="float: right; color: #757c8a; position:relative; left:6px; thumb-content;">Made
+                                with ♥ By Veillax </p>
 
-</div>
-</div>
+                        </div>
+                    </div>
 
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
 
-</footer>
+    </footer>
 </div>
 </html>
