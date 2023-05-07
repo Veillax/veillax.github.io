@@ -42,41 +42,80 @@
 
 </style>
 <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-                    data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home
-                            <span class="visually-hidden">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="art.html">Art
-                            <span class="visually-hidden"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="models.html">3D Models
-                            <span class="visually-hidden"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="redirect.html?https://github.com/veillax1354" target="_blank">Github</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="img/1683420300-32.ico"></a>
+        <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home
+                        <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="art.html">Art
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="models.html">3D Models
+                        <span class="visually-hidden"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="redirect.html?https://github.com/veillax1354" target="_blank">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item dropdown clock">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="timeFormatDropdown" role="button">
+                        <span id="time"></span>
+                        <span> | </span>
+                        <span id="date"></span>
+                    </a>
+                    <ul aria-labelledby="timeFormatDropdown" class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <button class="dropdown-item" id="format12" type="button">Switch between 12 & 24 hour
+                                display
+                            </button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+<script id="navbar-js">
+let is24HourFormat = false;
+
+function updateTime() {
+  const date = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = date.toLocaleDateString(undefined, options);
+  let formattedTime;
+  if (is24HourFormat) {
+    formattedTime = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric', hour12: false });
+  } else {
+    formattedTime = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric', hour12: true });
+  }
+  document.getElementById('date').textContent = formattedDate;
+  document.getElementById('time').textContent = formattedTime;
+}
+
+updateTime();
+setInterval(updateTime, 1000);
+
+document.getElementById('format12').addEventListener('click', () => {
+  is24HourFormat = !is24HourFormat;
+});
+</script>
     <!--WIP Alert-->
     <div class="alert alert-dismissible alert-danger">
         <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a

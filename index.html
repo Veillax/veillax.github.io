@@ -37,7 +37,7 @@
 <!--Navbar-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="index.html"><img src="img/1683420300-32.ico"></a>
         <button aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler"
                 data-bs-target="#navbarColor02" data-bs-toggle="collapse" type="button">
@@ -60,35 +60,55 @@
                         <span class="visually-hidden"></span>
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="redirect.html?https://github.com/veillax1354" target="_blank">Github</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.html">About</a>
                 </li>
-
-                <!-- Add this span element where you want the clock to appear -->
-                <li class="nav-item dropdown">
-                    <span aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="clock"
-                          role="button"></span>
-                    <!-- Add this ul element for the dropdown options -->
-                    <ul aria-labelledby="clock" class="dropdown-menu">
-                        <!-- Add your options for changing the timezone and format here -->
-                        <li><a class="dropdown-item" href="#">UTC</a></li>
-                        <li><a class="dropdown-item" href="#">GMT</a></li>
+                <li class="nav-item dropdown clock">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="timeFormatDropdown" role="button">
+                        <span id="time"></span>
+                        <span> | </span>
+                        <span id="date"></span>
+                    </a>
+                    <ul aria-labelledby="timeFormatDropdown" class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <hr class="dropdown-divider">
+                            <button class="dropdown-item" id="format12" type="button">Switch between 12 & 24 hour
+                                display
+                            </button>
                         </li>
-                        <li><a class="dropdown-item" href="#">12-hour</a></li>
-                        <li><a class="dropdown-item" href="#">24-hour</a></li>
                     </ul>
                 </li>
-
             </ul>
         </div>
     </div>
 </nav>
+<script id="navbar-js">
+let is24HourFormat = false;
+
+function updateTime() {
+  const date = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = date.toLocaleDateString(undefined, options);
+  let formattedTime;
+  if (is24HourFormat) {
+    formattedTime = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric', hour12: false });
+  } else {
+    formattedTime = date.toLocaleTimeString(undefined, { hour: 'numeric', minute: 'numeric', hour12: true });
+  }
+  document.getElementById('date').textContent = formattedDate;
+  document.getElementById('time').textContent = formattedTime;
+}
+
+updateTime();
+setInterval(updateTime, 1000);
+
+document.getElementById('format12').addEventListener('click', () => {
+  is24HourFormat = !is24HourFormat;
+});
+</script>
 <!--WIP Alert-->
 <div class="alert alert-dismissible alert-danger">
     <strong>Oh snap!</strong> This site isn't fully finished yet! If you see any issues, please report them <a
@@ -145,109 +165,10 @@
 
 
 
+
     </script>
 </center>
 
-<script type=\"text/javascript\">
-
-var clockElement = document.getElementById ('clock');
-  var timezonesElement = document.getElementById ('timezones');
-
-  function clock () {
-    var date = new Date ();
-    // Get the user's preferred format from cookies or use a default one
-    var format = getCookie('format') || 'en-US';
-    // Use this format for displaying the date and time
-    clockElement.textContent = date.toLocaleString (format);
-  }
-
-  setInterval (clock, 1000); // Update the clock every second
-
-  // Get an array of supported time zones
-  var timezones = Intl.supportedValuesOf('timeZone');
-
-  // Loop through the array and create a dropdown item for each time zone
-  for (var i = 0; i < timezones.length; i++) {
-    var timezone = timezones[i];
-    // Create a li element
-    var li = document.createElement('li');
-    // Create a link element
-    var a = document.createElement('a');
-    // Set the link attributes
-    a.className = 'dropdown-item';
-    a.href = '#';
-    a.textContent = timezone;
-    // Add an event listener to change the timezone when clicked
-    a.addEventListener('click', function (e) {
-      e.preventDefault();
-      // Get the selected timezone
-      var selectedTimezone = e.target.textContent;
-      // Get the local timezone
-      var localTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-      // Calculate the offset in milliseconds between the two timezones
-      var offset = new Date().toLocaleString('en-US', {timeZone: selectedTimezone}) - new Date().toLocaleString('en-US', {timeZone: localTimezone});
-      // Adjust the date object by adding the offset
-      var date = new Date(new Date().getTime() + offset);
-         // Use the same format as before
-      var format = getCookie('format') || 'en-US';
-      // Display the date and time in the selected timezone
-      clockElement.textContent = date.toLocaleString (format);
-    });
-    // Append the link to the li element
-    li.appendChild(a);
-    // Append the li element to the ul element
-    timezonesElement.appendChild(li);
-  }
-
-  // A function to create a cookie with a name, value and expiration date
-  function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-      var date = new Date();
-      date.setTime(date.getTime() + (days*24*60*60*1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-  }
-
-  // A function to get the value of a cookie by name
-  function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-      var c = ca[i];
-      while (c.charAt(0)==' ') c = c.substring(1,c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
-  }
-
-  // A function to erase a cookie by name
-  function eraseCookie(name) {
-    document.cookie = name+'=; Max-Age=-99999999;';
-  }
-
-  // Add an event listener to change the format when the clock is clicked
-  clockElement.addEventListener('click', function (e) {
-    e.preventDefault();
-    // Get the current format from cookies or use a default one
-    var currentFormat = getCookie('format') || 'en-US';
-    // Define an array of possible formats
-    var formats = ['en-US', 'en-GB', 'fr-FR', 'de-DE', 'ja-JP'];
-    // Find the index of the current format in the array
-    var index = formats.indexOf(currentFormat);
-    // Increment the index by one or reset it to zero if it reaches the end of the array
-    index = (index + 1) % formats.length;
-    // Get the next format from the array
-    var nextFormat = formats[index];
-    // Set the cookie with the next format and expire in one year
-    setCookie('format', nextFormat, 365);
-    // Update the clock with the new format
-    clock();
-  });
-
-
-</script>
 </body>
 <hr>
 <div id="SiteFooter">
