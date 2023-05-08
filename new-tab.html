@@ -14,7 +14,7 @@
     <!--open graph meta elements-->
     <meta content="New Tab" property="og:title">
     <meta content="New Tab" property="og:type">
-    <meta content="https://veillax.github.io" property="og:url">
+    <meta content="https://veillax.github.io/new-tab" property="og:url">
     <meta content="Custom New Tab page for Veillax" property="og:description">
     <!--Favicon-->
     <link href="/img/1683320143.ico" rel="shortcut icon" type="image/x-icon">
@@ -68,9 +68,11 @@
                     <li class="nav-item dropdown clock">
                         <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
                            id="timeFormatDropdown" role="button">
+                            <span><i class="fa-regular fa-clock"></i> </span>
                             <span id="time"></span>
                             <span> | </span>
                             <span id="date"></span>
+                            <span><i class="fa-regular fa-calendar"></i></span>
                         </a>
                         <ul aria-labelledby="timeFormatDropdown" class="dropdown-menu dropdown-menu-end">
                             <li>
@@ -149,11 +151,11 @@
                 <div class="input-group mb-3 form-floating">
                     <input aria-describedby="button-addon2" aria-label="Search" class="form-control rounded-start-3"
                            id="search-input"
-                           placeholder="Search or enter web address"
+                           placeholder="Search the web"
                            type="text">
                     <button class="btn btn-outline-secondary rounded-end-3" id="search-button" type="button"><i
                             class="fa fa-search"></i></button>
-                    <label for="search-input">Search the web or enter a valid URL</label>
+                    <label for="search-input">Search the web</label>
                 </div>
             </div>
             <div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="offcanvasExample"
@@ -230,6 +232,7 @@
             </div>
         </div>
         <script id="search-web-js">
+        var isUrl = require('is-url');
         let searchBtn = document.getElementById("search-button");
         let searchInput = document.getElementById("search-input")
 
@@ -274,11 +277,11 @@
             search1 = searchURL + searchInput.value;
 
             function search() {
-            console.log(search1);
-            console.log(searchInput.value);
-            search1 = search1 + searchInput.value
-            console.log(search1);
-            window.open(search1);
+                console.log(search1);
+                console.log(searchInput.value);
+                search1 = search1 + searchInput.value
+                console.log(search1);
+                window.open(search1);
             }
 
              // Add a click event listener to the modal button to show the modal
@@ -289,18 +292,18 @@
         </script>
     </div>
     <div class="tab-pane fade" id="image" role="tabpanel">
-        <div class="container" id="imagesearch-form">
+        <div class="container" id="search-form">
             <br>
             <h2>Image Search</h2>
             <div id="imagesearch-box">
                 <div class="input-group mb-3 form-floating">
                     <input aria-describedby="button-addon2" aria-label="Search" class="form-control rounded-start-3"
                            id="imagesearch-input"
-                           placeholder="Search or enter web address"
+                           placeholder="Search the web for an image"
                            type="text">
                     <button class="btn btn-outline-secondary rounded-end-3" id="imagesearch-button" type="button"><i
                             class="fa fa-search"></i></button>
-                    <label for="search-input">Search the web or enter a valid URL</label>
+                    <label for="search-input">Search the web for an image</label>
                 </div>
             </div>
             <div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="imageoffcanvasExample"
