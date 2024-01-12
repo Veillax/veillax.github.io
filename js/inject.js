@@ -1,11 +1,11 @@
 (function () {
     var scrollbarLink = document.createElement('link');
     scrollbarLink.rel = 'stylesheet';
-    scrollbarLink.href = 'css/scrollbar.css';
+    scrollbarLink.href = 'https://docs.veillax.com/css/scrollbar.css';
 
     var styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = 'css/style.css';
+    styleLink.href = 'https://docs.veillax.com/css/style.css';
 
     var bootstrapLink = document.createElement('link');
     bootstrapLink.rel = 'stylesheet';
@@ -33,11 +33,11 @@
 
     var iconLink = document.createElement('link');
     iconLink.rel = 'icon';
-    iconLink.href = 'img/favicon.ico';
+    iconLink.href = 'https://docs.veillax.com/img/favicon.ico';
 
     var appleTouchIconLink = document.createElement('link');
     appleTouchIconLink.rel = 'apple-touch-icon';
-    appleTouchIconLink.href = 'img/apple-touch-icon.png';
+    appleTouchIconLink.href = 'https://docs.veillax.com/img/apple-touch-icon.png';
 
     var viewportMeta = document.createElement('meta');
     viewportMeta.name = 'viewport';
