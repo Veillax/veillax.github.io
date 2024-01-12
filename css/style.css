@@ -9,10 +9,24 @@
 
 }
 
-#footer-div {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-  
+.code-block {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 15px;
+    color: #fff;
+    font-family: Courier;
+    font-size: 14px;
+}  
+
+.cb-lang {
+    color: #f0f;
+    font-size: 12px;
+}
+
+.cb-contents {
+    text-indent: 5%;
+}
+
+code {
+    background-color: #434343;
+}

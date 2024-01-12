@@ -1,38 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>CIS | Veillax Docs</title>
-    <meta charset="utf-8">
-    <meta name="description" content="CSI (Canvas Spreadsheet Integration) is a custom script designed for seamlessly retrieving Canvas data automatically. Initially developed to create an organized checklist for assignments and facilitate comprehensive tracking of due dates, CSI has evolved into a robust tool.">
-    <meta property="og:title" content="CIS | Veillax Docs">
-    <meta property="og:image" content="ing/CIS_OG.png">
-  </head>
-    <body data-bs-theme="dark">
-        <div id="navbar-div">
-          <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img alt="Logo" src="https://raw.githubusercontent.com/Veillax/veillax.github.io/main/img/1683420300-32.ico"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                    <a class="nav-link active" href="index.html">Home
-                        <span class="visually-hidden">(current)</span>
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                    </li>
-                </ul>
-        
-                </div>
-            </div>
-            </nav>
+
+<head>
+  <title>CIS | Veillax Docs</title>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="CSI (Canvas Spreadsheet Integration) is a custom script designed for seamlessly retrieving Canvas data automatically. Initially developed to create an organized checklist for assignments and facilitate comprehensive tracking of due dates, CSI has evolved into a robust tool.">
+  <meta property="og:title" content="CIS | Veillax Docs">
+  <meta property="og:image" content="ing/CIS_OG.png">
+</head>
+
+<body data-bs-theme="dark">
+  <div id="navbar-div">
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img alt="Logo"
+            src="https://raw.githubusercontent.com/Veillax/veillax.github.io/main/img/1683420300-32.ico"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+          </ul>
         </div>
-        <div id="contents">Hello, World!</div>
-        <div id="footer-div"></div>
-        <script type="text/javascript" src="js/inject.js"></script>
-    </body>
+      </div>
+    </nav>
+  </div>
+  <div id="contents" class="container align-items-center justify-content-center">
+    <br><br>
+    <center>
+      <h1>Canvas Spreadsheet Integration</h1>
+      <h4>Documentation</h4>
+      <br>
+      <hr><br>
+      <h3>What is CSI?</h3>
+    </center>
+    <br>
+    <p>CSI (Canvas Spreadsheet Integration) is a custom script designed for seamlessly retrieving <a
+        href="https://www.instructure.com/canvas" target="_blank">Canvas</a> data automatically. Initially developed to
+      create an organized checklist for assignments and facilitate comprehensive tracking of due dates, CSI has evolved
+      into a robust tool.
+      <br><br>
+      The script automates the retrieval and update of course-related information from the <a
+        href="https://canvas.instructure.com/doc/api/">Canvas API</a>, seamlessly integrating it into a Google
+      Spreadsheet. It efficiently categorizes data into distinct sheets for each course, implements conditional
+      formatting, and improves visual comprehension through alternating row colors. Primarily tailored for individuals
+      enrolled in Canvas courses, CSI offers an efficient solution for managing and monitoring assignments, ensuring a
+      hassle-free approach to staying on top of due dates and course-related details.
+      <br><br>
+      This project is available on <a href="https://github.com/veillax1354/CSI/tree/main">Github</a>, for free, for
+      everyone. This work © 2024 by Veillax is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit <a
+        href="http://creativecommons.org/licenses/by-nc-sa/4.0/ ">http://creativecommons.org/licenses/by-nc-sa/4.0/ </a>
+      <br>
+      You can view the code here: <a
+        href="https://script.google.com/home/projects/1Hfh8AGbsMRuu77fb8K1LTqRoGE8j98qE24k0XycFfrY94kRt3BM6EnXP">https://script.google.com/home/projects/1Hfh8AGbsMRuu77fb8K1LTqRoGE8j98qE24k0XycFfrY94kRt3BM6EnXP</a>
+    </p>
+    <br><br>
+    <center>
+      <h3>How does CSI work?</h3>
+    </center>
+    <br>
+    <pr>
+      CSI utilizes Canvas’s <a href="https://en.wikipedia.org/wiki/API">API</a> to retrieve course and assignment data through an Access Token, a distinctive key associated with your personal account. Subsequently, leveraging Google Apps Scripts, it systematically transfers the acquired data to a spreadsheet, facilitating a streamlined presentation of due assignments specific to each course.
+    </pr>
+    <br><br><br>
+    <center>
+      <h3>How do I use CSI?</h3>
+    </center>
+    <br>
+    <p>
+      To get started with CSI, navigate to Google Sheets and create a new <strong><a href="https://docs.google.com/spreadsheets/u/0/create?usp=CSIths=true">Blank Spreadsheet</a></strong>. Next, click on <code>Extensions > Apps Script</code>
+      <br>
+      <img src="img/howto1.png">
+      <br><br>
+      After it loads, locate <code>Libraries</code>, then click on the plus
+      <img src="img/howto2.png">
+      <br><br>
+      Copy the following into the <code>Script ID</code> slot:
+      <br>
+      <div class="code-block">
+        <span class='cb-lang'>JavaScript<br></span>
+        <span class='cb-contents'>
+          1Hfh8AbGsMRuu77fBk1LTqRo6E8j89eE24k8XycfFrY94kRt3BM6EnXP
+        </span>
+      </div>
+    </p>
+    </div>
+  <div id="footer-div"></div>
+  <script type="text/javascript" src="js/inject.js"></script>
+</body>
+
 </html>
