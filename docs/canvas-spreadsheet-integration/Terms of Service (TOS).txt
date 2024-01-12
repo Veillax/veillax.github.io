@@ -1,0 +1,21 @@
+Terms of Service (TOS)
+1. Acceptance of Terms
+By accessing and using this service, you agree to comply with and be bound by the following terms and conditions.
+
+2. Description of Service
+The service provided includes the functionality to gather data from the Canvas LMS REST API and compile it using Google Spreadsheets.
+
+3. User Conduct
+Users are expected not to engage in any activity that may disrupt the proper functioning of the service.
+
+4. Privacy
+Your use of the service is subject to our Privacy Policy, which outlines how user data is handled. Please refer to our Privacy Policy for more information.
+
+5. Disclaimer
+The service is provided on an "as-is" basis, and we make no warranties or guarantees regarding its accuracy, completeness, or performance.
+
+6. Limitation of Liability
+We shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of the use or inability to use the service.
+
+7. Changes to Terms
+We reserve the right to update or modify these terms at any time without prior notice.
