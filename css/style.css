@@ -12,21 +12,21 @@
 .code-block {
     background-color: #333;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
     color: #fff;
     font-family: Courier;
     font-size: 14px;
 }  
 
 .cb-lang {
-    color: #f0f;
     font-size: 12px;
 }
 
-.cb-contents {
-    text-indent: 5%;
-}
-
 code {
-    background-color: #434343;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 3px;
+}
+h3 {
+    font-weight: bold;
 }
