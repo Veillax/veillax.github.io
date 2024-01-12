@@ -5,45 +5,61 @@
   <title>Canvas Spreadsheet Integration | Veillax Docs</title>
   <meta charset="utf-8">
   <meta name="description"
-    content="CSI (Canvas Spreadsheet Integration) is a custom script designed for seamlessly retrieving Canvas data automatically. Initially developed to create an organized checklist for assignments and facilitate comprehensive tracking of due dates, CSI has evolved into a robust tool." />
-  <meta property="og:title" content="Canvas Spreadsheet Integration | Veillax Docs" />
-  <meta property="og:image" content="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI_OG.png" />
-  <meta property="og:url" content="https://docs.veillax.com/docs/canvas-spreadsheet-integration" />
+    content="CSI (Canvas Spreadsheet Integration) is a custom script designed for seamlessly retrieving Canvas data automatically. Initially developed to create an organized checklist for assignments and facilitate comprehensive tracking of due dates, CSI has evolved into a robust tool.">
+  <meta property="og:title" content="Canvas Spreadsheet Integration | Veillax Docs">
+  <meta property="og:image" content="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI_OG.png">
+  <meta property="og:url" content="https://docs.veillax.com/docs/canvas-spreadsheet-integration">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/5/pulse/bootstrap.min.css">
+  <link rel="stylesheet" href="https://docs.veillax.com/css/scrollbar.css">
+  <link rel="stylesheet" href="https://docs.veillax.com/css/style.css">
+  <meta name="author" content="Veillax">
+  <meta content="website">
+  <meta content="veillax.com">
+  <meta content="Now on https://veillax.com!">
+  <link rel="icon" href="https://docs.veillax.com/img/favicon.ico">
+  <link rel="apple-touch-icon" href="https://docs.veillax.com/img/apple-touch-icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body data-bs-theme="dark">
   <div id="navbar-div">
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div class="container-fluid">
-      <a class="navbar-brand" href="https://www.veillax.com/"><img alt="Logo" src="https://raw.githubusercontent.com/Veillax/veillax.github.io/main/img/1683420300-32.ico"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="https://www.veillax.com/"><img alt="Logo"
+            src="https://raw.githubusercontent.com/Veillax/veillax.github.io/main/img/1683420300-32.ico"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarColor01">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav me-auto">
-              <li class="nav-item">
+            <li class="nav-item">
               <a class="nav-link" href="https://www.veillax.com/">Home
               </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="https://docs.veillax.com/">Docs</a>
-                <span class="visually-hidden">(current)</span>
-                </li>  
-              <li class="nav-item">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="https://docs.veillax.com/">Docs</a>
+              <span class="visually-hidden">(current)</span>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="https://www.veillax.com/about.html">About</a>
-              </li>
+            </li>
           </ul>
-  
-          </div>
+
+        </div>
       </div>
-      </nav>
+    </nav>
+    <br>
   </div>
   <div class="alert alert-dismissible alert-warning">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     <h4 class="alert-heading">Warning!</h4>
-    <p class="mb-0">This service may not work, for I am waiting for Verification! Until then, you can sign up for the <a href="/mailing-list" class="alert-link">Update Mailing List</a>. (The Update Mailing List is used to send you emails about service version updates)</p>
+    <p class="mb-0">This service may not work, for I am waiting for Verification! Until then, you can sign up for the <a
+        href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/mailing-list" class="alert-link">Update Mailing List</a>. (The Update Mailing List is used to send you
+      emails about service version updates)</p>
   </div>
-<div id="contents" class="container align-items-center justify-content-center">
+  <div id="contents" class="container align-items-center justify-content-center">
     <br><br>
     <p>
       <center>
@@ -158,10 +174,18 @@
       <h3>How to get an Access Token</h3>
     </center>
     <br>
-    All registered students, faculty, TAs, and staff are able to access the Canvas API simply by virtue of having a Canvas account. The types of data you’re able to access through the API depend on your role in Canvas. As a student, you have the same permissions when accessing Canvas through the API as you do when using the Canvas website — that means you can access things like your class schedule, due dates, and discussion posts, as well as your own grades and assignment submissions.
+    All registered students, faculty, TAs, and staff are able to access the Canvas API simply by virtue of having a
+    Canvas account. The types of data you’re able to access through the API depend on your role in Canvas. As a student,
+    you have the same permissions when accessing Canvas through the API as you do when using the Canvas website — that
+    means you can access things like your class schedule, due dates, and discussion posts, as well as your own grades
+    and assignment submissions.
     <br><br><br>
-    <center><h4>Generate your Canvas access token</h4></center><br>
-    Accessing the Canvas API requires a token, which you can think of as your username and password squished into one long random string. Anything you can do in Canvas can be done by someone else if they have your token, so don’t share your token with anyone else (or ask others to share their token with you)!
+    <center>
+      <h4>Generate your Canvas access token</h4>
+    </center><br>
+    Accessing the Canvas API requires a token, which you can think of as your username and password squished into one
+    long random string. Anything you can do in Canvas can be done by someone else if they have your token, so don’t
+    share your token with anyone else (or ask others to share their token with you)!
     <br><br>
     Follow these steps to generate your personal access token.
     <br><br>
@@ -173,30 +197,52 @@
     <br><br>
     <img src="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI7.png">
     <br><br>
-    3. Fill in the <code>Purpose</code> field. 
+    3. Fill in the <code>Purpose</code> field.
     <br><br>
     4. Click <code>Generate Token</code>. Now copy your freshly generated token and save it somewhere secure.
     <br><br>
-    One last reminder to never share your token with anyone. If you think your token may have been exposed (for example, by accidentally posting it to GitHub), delete your token from Canvas right away. Instructions for creating and deleting access tokens as a student are available on the Canvas Guides.
+    One last reminder to never share your token with anyone. If you think your token may have been exposed (for example,
+    by accidentally posting it to GitHub), delete your token from Canvas right away. Instructions for creating and
+    deleting access tokens as a student are available on the Canvas Guides.
     <br><br><br>
-    <center><h4>How to find your Canvas Namespace</h4></center><br>
-    In Canvas, a namespace is like the unique identifier or label for your institution or school within the Canvas system. It is the initial part of the web address that specifies where your Canvas account is hosted.
+    <center>
+      <h4>How to find your Canvas Namespace</h4>
+    </center><br>
+    In Canvas, a namespace is like the unique identifier or label for your institution or school within the Canvas
+    system. It is the initial part of the web address that specifies where your Canvas account is hosted.
     <br><br>
-    For example, in the URL <code>https://schoolname.instructure.com/courses/123456/modules</code>, <code>schoolname</code> is the Canvas namespace. It distinguishes your Canvas instance from others, allowing tools like CSI to precisely connect to and retrieve data from your specific Canvas account.
+    For example, in the URL <code>https://schoolname.instructure.com/courses/123456/modules</code>,
+    <code>schoolname</code> is the Canvas namespace. It distinguishes your Canvas instance from others, allowing tools
+    like CSI to precisely connect to and retrieve data from your specific Canvas account.
     <br><br>
-    Think of the Canvas namespace as the digital address that ensures any data requests or interactions are directed to the correct school or institution within the broader Canvas platform. Understanding and correctly using your Canvas namespace is crucial for accurate and secure integration with external tools and scripts like CSI.
+    Think of the Canvas namespace as the digital address that ensures any data requests or interactions are directed to
+    the correct school or institution within the broader Canvas platform. Understanding and correctly using your Canvas
+    namespace is crucial for accurate and secure integration with external tools and scripts like CSI.
     <br><br>
     How to Find Your Canvas Namespace<br>
     1. Log into Canvas: Visit the Canvas website and log in with your username and password.<br>
     2. Select a Course: Click on one of your courses to enter the course page.<br>
     3. Check the Web Address: Look at the web address in your browser's address bar.<br>
-    4. Identify the Start of the Address: Find the part right at the beginning of the address, before <code>.instructure.com</code>.<br>
-    5. Write Down the Namespace: Take note of the letters or words you see at the beginning of the address. This is your Canvas namespace.<br>
+    4. Identify the Start of the Address: Find the part right at the beginning of the address, before
+    <code>.instructure.com</code>.<br>
+    5. Write Down the Namespace: Take note of the letters or words you see at the beginning of the address. This is your
+    Canvas namespace.<br>
 
     </p>
   </div>
-  <div id="footer-div"></div>
-  <script type="text/javascript" src="https://docs.veillax.com/js/inject.js"></script>
+  <div id="footer-div">
+    <footer id="footer" class="bg-dark text-center ">
+      <!-- Grid container -->
+      <div class="container p-4">
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        <a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/privacy-policy.txt">Privacy Policy</a> - Made with ♥ by Veillax - <a
+          href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/terms-of-service.txt">Terms Of Service</a>
+      </div>
+    </footer>
+  </div>
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
