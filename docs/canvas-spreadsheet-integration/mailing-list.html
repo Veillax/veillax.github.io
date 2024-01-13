@@ -1,43 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Veillax Docs</title>
+
+<head>
+    <title>Canvas Spreadsheet Integration | Veillax Docs</title>
     <meta charset="utf-8">
-    <meta name="description" content="docs">
-    <meta property="og:title" content="Veillax Docs">
-  </head>
-    <body data-bs-theme="dark">
-        <div id="navbar-div">
-          <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <meta name="description"
+        content="CSI (Canvas Spreadsheet Integration) is a custom script designed for seamlessly retrieving Canvas data automatically. Initially developed to create an organized checklist for assignments and facilitate comprehensive tracking of due dates, CSI has evolved into a robust tool.">
+    <meta property="og:title" content="Canvas Spreadsheet Integration | Veillax Docs">
+    <meta property="og:image" content="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI_OG.png">
+    <meta property="og:url" content="https://docs.veillax.com/docs/canvas-spreadsheet-integration">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/pulse/bootstrap.min.css">
+    <link rel="stylesheet" href="https://docs.veillax.com/css/scrollbar.css">
+    <link rel="stylesheet" href="https://docs.veillax.com/css/style.css">
+    <meta name="author" content="Veillax">
+    <meta content="website">
+    <meta content="veillax.com">
+    <meta content="Now on https://veillax.com!">
+    <link rel="icon" href="https://docs.veillax.com/img/favicon.ico">
+    <link rel="apple-touch-icon" href="https://docs.veillax.com/img/apple-touch-icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body data-bs-theme="dark">
+    <div id="navbar-div">
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
-            <a class="navbar-brand" href="https://www.veillax.com/"><img alt="Logo" src="https://raw.githubusercontent.com/Veillax/veillax.github.io/main/img/1683420300-32.ico"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <a class="navbar-brand" href="https://www.veillax.com/"><img alt="Logo"
+                        src="https://raw.githubusercontent.com/Veillax/veillax.github.io/main/img/1683420300-32.ico"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                    <a class="nav-link active" href="https://www.veillax.com/">Home
-                        <span class="visually-hidden">(current)</span>
-                    </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="https://docs.veillax.com/">Docs</a>
-                      </li>  
-                    <li class="nav-item">
-                    <a class="nav-link" href="https://www.veillax.com/about.html">About</a>
-                    </li>
-                </ul>
-        
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.veillax.com/">Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="https://docs.veillax.com/">Docs</a>
+                            <span class="visually-hidden">(current)</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.veillax.com/about.html">About</a>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
-            </nav>
-        </div>
-        <div id="contents">
-          Projects with documentation:
-          <a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration">Canvas Spreadsheet Integration</a>
-        </div>
-        <div id="footer-div"></div>
-        <script type="text/javascript" src="js/inject.js"></script>
-    </body>
+        </nav>
+        <br>
+    </div>
+    <div class="alert alert-dismissible alert-warning">
+        <h4 class="alert-heading">Warning!</h4>
+        <p class="mb-0">This is the closed beta program Mailing List. If you want to join, fill out the form below.</p>
+    </div>
+    <div id="contents" class="container align-items-center justify-content-center">
+        <form action="mailer.php" method="POST">
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="email" placeholder="Email address"
+                            aria-label="Email address" aria-describedby="button-addon2">
+                        <button class="btn btn-primary" type="submit" id="button-addon2">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="footer-div">
+        <footer id="footer" class="bg-dark text-center ">
+            <!-- Grid container -->
+            <div class="container p-4">
+            </div>
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                <a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/privacy-policy.txt">Privacy
+                    Policy</a> - Made with ♥ by Veillax - <a
+                    href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/terms-of-service.txt">Terms Of
+                    Service</a>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>

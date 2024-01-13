@@ -1,3 +1,4 @@
 User-agent: *
 Disallow: /*.json$
 Disallow: /*.png$
+Disallow: /*.php$
