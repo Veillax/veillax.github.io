@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail->Host = 'smtp.gmail.com';  // Set your SMTP server
     $mail->SMTPAuth = true;
     $mail->Username = 'lxhomeschool@gmail.com';
-    $mail->Password = 'your_password'; // Replace with your actual password
+    $mail->Password = 'bnunevougmuwzggc'; // Replace with your actual password
     $mail->SMTPSecure = 'tls'; // or 'ssl' if needed
     $mail->Port = 587; // Check your SMTP server configuration for the correct port
 
