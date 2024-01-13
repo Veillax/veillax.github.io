@@ -57,13 +57,13 @@
         <p class="mb-0">This is the closed beta program Mailing List. If you want to join, fill out the form below.</p>
     </div>
     <div id="contents" class="container align-items-center justify-content-center">
-        <form action="docs/canvas-spreadsheet-integration/mailer.php" method="POST">
+        <form">
             <div class="form-group">
                 <div class="form-group">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="email" placeholder="Email address"
-                            aria-label="Email address" aria-describedby="button-addon2">
-                        <button class="btn btn-primary" type="submit" id="button-addon2">Submit</button>
+                            aria-label="Email address" aria-describedby="submit-button">
+                        <button class="btn btn-primary" type="submit" id="submit-button">Submit</button>
                     </div>
                 </div>
             </div>
@@ -87,9 +87,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#submitBtn").on("click", function () {
+            $("#submit-button").on("click", function () {
                 var email = $("#email").val();
-
                 $.ajax({
                     type: "POST",
                     url: "mailer.php",
