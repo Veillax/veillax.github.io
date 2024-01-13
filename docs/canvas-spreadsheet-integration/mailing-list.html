@@ -89,19 +89,11 @@
         $(document).ready(function () {
             $("#submit-button").on("click", function () {
                 var email = $("#email").val();
-                $.ajax({
-                    type: "POST",
-                    url: "https://docs.veillax.com/docs/canvas-spreadsheet-integration/mailing-list/mailer.php",
-                    data: { email: email },
-                    dataType: "json",
-                    success: function (response) {
-                        alert(response.message); // Display the response message (you can modify this as needed)
-                    },
-                    error: function () {
-                        alert("An error occurred while processing your request.");
-                    }
-                });
-            });
+                const emailBody = `Email: ${email}\nList: Canvas Spreadsheet Integration Updates`;
+                const encodedEmailBody = encodeURIComponent(emailBody);
+
+                window.location.href = `mailto:contact@veillax.com?subject=New%20Mailing%20List%20Request&body=${encodedEmailBody}`;
+            })
         });
     </script>
 </body>
