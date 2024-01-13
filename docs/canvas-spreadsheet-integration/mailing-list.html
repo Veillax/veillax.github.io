@@ -91,7 +91,7 @@
                 var email = $("#email").val();
                 $.ajax({
                     type: "POST",
-                    url: "mailer.php",
+                    url: "https://docs.veillax.com/docs/canvas-spreadsheet-integration/mailing-list/mailer.php",
                     data: { email: email },
                     dataType: "json",
                     success: function (response) {
