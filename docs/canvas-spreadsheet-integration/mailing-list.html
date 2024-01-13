@@ -84,6 +84,27 @@
     </div>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#submitBtn").on("click", function () {
+                var email = $("#email").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "mailer.php",
+                    data: { email: email },
+                    dataType: "json",
+                    success: function (response) {
+                        alert(response.message); // Display the response message (you can modify this as needed)
+                    },
+                    error: function () {
+                        alert("An error occurred while processing your request.");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

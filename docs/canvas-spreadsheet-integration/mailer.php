@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Invalid email address";
+        echo json_encode(["status" => "error", "message" => "Invalid email address"]);
         exit;
     }
 
@@ -46,12 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mailCopy->Body = "Email:" . $email;
 
     if (!$mail->send() && !$mailCopy->send()) {
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-        echo 'Mailer Error: ' . $mailCopy->ErrorInfo;
+        echo json_encode(["status" => "error", "message" => "Emails could not be sent"]);
     } else {
-        echo 'Emails sent successfully';
+        echo json_encode(["status" => "success", "message" => "Emails sent successfully"]);
     }
 } else {
-    echo "Form not submitted";
+    echo json_encode(["status" => "error", "message" => "Form not submitted"]);
 }
 ?>
