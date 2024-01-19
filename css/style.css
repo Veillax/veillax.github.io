@@ -30,3 +30,15 @@ code {
 h3 {
     font-weight: bold;
 }
+
+span .plaintext {
+    color: #02b517;
+}
+
+span .javascript {
+    color: #f0f;
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.2)
+}
