@@ -3,11 +3,11 @@ Privacy Policy
 We collect user information, including but not limited to email addresses and Canvas LMS REST API tokens, to provide and improve the service.
 
 2. How We Use Your Information
-User information is used for:
 A). User Authentication: User emails are retrieved only for User Authentication, allowing for a User Blacklist to be issued in case the service is misused.
 B). Updates Mailing List: User emails may be stored only if the user requests to join the Update Mailing List, an email mailing list used to inform users when a system update is issued
 C). Functionality: Canvas LMS REST API Access Tokens are never stored in our system.
-
+D). This app's use and transfer to any other app of information received from Google APIs will adhere to Google API Services User Data Policy (https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.
+    
 3. Sharing of Information
 We do not share user information with third parties unless required by law.
 
