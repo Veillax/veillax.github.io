@@ -110,10 +110,8 @@
       <br><br>
       Copy the following into the <code>Script ID</code> slot:
       <br>
-    <div class="code-block">
-      <pre class="cb-lang"><span class="plaintext" style="color: #f0f;">ID</span></pre>
       <pre class="cb-contents"><code>  1pmcO3Y9mfHMS7cXRm9w8ePhAy7sbKyXbEhUf3HVJpYpYvCE38EQ0V80K</code></pre>
-    </div><br>
+      <br>
 
     Then click <code>Look Up</code>
     <br>
@@ -123,33 +121,27 @@
     Next, hit <code>CTRL/⌘ + A</code>, then <code>Delete</code> to remove the previous code. After that, copy this code
     into the empty file:
     <br><br>
-    <div class="code-block">
-      <span class="cb-lang javascript">Javascript</span>
-      <pre class="cb-contents"><code>  function refresh() {
+    <pre class="cb-contents"><code>  function refresh() {
     var accessToken = "your_canvas_token";
     var namespace = "your_canvas_namespace";
     var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
     CSI.run(accessToken, spreadsheet, namespace);
-  }</code></pre>
-    </div><br>
+    }</code></pre><br>
     Make sure to replace <code>"your_canvas_token"</code> and <code>"your_canvas_namespace"</code> with your canvas
     access token and namespace
     After that, the code should look something like this:
     <small>(the values for <code>accessToken</code> and <code>namespace</code> are examples and should not be used, as
       they are not legitimate values)</small>
     <br><br>
-    <div class="code-block">
-      <span class="cb-lang javascript theme-monokai-min">Javascript</span>
       <pre class="cb-contents language-javascript"><code> var accessToken = "2108~un4dJHswdqOfGvlZMZihCGStTeSXmh4UwjKVBKSDa3UvcsnSw2pK85i3pqyV55s"
   var namespace = "school"
   var spreadsheet = SpreadsheetApp.getActiveSpreadsheet()
-  CSI.run(accessToken, spreadsheet, namespace)</code></pre>
-    </div><br>
+  CSI.run(accessToken, spreadsheet, namespace)</code></pre><br>
     
     This code assumes your canvas url is <code>namespace.instructure.com</code>. If your school uses a different url, such as <code>online.smc.edu</code><br>
 
     <br><br>
-    If you aren’t sure what to do here, view How to get an Access Token and What is my Canvas Namespace below.
+    If you aren’t sure what to do here, view <a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/#:~:text=then%20click%20Save-,How%20to%20get%20an%20Access%20Token,-All%20registered%20students">How to get an Access Token</a> and <a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/#:~:text=the%20Canvas%20Guides.-,How%20to%20find%20your%20Canvas%20Namespace,-In%20Canvas%2C%20a">How to find your Canvas Namespace</a> below.
 
     Finally, click save (either the little floppy disk icon in the toolbar or <code>CTRL/⌘ + S</code>), then click
     <code>Run</code><br>
