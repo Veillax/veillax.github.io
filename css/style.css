@@ -6,37 +6,6 @@
 .dark {
     background-color: #17141F !important;
     color: #ADB5BD !important;
-
-}
-
-.code-block {
-    background-color: #333;
-    border-radius: 10px;
-    padding: 10px;
-    color: #fff;
-    font-family: Courier;
-    font-size: 14px;
-}  
-
-.cb-lang {
-    font-size: 12px;
-}
-
-code {
-    background-color: #333;
-    border-radius: 10px;
-    padding: 3px;
-}
-h3 {
-    font-weight: bold;
-}
-
-.plaintext {
-    color: #02b517;
-}
-
-.javascript {
-    color: #f0f;
 }
 
 .footer {
