@@ -31,13 +31,7 @@ async function renderFileToHtml(baseUrl, filePath, targetElementId) {
 }
 
 function getTreeXmlUrl(baseUrl) {
-    const url = window.location.href;
-    const parts = url.split('/').filter(part => part !== '');
-    if (parts.length >= 3 && parts[0] === 'docs' && parts[1] === 'docs') {
-        return `${baseUrl}/docs/${parts[2]}/tree.xml`;
-    } else {
-        return null;
-    }
+    return `${baseUrl}/tree.xml`;
 }
 
 function loadSidebar(baseUrl, treeXmlUrl) {
