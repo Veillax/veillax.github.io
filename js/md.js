@@ -49,7 +49,7 @@ function loadSidebar(baseUrl) {
 
             // Loop through each file entry in the XML
             const files = xmlDoc.querySelectorAll('file');
-            files.forEach(file => {
+            files.forEach((file, index) => {
                 const filePath = file.getAttribute('path');
                 const fileName = file.getAttribute('name');
                 const isHeader = file.getAttribute('header') === 'true';
@@ -68,6 +68,11 @@ function loadSidebar(baseUrl) {
                     headerContainer.appendChild(header);
                 } else {
                     linkContainer.appendChild(link);
+
+                    // Add a <hr> only if it's not the last element
+                    if (index < files.length - 1) {
+                        linkContainer.appendChild(document.createElement("hr"));
+                    }
                 }
             });
         })
