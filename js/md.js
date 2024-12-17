@@ -38,31 +38,27 @@ function loadSidebar(baseUrl) {
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
             const sidebar = document.getElementById('sidebar');
             
-            // Create a container for the header/navbar
             const headerContainer = document.createElement('div');
             headerContainer.classList.add('navbar-header');
             sidebar.appendChild(headerContainer);
 
-            // Create a container for the links
             const linkContainer = document.createElement('div');
             linkContainer.classList.add('navbar-links');
             sidebar.appendChild(linkContainer);
 
-            // Updated to match your XML structure:
             const files = xmlDoc.querySelectorAll('file');
             files.forEach(file => {
                 const filePath = file.getAttribute('path');
-                const fileName = file.getAttribute('name'); // Get the custom name
-                const isHeader = file.getAttribute('header') === 'true'; // Check if it's the header
+                const fileName = file.getAttribute('name');
+                const isHeader = file.getAttribute('header') === 'true';
 
                 const link = document.createElement('a');
-                link.href = `${baseUrl}${filePath}.html`; // Use baseUrl to create the link
+                link.href = `${baseUrl}${filePath}.html`;
                 link.textContent = fileName;
 
-                // If it's the header, treat it as a header
                 if (isHeader) {
-                    const header = document.createElement('h3');
-                    header.textContent = fileName; // Display custom name for the header
+                    const header = document.createElement('h4');
+                    header.innerHTML = link;
                     headerContainer.appendChild(header);
                 } else {
                     linkContainer.appendChild(link);
