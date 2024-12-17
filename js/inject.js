@@ -9,7 +9,7 @@
 
     var docsstyleLink = document.createElement('link');
     docsstyleLink.rel = 'stylesheet';
-    docsstyleLink.href = 'https://docs.veillax.com/css/style.css';
+    docsstyleLink.href = 'https://docs.veillax.com/css/docs.css';
 
     var bootstrapLink = document.createElement('link');
     bootstrapLink.rel = 'stylesheet';
