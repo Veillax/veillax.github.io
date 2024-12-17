@@ -5,7 +5,6 @@
     position: fixed;
     left: 0;
     top: 0;
-    background-color: #f0f0f0;
     overflow-x: hidden;
     padding-top: 20px;
 }
@@ -14,12 +13,12 @@
     padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 18px;
-    color: #333;
+    color: #dfdfdf;
     display: block;
 }
 
 .sidebar a:hover {
-    color: #000;
+    color: #FFF;
 }
 
 .main {
@@ -29,4 +28,15 @@
 
 .content{
     margin: 25px;
+    padding: 25px;
+}
+
+.navbar-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.navbar-links a {
+    display: block;
+    margin: 5px 0;
 }

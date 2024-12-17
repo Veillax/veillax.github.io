@@ -7,22 +7,32 @@
     </head>
     <body data-bs-theme="dark">  
 
-        <div class="sidebar" id="sidebar">
-            </div>
+        <!-- Sidebar Section -->
+        <div class="sidebar" id="sidebar"></div>
 
+        <!-- Main Content Section -->
         <div class="main">
             <div id="content">Loading...</div>
         </div>
 
+        <!-- Footer Section -->
+        <div id="footer-div"></div> 
+
+        <!-- Include Showdown JS for Markdown to HTML conversion -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
         <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+
+        <!-- Include Custom JS Scripts -->
         <script src="https://docs.veillax.com/js/md.js"></script> 
         <script src="https://docs.veillax.com/js/inject.js"></script> 
+
         <script>
-            loadSidebar("https://docs.veillax.com/docs/artifactsmmo-wrapper");
-            renderFileToHtml('https://docs.veillax.com/docs/artifactsmmo-wrapper/md/helpers.md', 'content');
+            const baseUrl = "https://docs.veillax.com/docs/artifactsmmo-wrapper";
+
+            loadSidebar(baseUrl);
+
+            renderFileToHtml(baseUrl, 'md/index', 'content');
         </script>
 
-        <div id="footer-div"></div> 
     </body>
 </html>

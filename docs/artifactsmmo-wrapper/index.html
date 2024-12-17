@@ -27,13 +27,10 @@
         <script src="https://docs.veillax.com/js/inject.js"></script> 
 
         <script>
-            // Base URL of the documentation project
             const baseUrl = "https://docs.veillax.com/docs/artifactsmmo-wrapper";
 
-            // Load the sidebar by fetching and parsing the tree.xml
             loadSidebar(baseUrl);
 
-            // Render the Markdown content of the "index.md" file into the "content" div
             renderFileToHtml(baseUrl, 'md/index', 'content');
         </script>
 

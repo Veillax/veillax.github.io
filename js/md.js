@@ -31,34 +31,41 @@ async function renderFileToHtml(baseUrl, filePath, targetElementId) {
 }
 
 function loadSidebar(baseUrl) {
-    // Check if sidebar element exists
-    const sidebar = document.getElementById('sidebar');
-    if (!sidebar) {
-        console.error('Sidebar element not found.');
-        return;
-    }
-
-    // Fetch and parse the tree.xml file
     fetch(`${baseUrl}/tree.xml`)
         .then(response => response.text())
         .then(xmlString => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+            const sidebar = document.getElementById('sidebar');
+            
+            // Create a container for the header/navbar
+            const headerContainer = document.createElement('div');
+            headerContainer.classList.add('navbar-header');
+            sidebar.appendChild(headerContainer);
 
-            // Select all file elements
+            // Create a container for the links
+            const linkContainer = document.createElement('div');
+            linkContainer.classList.add('navbar-links');
+            sidebar.appendChild(linkContainer);
+
+            // Updated to match your XML structure:
             const files = xmlDoc.querySelectorAll('file');
             files.forEach(file => {
-                const filePath = file.textContent.trim(); // Ensure no extra spaces
+                const filePath = file.textContent;
                 const fileName = filePath.split('/').pop(); // Extract the file name
                 
-                // Create the link for each file
                 const link = document.createElement('a');
-                link.href = `${baseUrl}${filePath}.html`; // Construct the link with base URL and file path
+                link.href = `${baseUrl}${filePath}.html`; // Use baseUrl to create the link
                 link.textContent = fileName;
-                
-                // Append the link to the sidebar
-                sidebar.appendChild(link);
-                sidebar.appendChild(document.createElement('br')); // Add a line break between links
+
+                // Check if the file is an index (e.g., "index.md") and treat it as a header
+                if (fileName.toLowerCase() === 'index.md') {
+                    const header = document.createElement('h3');
+                    header.textContent = fileName.replace('.md', ''); // Remove ".md" from the file name for display
+                    headerContainer.appendChild(header);
+                } else {
+                    linkContainer.appendChild(link);
+                }
             });
         })
         .catch(error => {
