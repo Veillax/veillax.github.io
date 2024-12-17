@@ -11,6 +11,7 @@
     background-color: #1f1b2a;
 }
 
+/* Style for links */
 a {
     text-decoration: none;
 }
@@ -29,11 +30,11 @@ a {
     display: block;
 }
 
-
 .sidebar a:hover {
     color: #FFF;
 }
 
+/* Main content */
 .main {
     margin-left: 280px; /* Same as the width of the sidebar */
     padding: 0px 10px;
@@ -49,4 +50,42 @@ a {
 .navbar-links a {
     display: block;
     margin: 5px 0;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    /* Sidebar adjustments */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding-top: 15px;
+        padding-left: 10px;
+    }
+
+    /* Main content adjustments */
+    .main {
+        margin-left: 0;
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    /* Navbar header and links adjustments */
+    .navbar-header a,
+    .navbar-links a {
+        font-size: 16px;
+    }
+}
+
+/* Extra small screen (phones in portrait mode) */
+@media screen and (max-width: 480px) {
+    .navbar-header a,
+    .navbar-links a {
+        font-size: 14px; /* Smaller font size on very small screens */
+    }
+}
+
+.content-img {
+    max-width: 940px;
+    width: 100%;
 }

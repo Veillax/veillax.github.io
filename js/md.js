@@ -7,23 +7,38 @@ async function renderFileToHtml(baseUrl, filePath, targetElementId) {
     }
 
     try {
+        // Construct the full file URL
         const fileUrl = `${baseUrl}/${filePath}.md`;
 
+        // Fetch the file content from the URL
         const response = await fetch(fileUrl);
         if (!response.ok) {
             throw new Error(`Failed to fetch file: ${response.statusText}`);
         }
         const fileContent = await response.text();
 
+        // Convert Markdown to HTML using Showdown
         const converter = new showdown.Converter();
         const htmlContent = converter.makeHtml(fileContent);
 
+        // Render HTML content in the target element
         targetElement.innerHTML = htmlContent;
+
+        // Add the class "content-image" or "badge-image" to images after rendering
+        const images = targetElement.querySelectorAll('img');
+        images.forEach(image => {
+            if (image.src.includes('img.shields.io')) {
+                image.classList.add('badge-image');
+            } else {
+                image.classList.add('content-image');
+            }
+        });
     } catch (error) {
         console.error('Error rendering file:', error.message);
         targetElement.textContent = 'Failed to load content.';
     }
 }
+
 
 function loadSidebar(baseUrl) {
     fetch(`${baseUrl}/tree.xml`)
