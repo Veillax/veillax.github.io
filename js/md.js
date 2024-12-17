@@ -58,7 +58,7 @@ function loadSidebar(baseUrl) {
                 link.href = `${baseUrl}${filePath}.html`; // Create the full URL to the .html file
                 link.textContent = fileName; // Set the link text
 
-                // If this file is a header, create the header element
+                // If this file is a header, create the header link
                 if (isHeader) {
                     const header = document.createElement('h4');
                     const headerLink = document.createElement('a');
