@@ -7,7 +7,6 @@
     top: 0;
     overflow-x: hidden;
     padding-top: 20px;
-    padding-left: 4px;
 }
 
 .sidebar a {
@@ -31,6 +30,7 @@
 .navbar-header {
     font-weight: bold;
     margin-bottom: 10px;
+    padding-left: 3px;
 }
 
 .navbar-links a {
