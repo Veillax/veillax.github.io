@@ -1,4 +1,4 @@
-# game\_data_classes
+# game_data_classes
 
 ## How to Use
 
