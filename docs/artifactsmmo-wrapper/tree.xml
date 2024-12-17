@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <filetree>
-    <file>/artifactsapi</file>
-    <file>/exceptions</file>
-    <file>/game_data_classes</file>
-    <file>/helpers</file>
-    <file>/index</file>
-    <file>/subclasses</file>
+    <file path="/index" name="ArtifactsMMO Wrapper" header="true"/>
+    <file path="/artifactsapi" name="Artifacts API" header="false"/>
+    <file path="/exceptions" name="Exceptions" header="false"/>
+    <file path="/game_data_classes" name="Game Data Classes" header="false"/>
+    <file path="/helpers" name="Helpers" header="false"/>
+    <file path="/subclasses" name="Subclasses" header="false"/>
 </filetree>

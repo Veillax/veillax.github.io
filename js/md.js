@@ -51,17 +51,18 @@ function loadSidebar(baseUrl) {
             // Updated to match your XML structure:
             const files = xmlDoc.querySelectorAll('file');
             files.forEach(file => {
-                const filePath = file.textContent;
-                const fileName = filePath.split('/').pop(); // Extract the file name
-                
+                const filePath = file.getAttribute('path');
+                const fileName = file.getAttribute('name'); // Get the custom name
+                const isHeader = file.getAttribute('header') === 'true'; // Check if it's the header
+
                 const link = document.createElement('a');
                 link.href = `${baseUrl}${filePath}.html`; // Use baseUrl to create the link
                 link.textContent = fileName;
 
-                // Check if the file is an index (e.g., "index.md") and treat it as a header
-                if (fileName.toLowerCase() === 'index.md') {
+                // If it's the header, treat it as a header
+                if (isHeader) {
                     const header = document.createElement('h3');
-                    header.textContent = fileName.replace('.md', ''); // Remove ".md" from the file name for display
+                    header.textContent = fileName; // Display custom name for the header
                     headerContainer.appendChild(header);
                 } else {
                     linkContainer.appendChild(link);
