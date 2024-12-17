@@ -7,6 +7,10 @@
     styleLink.rel = 'stylesheet';
     styleLink.href = 'https://docs.veillax.com/css/style.css';
 
+    var docsstyleLink = document.createElement('link');
+    docsstyleLink.rel = 'stylesheet';
+    docsstyleLink.href = 'https://docs.veillax.com/css/style.css';
+
     var bootstrapLink = document.createElement('link');
     bootstrapLink.rel = 'stylesheet';
     bootstrapLink.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css";
@@ -47,6 +51,7 @@
     document.head.appendChild(bootswatchLink);
     document.head.appendChild(scrollbarLink);
     document.head.appendChild(styleLink);
+    document.head.appendChild(docsstyleLink);
     document.head.appendChild(authorMeta);
     document.head.appendChild(ogTypeMeta);
     document.head.appendChild(ogUrlMeta);

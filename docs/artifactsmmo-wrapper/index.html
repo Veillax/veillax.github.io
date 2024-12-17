@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Render Markdown or RST</title>
-    <script src="  https://unpkg.com/showdown/dist/showdown.min.js"></script>
-    <script src="https://docs.veillax.com/js/md.js"></script>
-</head>
-<body>
-    <h1>Render Markdown or RST File</h1>
-    <div id="content">Loading...</div>
-    <script>
-        // Example: render a Markdown or RST file
-        renderFileToHtml('https://docs.veillax.com/docs/artifactsmmo-wrapper/md/index.md', 'content');
-    </script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Render Markdown or RST</title>
+    </head>
+    <body data-bs-theme="dark">  
+
+        <div class="sidebar" id="sidebar">
+            </div>
+
+        <div class="main">
+            <h1>Render Markdown or RST File</h1>
+            <div id="content">Loading...</div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+        <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+        <script src="https://docs.veillax.com/js/md.js"></script> 
+        <script src="https://docs.veillax.com/js/inject.js"></script> 
+        <script>
+            renderFileToHtml('https://docs.veillax.com/docs/artifactsmmo-wrapper/md/index.md', 'content');
+        </script>
+
+        <div id="footer-div"></div> 
+    </body>
 </html>

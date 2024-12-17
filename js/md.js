@@ -27,10 +27,45 @@ async function renderFileToHtml(fileUrl, targetElementId) {
     }
 }
 
-(function(){
-    var bootstrapScript = document.createElement('script');
-    bootstrapScript.type = 'text/javascript';
-    bootstrapScript.src = "https://veillax.com/js/inject.js";
-
-    document.body.appendChild(bootstrapScript);
-})();
+function getTreeXmlUrl() {
+    const url = window.location.href;
+    const parts = url.split('/').filter(part => part !== '');
+    if (parts.length >= 3 && parts[0] === 'docs' && parts[1] === 'docs') {
+      return `https://docs.veillax.com/docs/${parts[2]}/tree.xml`;
+    } else {
+      return null;
+    }
+  }
+  
+  function loadSidebar(treeXmlUrl) {
+    fetch(treeXmlUrl)
+      .then(response => response.text())
+      .then(xmlString => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+        const sidebar = document.getElementById('sidebar');
+  
+        // Updated to match your XML structure:
+        const files = xmlDoc.querySelectorAll('file'); 
+        files.forEach(file => {
+          const filePath = file.textContent; 
+          const fileName = filePath.split('/').pop(); // Extract the file name
+          const link = document.createElement('a');
+          link.href = filePath.substring(1) + ".html"; // Remove leading slash and add .html
+          link.textContent = fileName; 
+          sidebar.appendChild(link);
+        });
+      })
+      .catch(error => {
+        console.error('Error loading sidebar:', error);
+      });
+  }
+  
+  // Automatically load the sidebar
+  const treeXmlUrl = getTreeXmlUrl();
+  if (treeXmlUrl) {
+    loadSidebar(treeXmlUrl);
+  } else {
+    console.error('Could not determine tree.xml URL.');
+  }
+  
