@@ -31,22 +31,34 @@ async function renderFileToHtml(baseUrl, filePath, targetElementId) {
 }
 
 function loadSidebar(baseUrl) {
+    // Check if sidebar element exists
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar) {
+        console.error('Sidebar element not found.');
+        return;
+    }
+
+    // Fetch and parse the tree.xml file
     fetch(`${baseUrl}/tree.xml`)
         .then(response => response.text())
         .then(xmlString => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
-            const sidebar = document.getElementById('sidebar');
 
-            // Updated to match your XML structure:
+            // Select all file elements
             const files = xmlDoc.querySelectorAll('file');
             files.forEach(file => {
-                const filePath = file.textContent;
+                const filePath = file.textContent.trim(); // Ensure no extra spaces
                 const fileName = filePath.split('/').pop(); // Extract the file name
+                
+                // Create the link for each file
                 const link = document.createElement('a');
-                link.href = `${baseUrl}${filePath}.html`; // Use baseUrl to create the link
+                link.href = `${baseUrl}${filePath}.html`; // Construct the link with base URL and file path
                 link.textContent = fileName;
+                
+                // Append the link to the sidebar
                 sidebar.appendChild(link);
+                sidebar.appendChild(document.createElement('br')); // Add a line break between links
             });
         })
         .catch(error => {
