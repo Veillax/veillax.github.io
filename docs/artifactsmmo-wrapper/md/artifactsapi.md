@@ -36,10 +36,10 @@
 
 #### Methods
 
-- `\_make_request(method, endpoint, json=None, source=None, retries=3, include_headers=False)`: Makes an API request and returns the JSON response.
-- `\_start_task_loop(function, timeout)`: Internal method for starting a task loop in a separate thread.
-- `\_set_task_loop(function=None, timeout=None, thread=None)`: Sets up a task loop to repeatedly execute a function.
-- `\_get_version()`: Retrieves the API version.
-- `\_cache()`: Caches map, item, monster, resource, task, reward, and achievement data.
-- `\_raise(code, m)`: Raises an API exception based on the response code and error message.
+- `_make_request(method, endpoint, json=None, source=None, retries=3, include_headers=False)`: Makes an API request and returns the JSON response.
+- `_start_task_loop(function, timeout)`: Internal method for starting a task loop in a separate thread.
+- `_set_task_loop(function=None, timeout=None, thread=None)`: Sets up a task loop to repeatedly execute a function.
+- `_get_version()`: Retrieves the API version.
+- `_cache()`: Caches map, item, monster, resource, task, reward, and achievement data.
+- `_raise(code, m)`: Raises an API exception based on the response code and error message.
 - `get_character(data=None, character_name=None)`: Retrieves or updates the character's data.
