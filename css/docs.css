@@ -1,12 +1,13 @@
 /* Basic styling for the sidebar */
 .sidebar {
-    width: 275px;
+    width: 260px;
     height: 100%;
     position: fixed;
     left: 0;
     top: 0;
     overflow-x: hidden;
-    padding-top: 20px;
+    padding-top: 30px;
+    background-color: #1f1b2a;
 }
 
 .sidebar a {
@@ -22,7 +23,7 @@
 }
 
 .main {
-    margin-left: 275px; /* Same as the width of the sidebar */
+    margin-left: 260px;
     padding: 0px 10px;
     margin-top: 10px;
 }
