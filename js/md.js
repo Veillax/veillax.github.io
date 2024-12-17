@@ -30,12 +30,8 @@ async function renderFileToHtml(baseUrl, filePath, targetElementId) {
     }
 }
 
-function getTreeXmlUrl(baseUrl) {
-    return `${baseUrl}/tree.xml`;
-}
-
-function loadSidebar(baseUrl, treeXmlUrl) {
-    fetch(treeXmlUrl)
+function loadSidebar(baseUrl) {
+    fetch(`${baseUrl}/tree.xml`)
         .then(response => response.text())
         .then(xmlString => {
             const parser = new DOMParser();
@@ -56,15 +52,4 @@ function loadSidebar(baseUrl, treeXmlUrl) {
         .catch(error => {
             console.error('Error loading sidebar:', error);
         });
-}
-
-// Usage example
-const baseUrl = 'https://docs.veillax.com'; // Example base URL, replace with actual one
-
-// Automatically load the sidebar
-const treeXmlUrl = getTreeXmlUrl(baseUrl);
-if (treeXmlUrl) {
-    loadSidebar(baseUrl, treeXmlUrl);
-} else {
-    console.error('Could not determine tree.xml URL.');
 }
