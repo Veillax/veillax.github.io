@@ -37,7 +37,8 @@ function loadSidebar(baseUrl) {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
             const sidebar = document.getElementById('sidebar');
-            
+
+            // Create containers for the header and links
             const headerContainer = document.createElement('div');
             headerContainer.classList.add('navbar-header');
             sidebar.appendChild(headerContainer);
@@ -46,6 +47,7 @@ function loadSidebar(baseUrl) {
             linkContainer.classList.add('navbar-links');
             sidebar.appendChild(linkContainer);
 
+            // Loop through each file entry in the XML
             const files = xmlDoc.querySelectorAll('file');
             files.forEach(file => {
                 const filePath = file.getAttribute('path');
@@ -53,12 +55,16 @@ function loadSidebar(baseUrl) {
                 const isHeader = file.getAttribute('header') === 'true';
 
                 const link = document.createElement('a');
-                link.href = `${baseUrl}${filePath}.html`;
-                link.textContent = fileName;
+                link.href = `${baseUrl}${filePath}.html`; // Create the full URL to the .html file
+                link.textContent = fileName; // Set the link text
 
+                // If this file is a header, create the header element
                 if (isHeader) {
                     const header = document.createElement('h4');
-                    header.innerHTML = link;
+                    const headerLink = document.createElement('a');
+                    headerLink.href = `${baseUrl}${filePath}.html`;
+                    headerLink.textContent = fileName;
+                    header.appendChild(headerLink);
                     headerContainer.appendChild(header);
                 } else {
                     linkContainer.appendChild(link);
