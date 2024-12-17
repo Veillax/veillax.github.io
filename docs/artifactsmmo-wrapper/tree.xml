@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <filetree>
-    <file path="/index.html" name="ArtifactsMMO Wrapper" header="true"/>
+    <file path="/index" name="ArtifactsMMO Wrapper" header="true"/>
     <file path="/artifactsapi" name="Artifacts API" header="false"/>
     <file path="/exceptions" name="Exceptions" header="false"/>
     <file path="/game_data_classes" name="Dataclasses" header="false"/>
