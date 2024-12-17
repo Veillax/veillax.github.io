@@ -19,6 +19,9 @@
         <script src="https://docs.veillax.com/js/md.js"></script> 
         <script src="https://docs.veillax.com/js/inject.js"></script> 
         <script>
+            const baseUrl = "https://docs.veillax.com/docs/artifactsmmo-wrapper";
+            const treeXmlUrl = getTreeXmlUrl(baseUrl);
+            loadSidebar(baseUrl, treeXmlUrl);
             renderFileToHtml('https://docs.veillax.com/docs/artifactsmmo-wrapper/md/artifactsapi.md', 'content');
         </script>
 

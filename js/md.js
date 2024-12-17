@@ -1,5 +1,5 @@
 // Dynamically load and render Markdown content from a URL into the page
-async function renderFileToHtml(fileUrl, targetElementId) {
+async function renderFileToHtml(baseUrl, filePath, targetElementId) {
     const targetElement = document.getElementById(targetElementId);
 
     if (!targetElement) {
@@ -8,6 +8,9 @@ async function renderFileToHtml(fileUrl, targetElementId) {
     }
 
     try {
+        // Construct the full file URL
+        const fileUrl = `${baseUrl}/${filePath}.md`;
+
         // Fetch the file content from the URL
         const response = await fetch(fileUrl);
         if (!response.ok) {
@@ -27,45 +30,47 @@ async function renderFileToHtml(fileUrl, targetElementId) {
     }
 }
 
-function getTreeXmlUrl() {
+function getTreeXmlUrl(baseUrl) {
     const url = window.location.href;
     const parts = url.split('/').filter(part => part !== '');
     if (parts.length >= 3 && parts[0] === 'docs' && parts[1] === 'docs') {
-      return `https://docs.veillax.com/docs/${parts[2]}/tree.xml`;
+        return `${baseUrl}/docs/${parts[2]}/tree.xml`;
     } else {
-      return null;
+        return null;
     }
-  }
-  
-  function loadSidebar(treeXmlUrl) {
+}
+
+function loadSidebar(baseUrl, treeXmlUrl) {
     fetch(treeXmlUrl)
-      .then(response => response.text())
-      .then(xmlString => {
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlString, "text/xml");
-        const sidebar = document.getElementById('sidebar');
-  
-        // Updated to match your XML structure:
-        const files = xmlDoc.querySelectorAll('file'); 
-        files.forEach(file => {
-          const filePath = file.textContent; 
-          const fileName = filePath.split('/').pop(); // Extract the file name
-          const link = document.createElement('a');
-          link.href = filePath.substring(1) + ".html"; // Remove leading slash and add .html
-          link.textContent = fileName; 
-          sidebar.appendChild(link);
+        .then(response => response.text())
+        .then(xmlString => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+            const sidebar = document.getElementById('sidebar');
+
+            // Updated to match your XML structure:
+            const files = xmlDoc.querySelectorAll('file');
+            files.forEach(file => {
+                const filePath = file.textContent;
+                const fileName = filePath.split('/').pop(); // Extract the file name
+                const link = document.createElement('a');
+                link.href = `${baseUrl}${filePath}.html`; // Use baseUrl to create the link
+                link.textContent = fileName;
+                sidebar.appendChild(link);
+            });
+        })
+        .catch(error => {
+            console.error('Error loading sidebar:', error);
         });
-      })
-      .catch(error => {
-        console.error('Error loading sidebar:', error);
-      });
-  }
-  
-  // Automatically load the sidebar
-  const treeXmlUrl = getTreeXmlUrl();
-  if (treeXmlUrl) {
-    loadSidebar(treeXmlUrl);
-  } else {
+}
+
+// Usage example
+const baseUrl = 'https://docs.veillax.com'; // Example base URL, replace with actual one
+
+// Automatically load the sidebar
+const treeXmlUrl = getTreeXmlUrl(baseUrl);
+if (treeXmlUrl) {
+    loadSidebar(baseUrl, treeXmlUrl);
+} else {
     console.error('Could not determine tree.xml URL.');
-  }
-  
+}
