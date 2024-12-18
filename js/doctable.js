@@ -81,7 +81,3 @@ function loadTableFromXml(xmlPath, tableElementId) {
             console.error("Error parsing XML or loading table:", error);
         });
 }
-
-// Example usage
-const xmlFilePath = "https://docs.veillax.com/docs.xml";
-loadTableFromXml(xmlFilePath, "docs-table");
