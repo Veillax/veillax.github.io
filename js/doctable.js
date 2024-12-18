@@ -36,18 +36,20 @@ function loadTableFromXml(tableElementId) {
                 // Add columns
                 const nameCell = document.createElement("td");
                 nameCell.textContent = name;
-                // Apply styles to nameCell
-                nameCell.style.textAlign = "left";  // Left align text
-                nameCell.style.verticalAlign = "middle"; // Center vertically
+                nameCell.style.textAlign = "left"; 
+                nameCell.style.verticalAlign = "middle"; 
+                nameCell.style.width = "15%";
 
                 const descriptionCell = document.createElement("td");
                 descriptionCell.textContent = description;
-                // Apply styles to descriptionCell
-                descriptionCell.style.textAlign = "center"; // Center text horizontally
-                descriptionCell.style.verticalAlign = "middle"; // Center vertically
-
+                descriptionCell.style.textAlign = "left";
+                descriptionCell.style.verticalAlign = "middle"; 
+                descriptionCell.style.width = "60%";
 
                 const pathCell = document.createElement("td");
+                pathCell.style.textAlign = "right"; 
+                pathCell.style.verticalAlign = "middle"; 
+                pathCell.style.width = "25%"; 
                 const button = document.createElement("a");
                 button.href = `https://docs.veillax.com/docs${path}`;
                 const buttonTextSpan = document.createElement('span');
@@ -71,9 +73,6 @@ function loadTableFromXml(tableElementId) {
                 buttonTextSpan.classList.add("align-items-center");
                 buttonTextSpan.classList.add("d-flex");
                 pathCell.appendChild(button);
-                // Apply styles to pathCell
-                pathCell.style.textAlign = "right"; // Right align content
-                pathCell.style.verticalAlign = "middle"; // Center vertically
 
                 // Append cells to the row
                 row.appendChild(nameCell);
