@@ -20,6 +20,10 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 return;
             }
 
+            if (docs.length === 0) {
+                console.warn("No <docs> elements found in XML.");
+            }
+
             docs.forEach((doc, index) => {
                 const path = doc.getAttribute("path");
                 const name = doc.getAttribute("name");
@@ -36,36 +40,23 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 // Add columns
                 const nameCell = document.createElement("td");
                 nameCell.textContent = name;
-                nameCell.classList.add("justify-content-center");
-                nameCell.classList.add("align-items-center");
-                nameCell.classList.add("d-flex");
 
                 const descriptionCell = document.createElement("td");
                 descriptionCell.textContent = description;
-                descriptionCell.classList.add("justify-content-center");
-                descriptionCell.classList.add("align-items-center");
-                descriptionCell.classList.add("d-flex");
 
                 const pathCell = document.createElement("td");
                 const button = document.createElement("a");
                 button.href = `https://docs.veillax.com/docs${path}`;
+                button.setAttribute('aria-label', `Open documentation for ${name}`);
+                button.classList.add("open-btn");
+
                 const buttonTextSpan = document.createElement('div');
                 buttonTextSpan.textContent = 'Open';
                 const iconSpan = document.createElement('span');
-                iconSpan.style.marginLeft = "5px"
                 iconSpan.classList.add('material-symbols-outlined');
                 iconSpan.textContent = 'open_in_new';
                 buttonTextSpan.appendChild(iconSpan);
                 button.appendChild(buttonTextSpan);
-                button.style.display = "inline-block";
-                button.style.padding = "8px 16px";
-                button.style.borderRadius = "5px";
-                button.style.backgroundColor = "rgb(19, 123, 87)";
-                button.style.color = "#FFF";
-                button.style.textDecoration = "none";
-                buttonTextSpan.style.display = "block";
-                buttonTextSpan.style.marginLeft = "auto";
-                buttonTextSpan.style.marginRight = "auto";
                 pathCell.appendChild(button);
 
                 // Append cells to the row
