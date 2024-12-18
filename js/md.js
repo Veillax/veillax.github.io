@@ -50,13 +50,11 @@ function loadSidebar() {
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
             const sidebar = document.getElementById('sidebar');
 
-            // Clear any existing content in the sidebar
             sidebar.innerHTML = '';
 
-            sidebar.style.paddingTop = '8px';
+            sidebar.style.paddingTop = '8px'; 
             sidebar.style.paddingLeft = '8px';
 
-            // Add "Back" link at the top
             const homeSpan = document.createElement('span');
             homeSpan.classList.add('align-items-center', 'd-flex');
             homeSpan.style.paddingBottom = "8px";
