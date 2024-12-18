@@ -4,10 +4,34 @@
 }
 
 .dark {
-    background-color: #17141F !important;
-    color: #ADB5BD !important;
+    background-color: rgb(43, 43, 62) !important;
+    color: #fff !important;
 }
 
 .footer {
     background-color: rgba(0, 0, 0, 0.2)
+}
+
+body {
+    color: #fff; /* White text for contrast */
+    margin: 0;
+  }
+
+#contents {
+    max-width: 900px; /* Majority width */
+    margin: 50px auto; /* Centered horizontally and with spacing above/below */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#docs-table {
+    width: 100%; /* Take full width of the container */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* For clean corner visuals */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(35, 36, 51); /* Row borders in darker color */
 }
