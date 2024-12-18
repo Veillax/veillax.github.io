@@ -56,7 +56,9 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 button.style.backgroundColor = "rgb(19, 123, 87)";
                 button.style.color = "#FFF";
                 button.style.textDecoration = "none";
-                button.class = "justify-content-center align-items-center d-flex";
+                button.classList.add("justify-content-center");
+                button.classList.add("align-items-center");
+                button.classList.add("d-flex");
                 pathCell.appendChild(button);
 
                 // Append cells to the row
