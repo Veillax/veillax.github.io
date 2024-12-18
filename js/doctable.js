@@ -43,7 +43,7 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 const pathCell = document.createElement("td");
                 const button = document.createElement("a");
                 button.href = `https://docs.veillax.com/docs${path}`;
-                const buttonTextSpan = document.createElement('span');
+                const buttonTextSpan = document.createElement('div');
                 buttonTextSpan.textContent = 'Open ';
                 const iconSpan = document.createElement('span');
                 iconSpan.classList.add('material-symbols-outlined');
@@ -56,9 +56,12 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 button.style.backgroundColor = "rgb(19, 123, 87)";
                 button.style.color = "#FFF";
                 button.style.textDecoration = "none";
-                button.classList.add("justify-content-center");
-                button.classList.add("align-items-center");
-                button.classList.add("d-flex");
+                buttonTextSpan.classList.add("justify-content-center");
+                buttonTextSpan.classList.add("align-items-center");
+                buttonTextSpan.classList.add("d-flex");
+                buttonTextSpan.style.display = "block";
+                buttonTextSpan.style.marginLeft = "auto";
+                buttonTextSpan.style.marginRight = "auto";
                 pathCell.appendChild(button);
 
                 // Append cells to the row
