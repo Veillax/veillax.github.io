@@ -3,7 +3,8 @@
     <section path="/index" name="ArtifactsMMO Wrapper">
         <file path="/artifactsapi" name="Artifacts API"/>
         <file path="/exceptions" name="Exceptions"/>
+        <file path="/subclasses" name="Subclasses"/>
+        <file path="/game_data_classes" name="Dataclasses"/>
         <file path="/helpers" name="Helpers"/>
-        <file path="/tools" name="Tools"/>
     </section>
 </filetree>
