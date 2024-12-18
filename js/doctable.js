@@ -57,9 +57,12 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 button.style.backgroundColor = "rgb(19, 123, 87)";
                 button.style.color = "#FFF";
                 button.style.textDecoration = "none";
-                buttonTextSpan.classList.add("justify-content-center");
-                buttonTextSpan.classList.add("align-items-center");
-                buttonTextSpan.classList.add("d-flex");
+                nameCell.classList.add("justify-content-center");
+                nameCell.classList.add("align-items-center");
+                nameCell.classList.add("d-flex");
+                descriptionCell.classList.add("justify-content-center");
+                descriptionCell.classList.add("align-items-center");
+                descriptionCell.classList.add("d-flex");
                 buttonTextSpan.style.display = "block";
                 buttonTextSpan.style.marginLeft = "auto";
                 buttonTextSpan.style.marginRight = "auto";
