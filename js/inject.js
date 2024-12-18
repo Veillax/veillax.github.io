@@ -65,7 +65,19 @@
       document.body.appendChild(highlightAllScript);
     };
 
+    // Prism JS
+    const prismJS = document.createElement('script');
+    prismJS.src = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js'; 
 
+    // Prism Autoloader
+    const prismAutoloader = document.createElement('script');
+    prismAutoloader.src = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js';
+
+    // Prisim CSS
+    const prismCSS = document.createElement('link');
+    prismCSS.rel = 'stylesheet';
+    prismCSS.href = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css'; 
+  
     document.head.appendChild(bootstrapLink);
     document.head.appendChild(bootswatchLink);
     document.head.appendChild(scrollbarLink);
@@ -81,6 +93,12 @@
     document.head.appendChild(viewportMeta);
     document.head.appendChild(highlightCSS);
     document.head.appendChild(highlightJS);
+
+    // Prisim
+    document.head.appendChild(prismJS);
+    document.head.appendChild(prismAutoloader);
+    document.head.appendChild(prismCSS);
+
 
     var footer = document.getElementById('footer-div');
     footer.innerHTML = `<footer id="footer" class="bg-dark text-center "><!-- Grid container --><div class="container p-4"></div><div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">Made with ♥ by Veillax</a></div></footer>`
