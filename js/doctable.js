@@ -36,9 +36,15 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 // Add columns
                 const nameCell = document.createElement("td");
                 nameCell.textContent = name;
+                nameCell.classList.add("justify-content-center");
+                nameCell.classList.add("align-items-center");
+                nameCell.classList.add("d-flex");
 
                 const descriptionCell = document.createElement("td");
                 descriptionCell.textContent = description;
+                descriptionCell.classList.add("justify-content-center");
+                descriptionCell.classList.add("align-items-center");
+                descriptionCell.classList.add("d-flex");
 
                 const pathCell = document.createElement("td");
                 const button = document.createElement("a");
@@ -57,12 +63,6 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 button.style.backgroundColor = "rgb(19, 123, 87)";
                 button.style.color = "#FFF";
                 button.style.textDecoration = "none";
-                nameCell.classList.add("justify-content-center");
-                nameCell.classList.add("align-items-center");
-                nameCell.classList.add("d-flex");
-                descriptionCell.classList.add("justify-content-center");
-                descriptionCell.classList.add("align-items-center");
-                descriptionCell.classList.add("d-flex");
                 buttonTextSpan.style.display = "block";
                 buttonTextSpan.style.marginLeft = "auto";
                 buttonTextSpan.style.marginRight = "auto";
