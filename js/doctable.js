@@ -11,7 +11,7 @@ function loadTableFromXml(xmlPath, tableElementId) {
         .then(xmlString => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
-            const docs = xmlDoc.querySelectorAll("docs");
+            const docs = xmlDoc.querySelectorAll("doc");
 
             const tbody = table.querySelector("tbody");
 

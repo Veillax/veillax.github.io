@@ -1,242 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ArtifactsMMO Wrapper | Home</title>
+    </head>
+    <body data-bs-theme="dark">  
 
-<head>
-  <title>Canvas Spreadsheet Integration | Veillax Docs</title>
-  <meta charset="utf-8">
-  <meta name="description"
-    content="CSI (Canvas Spreadsheet Integration) is a custom script designed for seamlessly retrieving Canvas data automatically. Initially developed to create an organized checklist for assignments and facilitate comprehensive tracking of due dates, CSI has evolved into a robust tool.">
-  <meta property="og:title" content="Canvas Spreadsheet Integration | Veillax Docs">
-  <meta property="og:url" content="https://docs.veillax.com/docs/canvas-spreadsheet-integration">
-  <link rel="stylesheet" href="https://docs.veillax.com/css/scrollbar.css">
-  <link rel="stylesheet" href="https://docs.veillax.com/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://bootswatch.com/5/pulse/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-  <meta name="author" content="Veillax">
-  <meta content="website">
-  <meta content="veillax.com">
-  <meta content="Now on https://veillax.com!">
-  <link rel="icon" href="https://docs.veillax.com/img/favicon.ico">
-  <link rel="apple-touch-icon" href="https://docs.veillax.com/img/apple-touch-icon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+        <!-- Sidebar Section -->
+        <div class="sidebar" id="sidebar"></div>
 
-<body data-bs-theme="dark">
-  <div id="navbar-div">
-    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="https://www.veillax.com/" rel="preload"><img alt="Logo"
-            src="https://raw.githubusercontent.com/Veillax/veillax.github.io/main/img/1683420300-32.ico"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
-          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.veillax.com/" rel="preload">Home
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="https://docs.veillax.com/" rel="preload">Docs</a>
-              <span class="visually-hidden">(current)</span>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.veillax.com/about.html" rel="preload">About</a>
-            </li>
-          </ul>
-
+        <!-- Main Content Section -->
+        <div class="main">
+            <div id="content">Loading...</div>
         </div>
-      </div>
-    </nav>
-    <br>
-  </div>
-  <div class="alert alert-dismissible alert-warning">
-    <h4 class="alert-heading">Warning!</h4>
-    <p class="mb-0">This service is in a closed beta program!</p>
-  </div>
-  <div id="contents" class="container align-items-center justify-content-center">
-    <br><br>
-    <p>
-      <center>
-        <h1>Canvas Spreadsheet Integration</h1>
-        <h4>Documentation</h4>
-        <br>
-        <hr><br>
-        <h3>What is CSI?</h3>
-      </center>
-      <br>
-      CSI (Canvas Spreadsheet Integration) is a custom script designed for seamlessly retrieving <a rel="noopener"
-      href="https://www.instructure.com/canvas" target="_blank">Canvas</a> data automatically. Initially developed to
-      create an organized checklist for assignments and facilitate comprehensive tracking of due dates, CSI has evolved
-      into a robust tool.
-      <br><br>
-      The script automates the retrieval and update of course-related information from the <a
-        href="https://canvas.instructure.com/doc/api/">Canvas API</a>, seamlessly integrating it into a Google
-      Spreadsheet. It efficiently categorizes data into distinct sheets for each course, implements conditional
-      formatting, and improves visual comprehension through alternating row colors. Primarily tailored for individuals
-      enrolled in Canvas courses, CSI offers an efficient solution for managing and monitoring assignments, ensuring a
-      hassle-free approach to staying on top of due dates and course-related details.
-      <br><br>
-      This project is available on <a href="https://github.com/veillax1354/CSI" rel="preload">Github</a>, for free, for
-      everyone. This work © 2024 by Veillax is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit <a
-        href="http://creativecommons.org/licenses/by-nc-sa/4.0/" rel="preload">http://creativecommons.org/licenses/by-nc-sa/4.0/ </a>
-      <br>
-      You can view the code here: <a
-        href="https://script.google.com/home/projects/1pmcO3Y9mfHMS7cXRm9w8ePhAy7sbKyXbEhUf3HVJpYpYvCE38EQ0V80K" rel="preload">https://script.google.com/home/projects/1pmcO3Y9mfHMS7cXRm9w8ePhAy7sbKyXbEhUf3HVJpYpYvCE38EQ0V80K</a>
-      <br><br><br>
-      <center>
-        <h3>How does CSI work?</h3>
-      </center>
-      <br>
-      CSI utilizes Canvas’s <a href="https://en.wikipedia.org/wiki/API" rel="preload">API</a> to retrieve course and assignment data
-      through an Access Token, a distinctive key associated with your personal account. Subsequently, leveraging Google
-      Apps Scripts, it systematically transfers the acquired data to a spreadsheet, facilitating a streamlined
-      presentation of due assignments specific to each course.
-      <br><br><br><br>
-      <center>
-        <h3>How do I use CSI?</h3>
-      </center>
-      <br>
-      To get started with CSI, navigate to Google Sheets and create a new <strong><a
-          href="https://docs.google.com/spreadsheets/u/0/create?usp=CSIths=true" rel="preload">Blank Spreadsheet</a></strong>. Next,
-      click on <code>Extensions > Apps Script</code>
-      <br>
-      <img src="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI.png" alt="">
-      <br><br>
-      After it loads, locate <code>Libraries</code>, then click on the plus
-      <img src="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI2.png" alt="">
-      <br><br>
-      Copy the following into the <code>Script ID</code> slot:
-      <br>
-      <pre class="cb-contents"><code>  1pmcO3Y9mfHMS7cXRm9w8ePhAy7sbKyXbEhUf3HVJpYpYvCE38EQ0V80K</code></pre>
-      <br>
 
-    Then click <code>Look Up</code>
-    <br>
-    Once the App Script has found the library, then click
-    <code>Add</code> to add the library.
-    <br><br>
-    Next, hit <code>CTRL/⌘ + A</code>, then <code>Delete</code> to remove the previous code. After that, copy this code
-    into the empty file:
-    <br><br>
-    <pre class="cb-contents"><code>  function refresh() {
-    var accessToken = "your_canvas_token";
-    var namespace = "your_canvas_namespace";
-    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
-    CSI.run(accessToken, spreadsheet, namespace);
-    }</code></pre><br>
-    Make sure to replace <code>"your_canvas_token"</code> and <code>"your_canvas_namespace"</code> with your canvas
-    access token and namespace
-    After that, the code should look something like this:
-    <small>(the values for <code>accessToken</code> and <code>namespace</code> are examples and should not be used, as
-      they are not legitimate values)</small>
-    <br><br>
-      <pre class="cb-contents language-javascript"><code> var accessToken = "2108~un4dJHswdqOfGvlZMZihCGStTeSXmh4UwjKVBKSDa3UvcsnSw2pK85i3pqyV55s"
-  var namespace = "school"
-  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet()
-  CSI.run(accessToken, spreadsheet, namespace)</code></pre><br>
-    
-    This code assumes your canvas url is <code>namespace.instructure.com</code>. If your school uses a different url, such as <code>online.smc.edu</code><br>
+        <!-- Footer Section -->
+        <div id="footer-div"></div> 
 
-    <br><br>
-    If you aren’t sure what to do here, view <a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/#:~:text=then%20click%20Save-,How%20to%20get%20an%20Access%20Token,-All%20registered%20students" rel="preload">How to get an Access Token</a> and <a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/#:~:text=the%20Canvas%20Guides.-,How%20to%20find%20your%20Canvas%20Namespace,-In%20Canvas%2C%20a" rel="preload">How to find your Canvas Namespace</a> below.
-    Finally
-    Finally, click save (either the little floppy disk icon in the toolbar or <code>CTRL/⌘ + S</code>), then click
-    <code>Run</code><br>
-    If you get a page asking for permissions, click <code>Review Permissions</code>, then click <code>Advanced</code>, then <code>Proceed to Untitled Project(unsafe)</code>. Finally, click <code>Allow</code> <br>
-    The tool should now automatically get the assignments, pages, quizzes and other associated data from Canvas and put
-    it all into the spreadsheet for you.<br>
-    <img src="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI3.png" alt=""><br><br>
-    If you want it to be more accurate, you can turn on Time-Driven Updates.
-    <br><br><br>
-    <center>
-      <h3>How to enable Time-Driven Updates</h3>
-    </center>
-    In the left sidebar, click on <code>Triggers</code><br>
-    <img src="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI4.png" alt="">
-    <br><br>
-    Now, in the bottom right corner, click on <code>Add Trigger</code>
-    Set the event source to <code>Time Driven</code>, and leave the type and interval set to default values, then click
-    <code>Save</code><br>
-    <img src="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI5.png" alt="">
-    <br><br><br><br>
-    <center>
-      <h3>How to get an Access Token</h3>
-    </center>
-    <br>
-    All registered students, faculty, TAs, and staff are able to access the Canvas API simply by virtue of having a
-    Canvas account. The types of data you’re able to access through the API depend on your role in Canvas. As a student,
-    you have the same permissions when accessing Canvas through the API as you do when using the Canvas website — that
-    means you can access things like your class schedule, due dates, and discussion posts, as well as your own grades
-    and assignment submissions.
-    <br><br><br>
-    <center>
-      <h4>Generate your Canvas access token</h4>
-    </center><br>
-    Accessing the Canvas API requires a token, which you can think of as your username and password squished into one
-    long random string. Anything you can do in Canvas can be done by someone else if they have your token, so don’t
-    share your token with anyone else (or ask others to share their token with you)!
-    <br><br>
-    Follow these steps to generate your personal access token.
-    <br><br>
-    1. Log into Canvas. Click <code>Account</code> in the left menu, and then click <code>Settings</code>.
-    <br><br>
-    <img src="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI6.png" alt="">
-    <br><br>
-    2. Scroll to <code>Approved Integration</code> and click <code>New Access Token</code>.
-    <br><br>
-    <img src="https://docs.veillax.com/docs/canvas-spreadsheet-integration/img/CSI7.png" alt="">
-    <br><br>
-    3. Fill in the <code>Purpose</code> field.
-    <br><br>
-    4. Click <code>Generate Token</code>. Now copy your freshly generated token and save it somewhere secure.
-    <br><br>
-    One last reminder to never share your token with anyone. If you think your token may have been exposed (for example,
-    by accidentally posting it to GitHub), delete your token from Canvas right away. Instructions for creating and
-    deleting access tokens as a student are available on the Canvas Guides.
-    <br><br><br>
-    <center>
-      <h4>How to find your Canvas Namespace</h4>
-    </center><br>
-    In Canvas, a namespace is like the unique identifier or label for your institution or school within the Canvas
-    system. It is the initial part of the web address that specifies where your Canvas account is hosted.
-    <br><br>
-    For example, in the URL <code>https://schoolname.instructure.com/courses/123456/modules</code>,
-    <code>schoolname</code> is the Canvas namespace. It distinguishes your Canvas instance from others, allowing tools
-    like CSI to precisely connect to and retrieve data from your specific Canvas account.
-    <br><br>
-    Think of the Canvas namespace as the digital address that ensures any data requests or interactions are directed to
-    the correct school or institution within the broader Canvas platform. Understanding and correctly using your Canvas
-    namespace is crucial for accurate and secure integration with external tools and scripts like CSI.
-    <br><br>
-    How to Find Your Canvas Namespace<br>
-    1. Log into Canvas: Visit the Canvas website and log in with your username and password.<br>
-    2. Select a Course: Click on one of your courses to enter the course page.<br>
-    3. Check the Web Address: Look at the web address in your browser's address bar.<br>
-    4. Identify the Start of the Address: Find the part right at the beginning of the address, before
-    <code>.instructure.com</code>.<br>
-    5. Write Down the Namespace: Take note of the letters or words you see at the beginning of the address. This is your
-    Canvas namespace.<br>
+        <!-- Include Showdown JS for Markdown to HTML conversion -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
 
-    </p>
-  </div>
-  <div id="footer-div">
-    <footer id="footer" class="bg-dark text-center ">
-      <!-- Grid container -->
-      <div class="container p-4">
-      </div>
-      <div class="text-center p-3">
-        <a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/privacy-policy.txt" rel="preload">Privacy Policy</a> - Made with ♥ by Veillax - <a
-          href="https://docs.veillax.com/docs/canvas-spreadsheet-integration/terms-of-service.txt" rel="preload">Terms Of Service</a>
-      </div>
-    </footer>
-  </div>
-  <script type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-  </body>
+        <!-- Include Custom JS Scripts -->
+        <script src="https://docs.veillax.com/js/md.js"></script> 
+        <script src="https://docs.veillax.com/js/inject.js"></script> 
 
+        <script>
+            const baseUrl = "https://docs.veillax.com/docs/canvas-spreadsheet-integration";
+
+            loadSidebar(baseUrl);
+
+            renderFileToHtml(baseUrl, 'md/index', 'content');
+        </script>
+
+    </body>
 </html>

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <doclist>
-    <docs path="/artifactsmmo-wrapper" name="ArtifactsMMO Wrapper">
+    <doc path="/artifactsmmo-wrapper" name="ArtifactsMMO Wrapper">
         <description>
             A Python API Wrapper for ArtifactsMMO
         </description>
-    </docs>
+    </doc>
+    <doc path="/canvas-spreadsheet-integration" name="Canvas Spreadsheet Integration">
+        <description>
+            A Python API Wrapper for ArtifactsMMO
+        </description>
+    </doc>
 </doclist>
