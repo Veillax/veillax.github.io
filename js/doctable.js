@@ -43,7 +43,13 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 const pathCell = document.createElement("td");
                 const button = document.createElement("a");
                 button.href = `https://docs.veillax.com/docs${path}`;
-                button.textContent = "Go to Path";
+                const buttonTextSpan = document.createElement('span');
+                buttonTextSpan.textContent = 'Open ';
+                const iconSpan = document.createElement('span');
+                iconSpan.classList.add('material-symbols-outlined');
+                iconSpan.textContent = 'open_in_new';
+                buttonTextSpan.appendChild(iconSpan);
+                button.appendChild(buttonTextSpan);
                 button.style.display = "inline-block";
                 button.style.padding = "8px 16px";
                 button.style.borderRadius = "5px";

@@ -19,6 +19,10 @@
     bootswatchLink.rel = 'stylesheet';
     bootswatchLink.href = "https://bootswatch.com/5/pulse/bootstrap.min.css";
 
+    var gmiLink = document.createElement('link');
+    gmiLink.rel = 'stylesheet';
+    gmiLink.href = 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0';
+
     var authorMeta = document.createElement('meta');
     authorMeta.name = 'author';
     authorMeta.content = 'Veillax';
@@ -52,6 +56,7 @@
     document.head.appendChild(scrollbarLink);
     document.head.appendChild(styleLink);
     document.head.appendChild(docsstyleLink);
+    document.head.appendChild(gmiLink);
     document.head.appendChild(authorMeta);
     document.head.appendChild(ogTypeMeta);
     document.head.appendChild(ogUrlMeta);
