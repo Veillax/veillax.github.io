@@ -16,36 +16,28 @@ body {
     background-color: rgb(43, 43, 62); /* Lighter background */
     color: #fff; /* White text for contrast */
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+  }
 
 #contents {
     max-width: 900px; /* Majority width */
-    width: 90%; /* Ensure it doesn't overflow */
     margin: 50px auto; /* Centered horizontally and with spacing above/below */
     padding: 20px;
     background-color: rgb(35, 36, 51); /* Darker background for central box */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    text-align: center; /* Center all contents */
 }
 
 #docs-table {
     width: 100%; /* Take full width of the container */
     background-color: rgb(43, 43, 62); /* Lighter background for the table */
-    border-collapse: collapse; /* Ensure clean borders between rows */
     border-radius: 8px; /* Rounded corners */
     overflow: hidden; /* For clean corner visuals */
 }
 
 th, td {
     padding: 10px;
-    text-align: center; /* Center each cell's content */
-    border: 1px solid rgb(35, 36, 51); /* Row borders in darker color */
-    vertical-align: middle; /* Align content vertically */
+    text-align: left;
+    border-bottom: 1px solid rgb(35, 36, 51); /* Row borders in darker color */
 }
 
 tr:nth-child(odd) {
@@ -70,29 +62,8 @@ button, a {
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: inline-block;
 }
 
 button:hover, a:hover {
     background-color: rgb(17, 111, 79); /* Slightly darker accent on hover */
-}
-
-/* Navbar Overrides */
-.navbar, .navbar-nav .nav-link {
-    background-color: rgb(35, 36, 51) !important;
-    color: #fff !important;
-}
-
-.navbar-nav .nav-link.active {
-    background-color: rgb(20, 130, 92) !important;
-    color: #fff !important;
-}
-
-.navbar-toggler-icon {
-    background-color: #fff !important; /* Visible toggler for dark background */
-}
-
-.table-hover tbody tr:hover td {
-    background-color: rgb(20, 130, 92) !important;
-    color: #fff !important;
 }
