@@ -46,7 +46,7 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 const buttonTextSpan = document.createElement('div');
                 buttonTextSpan.textContent = 'Open';
                 const iconSpan = document.createElement('span');
-                iconSpan.style.marginLeft = "3px"
+                iconSpan.style.marginLeft = "5px"
                 iconSpan.classList.add('material-symbols-outlined');
                 iconSpan.textContent = 'open_in_new';
                 buttonTextSpan.appendChild(iconSpan);
