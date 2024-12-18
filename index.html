@@ -38,19 +38,20 @@
       </div>
     </nav>
   </div>
+
   <div id="contents" class="container align-items-center justify-content-center">
-    <br>
-    <center>
-      <div class="card border-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">Project</div>
-        <div class="card-body">
-          <h4 class="card-title"><a href="https://docs.veillax.com/docs/canvas-spreadsheet-integration" rel="preload">Canvas Spreadsheet
-              Integration</a></h4>
-          <p class="card-text">A tool used to create a spreadsheet populated with data from Canvas by Instructure</p>
-        </div>
-      </div>
-    </center>
-    <script type="text/javascript" src="js/inject.js"></script>
+    <table id="docs-table">
+      <tbody>
+          <!-- Rows will be added dynamically here -->
+      </tbody>
+  </table>
+  
+  </div>
+  <script type="text/javascript" src="js/inject.js"></script>
+  <script type="text/javascript" src="js/doctable.js"></script>
+  <script>
+    loadTableFromXml('docs-table');
+  </script>
 </body>
 
 </html>
