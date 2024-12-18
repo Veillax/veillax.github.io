@@ -36,9 +36,16 @@ function loadTableFromXml(tableElementId) {
                 // Add columns
                 const nameCell = document.createElement("td");
                 nameCell.textContent = name;
+                // Apply styles to nameCell
+                nameCell.style.textAlign = "left";  // Left align text
+                nameCell.style.verticalAlign = "middle"; // Center vertically
 
                 const descriptionCell = document.createElement("td");
                 descriptionCell.textContent = description;
+                // Apply styles to descriptionCell
+                descriptionCell.style.textAlign = "center"; // Center text horizontally
+                descriptionCell.style.verticalAlign = "middle"; // Center vertically
+
 
                 const pathCell = document.createElement("td");
                 const button = document.createElement("a");
@@ -64,6 +71,9 @@ function loadTableFromXml(tableElementId) {
                 buttonTextSpan.classList.add("align-items-center");
                 buttonTextSpan.classList.add("d-flex");
                 pathCell.appendChild(button);
+                // Apply styles to pathCell
+                pathCell.style.textAlign = "right"; // Right align content
+                pathCell.style.verticalAlign = "middle"; // Center vertically
 
                 // Append cells to the row
                 row.appendChild(nameCell);
