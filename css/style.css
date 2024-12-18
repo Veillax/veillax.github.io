@@ -4,66 +4,11 @@
 }
 
 .dark {
-    background-color: rgb(43, 43, 62) !important;
-    color: #fff !important;
+    background-color: #17141F !important;
+    color: #ADB5BD !important;
 }
 
 .footer {
     background-color: rgba(0, 0, 0, 0.2)
 }
 
-body {
-    background-color: rgb(43, 43, 62); /* Lighter background */
-    color: #fff; /* White text for contrast */
-    margin: 0;
-  }
-
-#contents {
-    max-width: 900px; /* Majority width */
-    margin: 50px auto; /* Centered horizontally and with spacing above/below */
-    padding: 20px;
-    background-color: rgb(35, 36, 51); /* Darker background for central box */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-#docs-table {
-    width: 100%; /* Take full width of the container */
-    background-color: rgb(43, 43, 62); /* Lighter background for the table */
-    border-radius: 8px; /* Rounded corners */
-    overflow: hidden; /* For clean corner visuals */
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid rgb(35, 36, 51); /* Row borders in darker color */
-}
-
-tr:nth-child(odd) {
-    background-color: rgb(35, 36, 51); /* Zebra striping */
-}
-
-tr:nth-child(even) {
-    background-color: rgb(43, 43, 62); /* Zebra striping */
-}
-
-tr:hover {
-    background-color: rgb(20, 130, 92); /* Accent color on hover */
-    color: #fff; /* Ensure readability */
-}
-
-button, a {
-    background-color: rgb(20, 130, 92); /* Accent color */
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px; /* Rounded corners */
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover, a:hover {
-    background-color: rgb(17, 111, 79); /* Slightly darker accent on hover */
-}
