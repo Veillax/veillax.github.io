@@ -54,7 +54,7 @@
     // Create the link element for the CSS
     const highlightCSS = document.createElement('link');
     highlightCSS.rel = 'stylesheet';
-    highlightCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css';
+    highlightCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark-reasonable.min.css';
 
     const highlightJS = document.createElement('script');
     highlightJS.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
