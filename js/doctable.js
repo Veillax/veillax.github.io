@@ -43,7 +43,7 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 const pathCell = document.createElement("td");
                 const button = document.createElement("a");
                 button.href = `https://docs.veillax.com/docs${path}`;
-                const buttonTextSpan = document.createElement('div');
+                const buttonTextSpan = document.createElement('span');
                 buttonTextSpan.textContent = 'Open';
                 const iconSpan = document.createElement('span');
                 iconSpan.style.marginLeft = "5px"
