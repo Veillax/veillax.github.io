@@ -1,4 +1,5 @@
 (function () {
+    var injectionComment = document.createComment(" Code injected from js ");
     var scrollbarLink = document.createElement('link');
     scrollbarLink.rel = 'stylesheet';
     scrollbarLink.href = window.location.origin + '/css/scrollbar.css';
@@ -64,6 +65,7 @@
       document.body.appendChild(highlightAllScript);
     };
 
+
     document.head.appendChild(bootstrapLink);
     document.head.appendChild(bootswatchLink);
     document.head.appendChild(scrollbarLink);
@@ -81,12 +83,12 @@
     document.head.appendChild(highlightJS);
 
     var footer = document.getElementById('footer-div');
-    footer.innerHTML = `<footer id="footer" class="bg-dark text-center "><!-- Grid container --><div class="container p-4"></div><div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">Made with ♥ by Veillax</a></div></footer>
-    `
+    footer.innerHTML = `<footer id="footer" class="bg-dark text-center "><!-- Grid container --><div class="container p-4"></div><div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">Made with ♥ by Veillax</a></div></footer>`
 
     var bootstrapScript = document.createElement('script');
     bootstrapScript.type = 'text/javascript';
     bootstrapScript.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js";
 
+    document.body.appendChild(injectionComment);
     document.body.appendChild(bootstrapScript);
 })();

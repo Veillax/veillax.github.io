@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <filetree>
-    <file path="/index" name="CSI" header="true"/>
+    <section path="/index" name="CSI"></section>
 </filetree>

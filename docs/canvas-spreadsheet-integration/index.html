@@ -22,22 +22,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
 
         <!-- Include Custom JS Scripts -->
+        <!-- Include Custom JS Scripts -->
+        <script src="../../js/md.js"></script> 
+        <script src="../../js/inject.js"></script> 
+
         <script>
-            const origin = window.location.origin; 
-          
-            const mdScript = document.createElement('script');
-            mdScript.src = origin + '/js/md.js';
-            document.body.appendChild(mdScript);
-          
-            const injectScript = document.createElement('script');
-            injectScript.src = origin + '/js/inject.js';
-            document.body.appendChild(injectScript);
-            const baseUrl = "https://docs.veillax.com/docs/canvas-spreadsheet-integration";
-
-            loadSidebar(baseUrl);
-
-            renderFileToHtml(baseUrl, 'md/index', 'content');
-
+            loadSidebar();
+            renderFileToHtml('md/index', 'content');
         </script>
     </body>
 </html>

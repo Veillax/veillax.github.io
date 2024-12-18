@@ -30,10 +30,12 @@ a {
     display: block;
 }
 
-.sidebar a:hover {
-    color: #FFF;
+.sidebar a {
+    color: #f5f5f5 !important;
 }
-
+.sidebar a:hover {
+    color: #FFF !important;
+}
 /* Main content */
 .main {
     margin-left: 280px; /* Same as the width of the sidebar */

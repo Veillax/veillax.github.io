@@ -50,39 +50,78 @@ function loadSidebar() {
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
             const sidebar = document.getElementById('sidebar');
 
-            // Create containers for the header and links
-            const headerContainer = document.createElement('div');
-            headerContainer.classList.add('navbar-header');
-            sidebar.appendChild(headerContainer);
+            // Clear any existing content in the sidebar
+            sidebar.innerHTML = '';
 
-            const linkContainer = document.createElement('div');
-            linkContainer.classList.add('navbar-links');
-            sidebar.appendChild(linkContainer);
+            sidebar.style.paddingTop = '8px';
+            sidebar.style.paddingLeft = '8px';
 
-            const files = xmlDoc.querySelectorAll('file');
-            files.forEach((file, index) => {
-                const filePath = file.getAttribute('path');
-                const fileName = file.getAttribute('name');
-                const isHeader = file.getAttribute('header') === 'true';
+            // Add "Back" link at the top
+            const homeSpan = document.createElement('span');
+            homeSpan.classList.add('align-items-center', 'd-flex');
+            homeSpan.style.paddingBottom = "8px";
+            homeSpan.style.color = "#8b8b8b"
 
-                const link = document.createElement('a');
-                link.href = `${baseUrl}${filePath}.html`;
-                link.textContent = fileName;
+            const homeLink = document.createElement('a');
+            homeLink.href = window.location.origin;
+            homeLink.style.textDecoration = 'none';
+            
+            const iconSpan = document.createElement('span');
+            iconSpan.classList.add('material-symbols-outlined');
+            iconSpan.style.marginRight = '5px';
+            iconSpan.textContent = 'arrow_back_ios_new';
 
-                if (isHeader) {
-                    const header = document.createElement('h4');
+            const textSpan = document.createElement('span');
+            textSpan.style.fontSize = '18px';
+            textSpan.textContent = 'Back';
+
+            homeSpan.appendChild(iconSpan);
+            homeSpan.appendChild(textSpan);
+            homeLink.appendChild(homeSpan);
+            sidebar.appendChild(homeLink);
+
+            // Process sections and their links
+            const sections = xmlDoc.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionPath = section.getAttribute('path');
+                const sectionName = section.getAttribute('name');
+
+                // Create a container for each section
+                const sectionContainer = document.createElement('div');
+                sectionContainer.classList.add('section-container');
+                sidebar.appendChild(sectionContainer);
+
+                // Create a header for the section
+                const header = document.createElement('h4');
+                if (sectionPath) {
                     const headerLink = document.createElement('a');
-                    headerLink.href = `${baseUrl}${filePath}.html`;
-                    headerLink.textContent = fileName;
+                    headerLink.href = `${baseUrl}${sectionPath}.html`;
+                    headerLink.textContent = sectionName;
                     header.appendChild(headerLink);
-                    headerContainer.appendChild(header);
                 } else {
-                    linkContainer.appendChild(link);
-
-                    if (index < files.length - 1) {
-                        linkContainer.appendChild(document.createElement("hr"));
-                    }
+                    header.textContent = sectionName;
                 }
+                sectionContainer.appendChild(header);
+
+                // Add files within the section
+                const files = section.querySelectorAll('file');
+                const linkContainer = document.createElement('div');
+                linkContainer.classList.add('navbar-links');
+                sectionContainer.appendChild(linkContainer);
+
+                files.forEach(file => {
+                    const filePath = file.getAttribute('path');
+                    const fileName = file.getAttribute('name');
+
+                    const link = document.createElement('a');
+                    link.href = `${baseUrl}${filePath}.html`;
+                    link.textContent = fileName;
+
+                    const linkItem = document.createElement('div');
+                    linkItem.classList.add('link-item');
+                    linkItem.appendChild(link);
+                    linkContainer.appendChild(linkItem);
+                });
             });
         })
         .catch(error => {
