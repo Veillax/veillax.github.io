@@ -38,7 +38,7 @@ function loadTableFromXml(tableElementId) {
                 nameCell.textContent = name;
                 nameCell.style.textAlign = "left"; 
                 nameCell.style.verticalAlign = "middle"; 
-                nameCell.style.width = "15%";
+                nameCell.style.width = "30%";
 
                 const descriptionCell = document.createElement("td");
                 descriptionCell.textContent = description;
@@ -49,7 +49,7 @@ function loadTableFromXml(tableElementId) {
                 const pathCell = document.createElement("td");
                 pathCell.style.textAlign = "right"; 
                 pathCell.style.verticalAlign = "middle"; 
-                pathCell.style.width = "25%"; 
+                pathCell.style.width = "10%"; 
                 const button = document.createElement("a");
                 button.href = `https://docs.veillax.com/docs${path}`;
                 const buttonTextSpan = document.createElement('span');

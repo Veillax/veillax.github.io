@@ -1,4 +1,4 @@
-# exceptions
+# Exceptions
 
 ## How to Use
 

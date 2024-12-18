@@ -22,15 +22,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
 
         <!-- Include Custom JS Scripts -->
-        <script src="https://docs.veillax.com/js/md.js"></script> 
-        <script src="https://docs.veillax.com/js/inject.js"></script> 
+        <script src="../../js/md.js"></script> 
+        <script src="../../js/inject.js"></script> 
 
         <script>
-            const baseUrl = "https://docs.veillax.com/docs/artifactsmmo-wrapper";
-
-            loadSidebar(baseUrl);
-
-            renderFileToHtml(baseUrl, 'md/artifactsapi', 'content');
+            loadSidebar();
+            renderFileToHtml('md/artifactsapi', 'content');
         </script>
 
     </body>

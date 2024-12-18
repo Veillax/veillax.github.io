@@ -1,4 +1,5 @@
-async function renderFileToHtml(baseUrl, filePath, targetElementId) {
+async function renderFileToHtml(filePath, targetElementId) {
+    const baseUrl = window.location.href.replace(/\/[^\/]*\.html$/, '').replace(/\/$/, ''); 
     const targetElement = document.getElementById(targetElementId);
 
     if (!targetElement) {
@@ -40,7 +41,8 @@ async function renderFileToHtml(baseUrl, filePath, targetElementId) {
 }
 
 
-function loadSidebar(baseUrl) {
+function loadSidebar() { 
+    const baseUrl = window.location.href.replace(/\/[^\/]*\.html$/, '').replace(/\/$/, ''); 
     fetch(`${baseUrl}/tree.xml`)
         .then(response => response.text())
         .then(xmlString => {

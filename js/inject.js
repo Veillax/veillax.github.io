@@ -1,15 +1,15 @@
 (function () {
     var scrollbarLink = document.createElement('link');
     scrollbarLink.rel = 'stylesheet';
-    scrollbarLink.href = 'https://docs.veillax.com/css/scrollbar.css';
+    scrollbarLink.href = window.location.origin + '/css/scrollbar.css';
 
     var styleLink = document.createElement('link');
     styleLink.rel = 'stylesheet';
-    styleLink.href = 'https://docs.veillax.com/css/style.css';
+    styleLink.href = window.location.origin + '/css/style.css';
 
     var docsstyleLink = document.createElement('link');
     docsstyleLink.rel = 'stylesheet';
-    docsstyleLink.href = 'https://docs.veillax.com/css/docs.css';
+    docsstyleLink.href = window.location.origin + '/css/docs.css';
 
     var bootstrapLink = document.createElement('link');
     bootstrapLink.rel = 'stylesheet';
@@ -41,15 +41,28 @@
 
     var iconLink = document.createElement('link');
     iconLink.rel = 'icon';
-    iconLink.href = 'https://docs.veillax.com/img/favicon.ico';
+    iconLink.href = window.location.origin + '/img/favicon.ico';
 
     var appleTouchIconLink = document.createElement('link');
     appleTouchIconLink.rel = 'apple-touch-icon';
-    appleTouchIconLink.href = 'https://docs.veillax.com/img/apple-touch-icon.png';
+    appleTouchIconLink.href = window.location.origin + '/img/apple-touch-icon.png';
 
     var viewportMeta = document.createElement('meta');
     viewportMeta.name = 'viewport';
     viewportMeta.content = 'width=device-width, initial-scale=1';
+
+    // Create the link element for the CSS
+    const highlightCSS = document.createElement('link');
+    highlightCSS.rel = 'stylesheet';
+    highlightCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css';
+
+    const highlightJS = document.createElement('script');
+    highlightJS.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
+    highlightJS.onload = function() { // Ensure hljs is defined
+      const highlightAllScript = document.createElement('script');
+      highlightAllScript.textContent = 'hljs.highlightAll();';
+      document.body.appendChild(highlightAllScript);
+    };
 
     document.head.appendChild(bootstrapLink);
     document.head.appendChild(bootswatchLink);
@@ -64,17 +77,11 @@
     document.head.appendChild(iconLink);
     document.head.appendChild(appleTouchIconLink);
     document.head.appendChild(viewportMeta);
+    document.head.appendChild(highlightCSS);
+    document.head.appendChild(highlightJS);
 
     var footer = document.getElementById('footer-div');
-    footer.innerHTML = `
-    <footer id="footer" class="bg-dark text-center ">
-    <!-- Grid container -->
-    <div class="container p-4">
-    </div>
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        Made with ♥ by Veillax</a>
-    </div>
-    </footer>
+    footer.innerHTML = `<footer id="footer" class="bg-dark text-center "><!-- Grid container --><div class="container p-4"></div><div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">Made with ♥ by Veillax</a></div></footer>
     `
 
     var bootstrapScript = document.createElement('script');

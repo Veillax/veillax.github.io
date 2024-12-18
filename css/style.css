@@ -18,7 +18,7 @@ body {
   }
 
 #contents {
-    max-width: 900px; /* Majority width */
+    max-width: 1200px; /* Majority width */
     margin: 50px auto; /* Centered horizontally and with spacing above/below */
     padding: 20px;
     border-radius: 10px;

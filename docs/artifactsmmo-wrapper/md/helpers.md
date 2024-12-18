@@ -1,8 +1,8 @@
-# cooldown
+# Helpers
 
 ## How to Use
 
-This module provides functionality for managing cooldowns in the Artifacts MMO API wrapper. It uses a `CooldownManager` class and a `with_cooldown` decorator to handle rate limits and prevent exceeding API request frequency.
+This module provides functionality for managing cooldowns in the Artifacts MMO API wrapper as well as providing other utilities. It uses a `CooldownManager` class and a `with_cooldown` decorator to handle rate limits and prevent exceeding API request frequency.
 
 ## Classes
 

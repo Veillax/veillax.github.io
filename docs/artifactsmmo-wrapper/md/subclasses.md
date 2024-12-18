@@ -1,4 +1,4 @@
-# subclasses
+# Subclasses
 
 ## How to Use
 
