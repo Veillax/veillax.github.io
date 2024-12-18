@@ -1,4 +1,4 @@
-function loadTableFromXml(xmlPath, tableElementId) {
+function loadTableFromXml(tableElementId) {
     const table = document.getElementById(tableElementId);
 
     if (!table) {
@@ -6,7 +6,7 @@ function loadTableFromXml(xmlPath, tableElementId) {
         return;
     }
 
-    fetch(xmlPath)
+    fetch("docs.xml")
         .then(response => response.text())
         .then(xmlString => {
             const parser = new DOMParser();
@@ -60,6 +60,9 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 buttonTextSpan.style.display = "block";
                 buttonTextSpan.style.marginLeft = "auto";
                 buttonTextSpan.style.marginRight = "auto";
+                buttonTextSpan.classList.add("justify-content-center");
+                buttonTextSpan.classList.add("align-items-center");
+                buttonTextSpan.classList.add("d-flex");
                 pathCell.appendChild(button);
 
                 // Append cells to the row
