@@ -44,8 +44,9 @@ function loadTableFromXml(xmlPath, tableElementId) {
                 const button = document.createElement("a");
                 button.href = `https://docs.veillax.com/docs${path}`;
                 const buttonTextSpan = document.createElement('div');
-                buttonTextSpan.textContent = 'Open ';
+                buttonTextSpan.textContent = 'Open';
                 const iconSpan = document.createElement('span');
+                iconSpan.style.marginLeft = "3px"
                 iconSpan.classList.add('material-symbols-outlined');
                 iconSpan.textContent = 'open_in_new';
                 buttonTextSpan.appendChild(iconSpan);
