@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <filetree>
     <section path="/index" name="ArtifactsMMO Wrapper">
+        <file path="/install" name="Installation"/>
+        <file path="/first_use" name="First Use"/>
+    </section>
+    <section name="Specifications">
         <file path="/artifactsapi" name="Artifacts API"/>
         <file path="/exceptions" name="Exceptions"/>
         <file path="/subclasses" name="Subclasses"/>

@@ -11,11 +11,12 @@ async function renderFileToHtml(filePath, targetElementId) {
         // Construct the full file URL
         const fileUrl = `${baseUrl}/${filePath}.md`;
 
-        // Fetch the file content from the URL
+        // Fetch the file content asynchronously
         const response = await fetch(fileUrl);
         if (!response.ok) {
             throw new Error(`Failed to fetch file: ${response.statusText}`);
         }
+
         const fileContent = await response.text();
 
         // Convert Markdown to HTML using Showdown
@@ -34,6 +35,8 @@ async function renderFileToHtml(filePath, targetElementId) {
                 image.classList.add('content-image');
             }
         });
+
+        
     } catch (error) {
         console.error('Error rendering file:', error.message);
         targetElement.textContent = 'Failed to load content.';
@@ -41,6 +44,7 @@ async function renderFileToHtml(filePath, targetElementId) {
 }
 
 
+// Function to load the sidebar dynamically
 function loadSidebar() { 
     const baseUrl = window.location.href.replace(/\/[^\/]*\.html$/, '').replace(/\/$/, ''); 
     fetch(`${baseUrl}/tree.xml`)
@@ -50,10 +54,19 @@ function loadSidebar() {
             const xmlDoc = parser.parseFromString(xmlString, "text/xml");
             const sidebar = document.getElementById('sidebar');
 
-            sidebar.innerHTML = '';
+            sidebar.innerHTML = ''; // Clear previous content
 
-            sidebar.style.paddingTop = '8px'; 
-            sidebar.style.paddingLeft = '8px';
+            // Create the toggle button dynamically
+            const toggleButton = document.createElement('button');
+            toggleButton.id = 'toggleButton';
+            toggleButton.classList.add('toggle-button');
+
+            const exSPANd = document.createElement('span');
+            exSPANd.classList.add('material-symbols-outlined');
+            exSPANd.textContent = 'menu';
+            toggleButton.appendChild(exSPANd);
+
+            sidebar.appendChild(toggleButton); 
 
             const homeSpan = document.createElement('span');
             homeSpan.classList.add('align-items-center', 'd-flex');
@@ -67,10 +80,11 @@ function loadSidebar() {
             const iconSpan = document.createElement('span');
             iconSpan.classList.add('material-symbols-outlined');
             iconSpan.style.marginRight = '5px';
-            iconSpan.textContent = 'arrow_back_ios_new';
+            iconSpan.style.marginLeft = '8px';
+            iconSpan.textContent = 'arrow_back';
 
             const textSpan = document.createElement('span');
-            textSpan.style.fontSize = '18px';
+            textSpan.style.fontSize = '12px';
             textSpan.textContent = 'Back';
 
             homeSpan.appendChild(iconSpan);
@@ -84,12 +98,10 @@ function loadSidebar() {
                 const sectionPath = section.getAttribute('path');
                 const sectionName = section.getAttribute('name');
 
-                // Create a container for each section
                 const sectionContainer = document.createElement('div');
                 sectionContainer.classList.add('section-container');
                 sidebar.appendChild(sectionContainer);
 
-                // Create a header for the section
                 const header = document.createElement('h4');
                 if (sectionPath) {
                     const headerLink = document.createElement('a');
@@ -99,9 +111,9 @@ function loadSidebar() {
                 } else {
                     header.textContent = sectionName;
                 }
+                header.style.marginLeft = "8px"
                 sectionContainer.appendChild(header);
 
-                // Add files within the section
                 const files = section.querySelectorAll('file');
                 const linkContainer = document.createElement('div');
                 linkContainer.classList.add('navbar-links');
@@ -120,9 +132,21 @@ function loadSidebar() {
                     linkItem.appendChild(link);
                     linkContainer.appendChild(linkItem);
                 });
+                // Event listener for the toggle button
+                document.getElementById('toggleButton').addEventListener('click', toggleSidebar);
+
             });
         })
         .catch(error => {
             console.error('Error loading sidebar:', error);
         });
+        
 }
+
+// Function to toggle the sidebar's collapse state
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('collapsed');
+}
+
+

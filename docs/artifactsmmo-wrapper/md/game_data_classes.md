@@ -175,7 +175,3 @@ This file defines a series of dataclasses that represent various entities and da
 - `has_item(item_code)`: Checks if the player has a specific item and returns its quantity.
 - `get_task_progress_percentage()`: Calculates the percentage of completion for the current task.
 - `__repr__()`: Returns a string representation of the player's core stats and skills.
-
-## Functions
-
-(No functions found in the provided code snippet)

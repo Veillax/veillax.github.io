@@ -1,6 +1,28 @@
+/* Sidebar button styles */
+.toggle-button {
+    position: absolute; /* Positioned absolutely within the sidebar */
+    top: 10px; /* Position from the top */
+    left: 10px; /* Initial position on the left */
+    background-color: transparent; /* No background */
+    border: none; /* No border */
+    padding: 10px; /* Some padding around the icon */
+    cursor: pointer; /* Indicate it's clickable */
+    z-index: 10; /* Ensure it's above other elements */
+    transition: left 0.3s ease; /* Smooth transition for moving the button */
+}
+
+/* Sidebar button behavior when sidebar is collapsed */
+.sidebar.collapsed .toggle-button {
+    left: 10px; /* Stay on the left when collapsed */
+}
+
+.sidebar .toggle-button {
+    left: 250px; /* Move to the right when not collapsed */
+}
+
 /* Basic styling for the sidebar */
 .sidebar {
-    width: 280px;
+    width: 300px;
     height: 100%;
     position: fixed;
     left: 0;
@@ -9,6 +31,52 @@
     padding-top: 20px;
     padding-left: 4px;
     background-color: #1f1b2a;
+    transition: width 0.3s, padding-left 0.3s, left 0.3s; 
+}
+
+/* Collapsed sidebar style */
+.sidebar.collapsed {
+    width: 60px; /* Smaller width when collapsed */
+    padding-left: 4px; /* Reduced padding */
+}
+
+/* Hide text when sidebar is collapsed */
+.sidebar.collapsed .navbar-header a,
+.sidebar.collapsed .navbar-links a,
+.sidebar.collapsed h4 { 
+    visibility: hidden; /* Hide text */
+}
+
+/* Collapsed sidebar show the expand button */
+.sidebar.collapsed .expand-button {
+    visibility: visible; /* Display expand button */
+    opacity: 1;
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Hide expand button when sidebar is not collapsed */
+.sidebar .expand-button {
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+}
+
+/* Styling for the expand button */
+.expand-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50%;
+}
+
+.expand-button:hover {
+    background-color: #444;
 }
 
 /* Style for links */
@@ -33,15 +101,17 @@ a {
 .sidebar a {
     color: #f5f5f5 !important;
 }
+
 .sidebar a:hover {
     color: #FFF !important;
 }
-/* Main content */
+
+/* Main content area adjustment for the sidebar */
 .main {
-    margin-left: 280px; /* Same as the width of the sidebar */
-    padding: 0px 10px;
-    margin-top: 10px;
-    max-width: 940px;
+    margin-left: calc(max(320px, 50vw - 360px)); /* Scales smoothly based on viewport width */
+    padding: 0px 15px;
+    margin-top: 30px;
+    max-width: 720px;
 }
 
 .navbar-header {
@@ -55,7 +125,7 @@ a {
 }
 
 /* Mobile responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1040px) {
     /* Sidebar adjustments */
     .sidebar {
         width: 100%;
@@ -68,7 +138,7 @@ a {
     /* Main content adjustments */
     .main {
         margin-left: 0;
-        padding: 10px;
+        padding: 15px;
         max-width: 100%;
     }
 
@@ -90,4 +160,15 @@ a {
 .content-image {
     max-width: 940px;
     width: 100%;
+}
+
+.sohov {
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show the element on hover */
+.sohov:hover {
+    opacity: 1;
+    visibility: visible;
 }

@@ -1,5 +1,4 @@
 (function () {
-    var injectionComment = document.createComment(" Code injected from js ");
     var scrollbarLink = document.createElement('link');
     scrollbarLink.rel = 'stylesheet';
     scrollbarLink.href = window.location.origin + '/css/scrollbar.css';
@@ -51,33 +50,17 @@
     var viewportMeta = document.createElement('meta');
     viewportMeta.name = 'viewport';
     viewportMeta.content = 'width=device-width, initial-scale=1';
-
-    // Create the link element for the CSS
-    const highlightCSS = document.createElement('link');
-    highlightCSS.rel = 'stylesheet';
-    highlightCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark-reasonable.min.css';
-
-    const highlightJS = document.createElement('script');
-    highlightJS.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
-    highlightJS.onload = function() { // Ensure hljs is defined
-      const highlightAllScript = document.createElement('script');
-      highlightAllScript.textContent = 'hljs.highlightAll();';
-      document.body.appendChild(highlightAllScript);
-    };
-
-    // Prism JS
-    const prismJS = document.createElement('script');
-    prismJS.src = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js'; 
-
-    // Prism Autoloader
-    const prismAutoloader = document.createElement('script');
-    prismAutoloader.src = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js';
-
-    // Prisim CSS
-    const prismCSS = document.createElement('link');
-    prismCSS.rel = 'stylesheet';
-    prismCSS.href = 'https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css'; 
   
+    const prismJSImport = document.createElement('div');
+    prismJSImport.innerHTML = `<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/show-language/prism-show-language.min.js"></script>`
+
+    const prismCSSImport = document.createElement('div');
+    prismCSSImport.innerHTML = `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">`
+
     document.head.appendChild(bootstrapLink);
     document.head.appendChild(bootswatchLink);
     document.head.appendChild(scrollbarLink);
@@ -91,13 +74,10 @@
     document.head.appendChild(iconLink);
     document.head.appendChild(appleTouchIconLink);
     document.head.appendChild(viewportMeta);
-    document.head.appendChild(highlightCSS);
-    document.head.appendChild(highlightJS);
+    document.head.appendChild(prismCSSImport);
+    document.head.appendChild(prismJSImport);
 
     // Prisim
-    document.head.appendChild(prismJS);
-    document.head.appendChild(prismAutoloader);
-    document.head.appendChild(prismCSS);
 
 
     var footer = document.getElementById('footer-div');
@@ -108,6 +88,10 @@
     bootstrapScript.type = 'text/javascript';
     bootstrapScript.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3/dist/js/bootstrap.bundle.min.js";
 
-    document.body.appendChild(injectionComment);
+    var popperScript = document.createElement('script');
+    popperScript.type = 'text/javascript';
+    popperScript.src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js";
+
     document.body.appendChild(bootstrapScript);
+    document.body.appendChild(popperScript);
 })();

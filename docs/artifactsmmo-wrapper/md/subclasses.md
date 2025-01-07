@@ -207,7 +207,3 @@ This file contains a collection of classes that interact with the Artifacts MMO 
 
 - `get_account_achievements(account, completed=None, achievement_type=None, page=1)`: Retrieve a list of achievements for a specific account with optional filters.
 - `get_account(account)`: Retrieve details for a specific account.
-
-## Functions
-
-(No functions found in the provided code snippet)
