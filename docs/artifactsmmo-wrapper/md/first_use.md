@@ -77,10 +77,60 @@ You can find more about api.char variable [here](/docs/artifactsmmo-wrapper/game
 
 Now, to get started with some actions:
 
+Actions are your character's way of interacting with the world, be it moving, gathering, withdrawing items from the banks
+
 First, let's try crafting an ash plank
 
 ```python
-api.actions.move(*api.content_maps.ash_tree) # Uses a content_map
-api.actions.gather()
-api.actions.move()
+api.actions.move(*api.content_maps.ash_tree) # Uses a dynamic content map
+
+# Ash plank requires 8 ash wood
+for _ in range(8):
+    api.actions.gather()
+api.actions.move(-2, -3) # Uses x/y coordinates
+api.actions.craft_item('ash_plank')s
 ```
+
+Now how about crafting a copper dagger?  
+
+```python
+api.actions.move(2, 0)
+
+# Copper dagger requires 6 Copper, each of which requires 8 copper ore
+for _ in range(48):
+    api.actions.gather()
+
+api.actions.move(1, 5)
+api.actions.craft_item("copper", 6)
+
+api.actions.move(2, 1)
+api.actions.craft_item("copper_dagger")
+```
+
+Now let's try equipping our dagger and fighting some chickens
+
+```python
+if api.char.weapon_slot:
+    api.actions.unequip_item('weapon_slot')
+
+api.actions.equip_item('copper_dagger', 'weapon_slot')\
+
+api.actions.move(0, 1)
+
+for _ in range(8):
+    api.actions.fight()
+```
+
+Great, now we've got some items and gold, let's put them in the bank to clear them for other characters to use
+
+```python
+api.actions.move(*api.content_maps.bank)
+for item in api.char.inventory:
+    api.actions.bank_deposit_item(item.code, item.quantity)
+
+if api.char.gold:
+    api.actions.bank_deposit_gold(api.char.gold)
+
+```
+
+Wonderful, now that we've got the basics down, let's try some multi-character actions in the next guide.
