@@ -3,6 +3,7 @@
     <section path="/index" name="ArtifactsMMO Wrapper">
         <file path="/install" name="Installation"/>
         <file path="/first_use" name="First Use"/>
+        <file path="/advanced_usage" name="Advanced Usage"/>
     </section>
     <section name="Specifications">
         <file path="/artifactsapi" name="Artifacts API"/>

@@ -1,37 +1,41 @@
+/* Define Flatly dark mode colors */
+:root {
+    --flatly-bg: #212529;        /* Darker main background */
+    --flatly-sidebar: #2b323a;    /* Slightly bluer sidebar */
+    --flatly-primary: #2C3E50;
+    --flatly-secondary: #95a5a6;
+    --flatly-success: #18BC9C;
+    --flatly-text: #ecf0f1;
+    --flatly-text-muted: #95a5a6;
+    --flatly-border: #2a2a3a;
+    --flatly-hover: #18BC9C;
+}
+
+/* Add to body */
+body {
+    background-color: var(--flatly-bg);
+    color: var(--flatly-text);
+    margin: 0;
+    padding: 0;
+}
+
 /* Sidebar button styles */
 .toggle-button {
-    position: absolute; /* Positioned absolutely within the sidebar */
-    top: 10px; /* Position from the top */
-    left: 10px; /* Initial position on the left */
-    background-color: transparent; /* No background */
-    border: none; /* No border */
-    padding: 10px; /* Some padding around the icon */
-    cursor: pointer; /* Indicate it's clickable */
-    z-index: 10; /* Ensure it's above other elements */
-    transition: left 0.3s ease; /* Smooth transition for moving the button */
-}
-
-/* Sidebar button behavior when sidebar is collapsed */
-.sidebar.collapsed .toggle-button {
-    left: 10px; /* Stay on the left when collapsed */
-}
-
-.sidebar .toggle-button {
-    left: 250px; /* Move to the right when not collapsed */
+    display: none;
 }
 
 /* Basic styling for the sidebar */
 .sidebar {
-    width: 300px;
-    height: 100%;
+    width: 280px;
+    height: 100vh;
     position: fixed;
     left: 0;
     top: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-    padding-left: 4px;
-    background-color: #1f1b2a;
-    transition: width 0.3s, padding-left 0.3s, left 0.3s; 
+    background-color: var(--flatly-sidebar);
+    border-right: 1px solid var(--flatly-border);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000;
 }
 
 /* Collapsed sidebar style */
@@ -66,8 +70,8 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #333;
-    color: white;
+    background-color: var(--flatly-success);
+    color: var(--flatly-text);
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -76,12 +80,23 @@
 }
 
 .expand-button:hover {
-    background-color: #444;
+    background-color: var(--flatly-hover);
 }
 
 /* Style for links */
 a {
     text-decoration: none;
+}
+
+.header_anchor {
+    color: var(--flatly-success);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.header_anchor:hover {
+    color: var(--flatly-hover);
+    opacity: 1;
 }
 
 .sidebar .navbar-header a {
@@ -92,26 +107,28 @@ a {
 }
 
 .sidebar .navbar-links a {
-    padding: 0px 0px 0px 16px;
+    padding: 0px 8px;
     font-size: 18px;
     color: #dfdfdf;
     display: block;
 }
 
 .sidebar a {
-    color: #f5f5f5 !important;
+    color: var(--flatly-text) !important;
 }
 
 .sidebar a:hover {
-    color: #FFF !important;
+    color: var(--flatly-hover) !important;
+    background-color: rgba(24, 188, 156, 0.1);
 }
 
 /* Main content area adjustment for the sidebar */
 .main {
-    margin-left: calc(max(320px, 50vw - 360px)); /* Scales smoothly based on viewport width */
-    padding: 0px 15px;
-    margin-top: 30px;
-    max-width: 720px;
+    margin-left: 300px;
+    padding: 2rem;
+    max-width: 900px;
+    min-height: 100vh;
+    position: relative;
 }
 
 .navbar-header {
@@ -126,34 +143,51 @@ a {
 
 /* Mobile responsiveness */
 @media screen and (max-width: 1040px) {
-    /* Sidebar adjustments */
     .sidebar {
         width: 100%;
         height: auto;
         position: relative;
-        padding-top: 15px;
-        padding-left: 10px;
+        padding: 15px;
+        border-right: none;
+        border-bottom: 1px solid var(--flatly-border);
     }
 
-    /* Main content adjustments */
     .main {
         margin-left: 0;
         padding: 15px;
-        max-width: 100%;
+        width: auto;
     }
 
-    /* Navbar header and links adjustments */
-    .navbar-header a,
+    /* Improve navigation on mobile */
+    .navbar-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
     .navbar-links a {
-        font-size: 16px;
+        padding: 8px 12px;
+        background-color: var(--flatly-primary);
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .navbar-links a:hover {
+        background-color: var(--flatly-success);
+        color: var(--flatly-text) !important;
     }
 }
 
-/* Extra small screen (phones in portrait mode) */
+/* Small screen optimizations */
 @media screen and (max-width: 480px) {
-    .navbar-header a,
+    .main {
+        padding: 10px;
+    }
+
     .navbar-links a {
-        font-size: 14px; /* Smaller font size on very small screens */
+        font-size: 13px;
+        padding: 6px 10px;
     }
 }
 
@@ -171,4 +205,22 @@ a {
 .sohov:hover {
     opacity: 1;
     visibility: visible;
+}
+
+/* Back to top button - moved to bottom */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--flatly-success);
+    color: var(--flatly-text);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.back-to-top:hover {
+    opacity: 1;
 }

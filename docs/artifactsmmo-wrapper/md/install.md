@@ -1,89 +1,103 @@
 # Installation
 
-It seems you've stumbled across this handy dandy python wrapper for [ArtifactsMMO](https://artifactsmmo.com/)  
-This guide teaches you how to install the wrapper across different Operating Systems.  
-If you already have it installed or know what you're doing, you can skip to the next part: [First Use](first_use.html)
+Welcome to the installation guide for the [ArtifactsMMO](https://artifactsmmo.com/) Python wrapper! This guide will help you get started with installing the wrapper on your system.
 
----
+> **Requirements**
+> - Python 3.9 or higher
+> - pip (Python package installer)
+> - Internet connection
 
-> **Disclaimer**  
-> This package does not support end-of-life (EOL) versions of Python.  
-> Make sure you are using a supported version of Python as per the [official Python release schedule](https://devguide.python.org/versions/).  
-> It is recommended to use the latest stable version of Python to ensure compatibility and receive security updates.
+## Quick Install
 
----
-
-## Windows
-
-This method assumes the use of the built-in Python installer for Windows.  
-Make sure Python and pip are installed and added to your system PATH.  
-
-##### Without a Virtual Environment
-
-```powershell
-# Download and install Python from https://www.python.org/
-# Make sure to check "Add Python to PATH" during installation.
-python -m pip install artifactsmmo-wrapper
-```
-
-##### With a Virtual Environment  
-
-```powershell
-# Download and install Python from https://www.python.org/
-# Make sure to check "Add Python to PATH" during installation.
-python -m venv venv
-.\venv\Scripts\activate
-python -m pip install artifactsmmo-wrapper
-```
-
-## Linux  
-
-This method uses `apt`.  
-For users on alternate Linux-based distributions or using other package managers, the process is similar.  
-If you are using a different distribution, you may not need the `sudo` prefix.  
-For package managers besides `apt`, the packages may be named differently. Make sure to search for the correct package before installation.  
-
-##### Without a Virtual Environment
-
+For experienced users, you can install directly using pip:
 ```bash
-sudo apt update
-sudo apt install python3 python3-pip
-pipx install artifactsmmo-wrapper --include-deps
+pip install artifactsmmo-wrapper
 ```
 
-##### With a Virtual Environment
+## Detailed Installation Guide
 
-```bash
-sudo apt update
-sudo apt install python3 python3-venv
-python3 -m venv venv
-source venv/bin/activate
-python3 -m pip install artifactsmmo-wrapper
+Choose your operating system below for detailed installation instructions:
+
+### Windows
+
+1. **Install Python**
+   - Download Python from [python.org](https://www.python.org/)
+   - During installation, check "Add Python to PATH"
+   - Verify installation: `python --version`
+
+2. **Install the Wrapper**
+
+   Without virtual environment:
+   ```powershell
+   python -m pip install artifactsmmo-wrapper
+   ```
+
+   With virtual environment (recommended):
+   ```powershell
+   python -m venv venv
+   .\venv\Scripts\activate
+   python -m pip install artifactsmmo-wrapper
+   ```
+
+### Linux
+
+1. **Install Python**
+   ```bash
+   sudo apt update
+   sudo apt install python3 python3-pip
+   ```
+
+2. **Install the Wrapper**
+
+   Without virtual environment:
+   ```bash
+   pipx install artifactsmmo-wrapper --include-deps
+   ```
+
+   With virtual environment (recommended):
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   python3 -m pip install artifactsmmo-wrapper
+   ```
+
+### macOS
+
+1. **Install Python**
+   ```bash
+   brew update
+   brew install python
+   ```
+
+2. **Install the Wrapper**
+
+   Without virtual environment:
+   ```bash
+   pipx install artifactsmmo-wrapper --include-deps
+   ```
+
+   With virtual environment (recommended):
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   python3 -m pip install artifactsmmo-wrapper
+   ```
+
+## Verifying Installation
+
+To verify the installation was successful:
+```python
+import artifactsmmo_wrapper
+print(artifactsmmo_wrapper.__version__)
 ```
 
-## macOS
+## Next Steps
 
-This method uses `brew`.  
-For users not using Homebrew, the process may differ depending on your package manager (e.g., MacPorts).  
-Make sure to verify the correct package names and installation steps for your specific setup.  
+Once you've completed the installation, proceed to the [First Use Guide](first_use.html) to get started with the wrapper.
 
-##### Without a Virtual Environment
+## Troubleshooting
 
-
-```bash
-brew update
-brew install python
-brew install pipx
-pipx install artifactsmmo-wrapper --include-deps
-```
-
-##### With a Virtual Environment
-
-
-```bash
-brew update
-brew install python
-python3 -m venv venv
-source venv/bin/activate
-python3 -m pip install artifactsmmo-wrapper
-```
+If you encounter any issues:
+1. Ensure Python is properly installed and in your PATH
+2. Check that pip is up to date: `python -m pip install --upgrade pip`
+3. Try installing with the `--verbose` flag: `pip install artifactsmmo-wrapper --verbose`

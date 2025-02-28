@@ -1,136 +1,182 @@
-# First Use
+# Getting Started Guide
 
-Wonderful. Now that you've successfully installed the wrapper, we can get started on first use.
+This guide will walk you through setting up and using the ArtifactsMMO wrapper for the first time.
 
-## Before We Begin
+## Prerequisites
 
-There's a few steps you must take before you begin.
+Before starting, ensure you have:
+- Installed the wrapper (see [Installation Guide](install.html))
+- An ArtifactsMMO account
+- A character in the game
 
-### New Player
+## Account Setup
 
-First, go to [https://artifactsmmo.com/account/create](https://artifactsmmo.com/account/create) and create an account. When you've done that, come back here.  
-Next, go ahead and create your first character (or 5, it doesn't affect anything in the rest of this guide) [on your account page](https://artifactsmmo.com/account)  
-All that is required for this guide is your token and the name of one of your characters, which can be found [on your account page](https://artifactsmmo.com/account)  
+### New Players
+1. [Create an account](https://artifactsmmo.com/account/create)
+2. [Create a character](https://artifactsmmo.com/account)
+3. Note down your API token from the account page
 
-### Returning Player
+### Existing Players
+- Locate your API token on the [account page](https://artifactsmmo.com/account)
 
-All that is required for this guide is your token and the name of one of your characters, which can be found [on your account page](https://artifactsmmo.com/account)  
-⚠️ ***It is not allowed to play with more than one account. All accounts involved in multi-accounting will be banned***  
+> ⚠️ **Security Warning**  
+> Never share your API token. It provides full access to your account and characters.
 
-## Setting up your environment
+## Project Setup
 
-Assuming you followed the Installation guide and the above instructions, here's the recommended way to get started with this package
+1. **Create Project Directory**
+   ```bash
+   mkdir mmo_project
+   cd mmo_project
+   ```
 
-1. Create a virtual environment  
-    This way, the packages you install and their dependencies won't conflict with other packages previously installed  
-    This can be done using `python -m venv venv`
+2. **Set Up Virtual Environment**
+   ```bash
+   python -m venv venv
+   # On Windows:
+   .\venv\Scripts\activate
+   # On Linux/macOS:
+   source venv/bin/activate
+   ```
 
-2. Install the following packages  
-    dotenv: `pip install python-dotenv`
+3. **Install Dependencies**
+   ```bash
+   pip install python-dotenv artifactsmmo-wrapper
+   ```
 
-3. Create a `main.py` file  
-    This is where our code will be
+## Basic Usage
 
-4. Create a `.env` file in the same directory as your `main.py` file  
-    This is where we will store out char name and account token  
-    ⚠️ ***Take caution with this file. Your token is basically your account's password, and with it, anyone can manipulate your characters.***
-    I recommend placing `.env` inside of the `.gitignore` file if you plan on releasing this project on github, even publicly  
-    These are the keys that will be used in this guide;
-      - MMO_TOKN
-      - MMO_CHAR
-
-## Getting Started with the wrapper
-
-First, as with any package, the imports
+### Initial Setup
 
 ```python
 import os
-import logging
-
-import artifactsmmo_wrapper as wrapper
+from artifactsmmo_wrapper import wrapper, logger
 from dotenv import load_dotenv
-```
 
-Next, we instance the wrapper using our token and character name
-
-```python
-wrapper.logger.setLevel(logging.DEBUG)
-
+# Load environment variables
 load_dotenv()
 
-token = os.getenv("MMO_TOKN")
-char = os.getenv("MMO_CHAR")
+# Set your API token
+wrapper.token = os.getenv("MMO_TOKN")
 
-api = wrapper.ArtifactsAPI(api_key=token, character_name=char)
+# Get API instance for your character
+api = wrapper.character(os.getenv("MMO_CHAR"))
+
+# Optional: Enable debug logging
+logger.setLevel("DEBUG")
 ```
 
-Now that we've instanced the wrapper for our character, we can start to retrieve character information.
-
+### Character Information
 ```python
-char = api.char
-print(char) # This prints the general character information, such as levels, name, etc.
-print(char.pos) # Prints an x/y coordinate pair for the character's currenrt position
-print(char.weapon_slot, char.shield_slot) # Prints the currently equiped weapon and shield name
+# Get character details
+character = api.char
+
+# Basic information
+print(character)  # Shows levels and XP for all skills
+
+# Position and equipment
+print(f"Position: {character.pos}")
+print(f"Equipment: {character.get_equipment_slots()}")
+
+# Inventory management
+print(f"Available space: {character.get_inventory_space()}")
+has_item, quantity = character.has_item("copper_ore")
+print(f"Copper ore in inventory: {quantity}")
 ```
 
-You can find more about api.char variable [here](/docs/artifactsmmo-wrapper/game_data_classes.html) under PlayerData
+### Basic Actions
 
-Now, to get started with some actions:
-
-Actions are your character's way of interacting with the world, be it moving, gathering, withdrawing items from the banks
-
-First, let's try crafting an ash plank
-
+#### Resource Gathering
 ```python
-api.actions.move(*api.content_maps.ash_tree) # Uses a dynamic content map
-
-# Ash plank requires 8 ash wood
+# Using content maps for locations
+api.actions.move(*api.content_maps.ash_tree)  # Move to nearest ash tree
 for _ in range(8):
     api.actions.gather()
-api.actions.move(-2, -3) # Uses x/y coordinates
-api.actions.craft_item('ash_plank')s
+
+api.actions.move(*api.content_maps.workshop)  # Move to workshop
+api.actions.craft_item('ash_plank')
 ```
 
-Now how about crafting a copper dagger?  
-
+#### Crafting Equipment
 ```python
-api.actions.move(2, 0)
-
-# Copper dagger requires 6 Copper, each of which requires 8 copper ore
+# The wrapper handles cooldowns automatically
+api.actions.move(*api.content_maps.copper_ore)
 for _ in range(48):
     api.actions.gather()
 
-api.actions.move(1, 5)
+api.actions.move(*api.content_maps.smelter)
 api.actions.craft_item("copper", 6)
 
-api.actions.move(2, 1)
+api.actions.move(*api.content_maps.anvil)
 api.actions.craft_item("copper_dagger")
 ```
 
-Now let's try equipping our dagger and fighting some chickens
-
+#### Combat
 ```python
+# Equipment management
 if api.char.weapon_slot:
     api.actions.unequip_item('weapon_slot')
+api.actions.equip_item('copper_dagger', 'weapon_slot')
 
-api.actions.equip_item('copper_dagger', 'weapon_slot')\
-
-api.actions.move(0, 1)
-
+# Combat with automatic cooldown handling
+api.actions.move(*api.content_maps.chicken)
 for _ in range(8):
     api.actions.fight()
 ```
 
-Great, now we've got some items and gold, let's put them in the bank to clear them for other characters to use
-
+#### Banking
 ```python
+# Banking with error handling
 api.actions.move(*api.content_maps.bank)
 for item in api.char.inventory:
-    api.actions.bank_deposit_item(item.code, item.quantity)
+    try:
+        api.actions.bank_deposit_item(item.code, item.quantity)
+    except wrapper.APIException.BankFull:
+        print("Bank is full!")
+        break
 
 if api.char.gold:
     api.actions.bank_deposit_gold(api.char.gold)
-
 ```
 
-Wonderful, now that we've got the basics down, let's try some multi-character actions in the next guide.
+## Multiple Characters
+
+The wrapper makes it easy to manage multiple characters:
+
+```python
+# Initialize different characters
+char1 = wrapper.character("Character1")
+char2 = wrapper.character("Character2")
+
+# Each instance maintains its own state
+char1.actions.gather()
+char2.actions.move(*char2.content_maps.bank)
+```
+
+## Automatic Features
+
+The wrapper includes several automatic features:
+- **Logging**: Creates and manages log files in the `logs/` directory
+- **Caching**: Maintains game data cache in the `db/` directory
+- **Cooldown Management**: Automatically handles action cooldowns
+- **Error Handling**: Provides specific exceptions for different scenarios
+
+### Error Handling Example
+```python
+try:
+    api.actions.gather()
+except wrapper.APIException.CharacterInCooldown:
+    print("Waiting for cooldown...")
+except wrapper.APIException.InventoryFull:
+    print("Inventory is full!")
+```
+
+## Next Steps
+
+For more advanced usage, including:
+- Task management
+- Grand Exchange interactions
+- Achievement tracking
+- Event monitoring
+
+Check out the [Advanced Usage Guide](advanced_usage.html) and [Game Data Classes](game_data_classes.html) reference.

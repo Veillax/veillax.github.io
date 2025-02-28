@@ -20,70 +20,63 @@ function loadTableFromXml(tableElementId) {
                 return;
             }
 
-            docs.forEach((doc, index) => {
+            docs.forEach((doc) => {
                 const disabled = doc.getAttribute("disbaled");
-                if (disabled) {} else {
-                    const path = doc.getAttribute("path");
-                    const name = doc.getAttribute("name");
-                    const description = doc.querySelector("description")?.textContent.trim() || "No description available";
+                if (disabled) return;
 
-                    // Create a new table row
-                    const row = document.createElement("tr");
+                const path = doc.getAttribute("path");
+                const name = doc.getAttribute("name");
+                const description = doc.querySelector("description")?.textContent.trim() || "No description available";
 
-                    row.classList.add("table-active");
+                // Create row
+                const row = document.createElement("tr");
 
-                    // Add columns
-                    const nameCell = document.createElement("td");
-                    nameCell.textContent = name;
-                    nameCell.style.textAlign = "left"; 
-                    nameCell.style.verticalAlign = "middle"; 
-                    nameCell.style.width = "30%";
+                // Name cell
+                const nameCell = document.createElement("td");
+                nameCell.textContent = name;
+                nameCell.className = "fw-medium"; // Bootstrap font-weight-medium
 
-                    const descriptionCell = document.createElement("td");
-                    descriptionCell.textContent = description;
-                    descriptionCell.style.textAlign = "left";
-                    descriptionCell.style.verticalAlign = "middle"; 
-                    descriptionCell.style.width = "60%";
+                // Description cell
+                const descriptionCell = document.createElement("td");
+                descriptionCell.textContent = description;
 
-                    const pathCell = document.createElement("td");
-                    pathCell.style.textAlign = "right"; 
-                    pathCell.style.verticalAlign = "middle"; 
-                    pathCell.style.width = "10%"; 
-                    const button = document.createElement("a");
-                    button.href = window.location.origin + `/docs${path}`;
-                    const buttonTextSpan = document.createElement('span');
-                    buttonTextSpan.textContent = 'Open';
-                    const iconSpan = document.createElement('span');
-                    iconSpan.style.marginLeft = "5px"
-                    iconSpan.classList.add('material-symbols-outlined');
-                    iconSpan.textContent = 'open_in_new';
-                    buttonTextSpan.appendChild(iconSpan);
-                    button.appendChild(buttonTextSpan);
-                    button.style.display = "inline-block";
-                    button.style.padding = "8px 16px";
-                    button.style.borderRadius = "5px";
-                    button.style.backgroundColor = "rgb(19, 123, 87)";
-                    button.style.color = "#FFF";
-                    button.style.textDecoration = "none";
-                    buttonTextSpan.style.display = "block";
-                    buttonTextSpan.style.marginLeft = "auto";
-                    buttonTextSpan.style.marginRight = "auto";
-                    buttonTextSpan.classList.add("justify-content-center");
-                    buttonTextSpan.classList.add("align-items-center");
-                    buttonTextSpan.classList.add("d-flex");
-                    pathCell.appendChild(button);
+                // Action cell
+                const actionCell = document.createElement("td");
+                actionCell.className = "text-end"; // Right align content
 
-                    // Append cells to the row
-                    row.appendChild(nameCell);
-                    row.appendChild(descriptionCell);
-                    row.appendChild(pathCell);
+                // Create button
+                const button = document.createElement("a");
+                button.href = window.location.origin + `/docs${path}`;
+                button.className = "btn btn-success btn-sm"; // Bootstrap button styling
+                button.innerHTML = `
+                    Open
+                    <span class="material-symbols-outlined ms-1" style="font-size: 1rem; vertical-align: middle;">
+                        open_in_new
+                    </span>
+                `;
 
-                    // Append the row to the table body
-                    tbody.appendChild(row);
-                }
+                actionCell.appendChild(button);
+
+                // Append cells
+                row.appendChild(nameCell);
+                row.appendChild(descriptionCell);
+                row.appendChild(actionCell);
+
+                // Append row
+                tbody.appendChild(row);
             });
         })
         .catch(error => {
             console.error("Error parsing XML or loading table:", error);
+            
+            // Add error message to table
+            const tbody = table.querySelector("tbody");
+            const errorRow = document.createElement("tr");
+            const errorCell = document.createElement("td");
+            errorCell.colSpan = 3;
+            errorCell.className = "text-center text-danger";
+            errorCell.textContent = "Failed to load documentation. Please try again later.";
+            errorRow.appendChild(errorCell);
+            tbody.appendChild(errorRow);
         });
 }

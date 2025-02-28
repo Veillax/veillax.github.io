@@ -1,5 +1,5 @@
 async function renderFileToHtml(filePath, targetElementId) {
-    const baseUrl = window.location.href.replace(/\/[^\/]*\.html$/, '').replace(/\/$/, ''); 
+    const baseUrl = window.location.href.replace(/\/[^\/]*\.html.*$/, '').replace(/\/$/, ''); 
     const targetElement = document.getElementById(targetElementId);
 
     if (!targetElement) {
@@ -8,10 +8,7 @@ async function renderFileToHtml(filePath, targetElementId) {
     }
 
     try {
-        // Construct the full file URL
         const fileUrl = `${baseUrl}/${filePath}.md`;
-
-        // Fetch the file content asynchronously
         const response = await fetch(fileUrl);
         if (!response.ok) {
             throw new Error(`Failed to fetch file: ${response.statusText}`);
@@ -19,23 +16,60 @@ async function renderFileToHtml(filePath, targetElementId) {
 
         const fileContent = await response.text();
 
-        // Convert Markdown to HTML using Showdown
-        const converter = new showdown.Converter();
-        const htmlContent = converter.makeHtml(fileContent);
+        // Configure Showdown with header link support
+        const converter = new showdown.Converter({
+            ghCompatibleHeaderId: true,
+            headerLevelStart: 1,
+            parseImgDimensions: true,
+            simplifiedAutoLink: true,
+            tables: true,
+            tasklists: true,
+            smoothLivePreview: true
+        });
 
-        // Render HTML content in the target element
+        const htmlContent = converter.makeHtml(fileContent);
         targetElement.innerHTML = htmlContent;
 
-        // Add the class "content-image" or "badge-image" to images after rendering
+        // Process images
         const images = targetElement.querySelectorAll('img');
         images.forEach(image => {
-            if (image.src.includes('img.shields.io')) {
-                image.classList.add('badge-image');
-            } else {
-                image.classList.add('content-image');
+            image.classList.add(
+                image.src.includes('img.shields.io') ? 'badge-image' : 'content-image'
+            );
+            image.loading = 'lazy';
+        });
+
+        // Add header links
+        const headers = targetElement.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        headers.forEach(header => {
+            if (header.id) {
+                const linkIcon = document.createElement('a');
+                linkIcon.className = 'header_anchor';
+                linkIcon.href = `#${header.id}`;
+                linkIcon.setAttribute('aria-label', 'Link to this section');
+                linkIcon.innerHTML = '<span class="material-symbols-outlined" style="font-variation-settings: \'FILL\' 0, \'wght\' 300, \'opsz\' 20;">tag</span>';
+                header.appendChild(linkIcon);
             }
         });
 
+        // Add language badges to code blocks
+        const codeBlocks = targetElement.querySelectorAll('pre code');
+        codeBlocks.forEach(codeBlock => {
+            const language = codeBlock.className.replace('language-', '');
+            if (language) {
+                codeBlock.parentElement.setAttribute('data-language', language);
+            }
+        });
+
+        // Handle hash navigation after content is loaded
+        if (window.location.hash) {
+            setTimeout(() => {
+                const targetHeader = document.getElementById(window.location.hash.slice(1));
+                if (targetHeader) {
+                    targetHeader.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100); // Small delay to ensure content is rendered
+        }
         
     } catch (error) {
         console.error('Error rendering file:', error.message);
@@ -43,10 +77,9 @@ async function renderFileToHtml(filePath, targetElementId) {
     }
 }
 
-
 // Function to load the sidebar dynamically
-function loadSidebar() { 
-    const baseUrl = window.location.href.replace(/\/[^\/]*\.html$/, '').replace(/\/$/, ''); 
+function loadSidebar() {
+    const baseUrl = window.location.href.replace(/\/[^\/]*\.html.*$/, '').replace(/\/$/, '');
     fetch(`${baseUrl}/tree.xml`)
         .then(response => response.text())
         .then(xmlString => {
@@ -140,7 +173,6 @@ function loadSidebar() {
         .catch(error => {
             console.error('Error loading sidebar:', error);
         });
-        
 }
 
 // Function to toggle the sidebar's collapse state
@@ -148,3 +180,13 @@ function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('collapsed');
 }
+
+// Add event listener for hash changes
+window.addEventListener('hashchange', () => {
+    if (window.location.hash) {
+        const targetHeader = document.getElementById(window.location.hash.slice(1));
+        if (targetHeader) {
+            targetHeader.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+});

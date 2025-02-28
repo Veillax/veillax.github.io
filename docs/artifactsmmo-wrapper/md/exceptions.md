@@ -2,120 +2,60 @@
 
 ## How to Use
 
-This module defines a set of custom exception classes that are raised by the Artifacts MMO API wrapper when errors occur. These exceptions provide more specific information about the nature of the error, making it easier to handle different error scenarios in your code.
+This module defines custom exception classes for the Artifacts MMO API wrapper. All exceptions inherit from the base `APIException` class which provides enhanced error tracking and logging.
 
 ## Classes
 
 ### APIException
 
-- **Base exception class** for all API-related errors.
-- Logs the error message when raised.
+Base exception class with improved error tracking and logging capabilities.
 
-### CharacterInCooldown
+#### Methods
+- `_log_error(message)`: Logs error with traceback information
+- `__init__(message, char_name="ROOT")`: Initializes exception with character context
 
-- Raised when attempting an action while the character is still on cooldown.
+### Exception Types
 
-### NotFound
+All exceptions include automatic logging with appropriate severity levels:
 
-- Raised when a requested resource is not found.
+#### Critical Exceptions
+- `TokenMissingorEmpty`: Token is missing or empty (terminates program)
 
-### ActionAlreadyInProgress
+#### Error Exceptions
+- `NotFound`: Resource not found
+- `CharacterNotFound`: Character not found
+- `TooLowLevel`: Level requirement not met
+- `MapItemNotFound`: Map item not found
+- `GETooMany`: Too many GE items listed
+- `GENoStock`: No stock available in GE
+- `GENoItem`: Item not found in GE
+- `TaskMasterNoTask`: No task assigned
+- `TaskMasterTaskNotComplete`: Task not completed
+- `TaskMasterTaskMissing`: Task information missing
+- `RecyclingItemNotRecyclable`: Item cannot be recycled
+- `EquipmentSlot`: Invalid equipment slot
+- `NameAlreadyUsed`: Character name already in use
 
-- Raised when attempting to start an action that is already in progress.
+#### Warning Exceptions
+- `CharacterInCooldown`: Character is in cooldown
+- `ActionAlreadyInProgress`: Action already in progress
+- `InventoryFull`: Inventory is full
+- `InsufficientQuantity`: Insufficient item quantity
+- `TransactionInProgress`: Transaction already in progress
+- `InsufficientGold`: Not enough gold
+- `TaskMasterAlreadyHasTask`: Task already assigned
+- `TaskMasterTaskAlreadyCompleted`: Task already completed
+- `EquipmentTooMany`: Too many equipment items
+- `EquipmentAlreadyEquipped`: Item already equipped
+- `BankFull`: Bank is full
+- `MaxCharactersReached`: Maximum character limit reached
 
-### CharacterNotFound
+#### Info Exceptions
+- `AlreadyAtDestination`: Character already at destination
 
-- Raised when a character with the specified name is not found.
-
-### TooLowLevel
-
-- Raised when the character's level is too low for a specific action or requirement.
-
-### InventoryFull
-
-- Raised when attempting to add items to a full inventory.
-
-### MapItemNotFound
-
-- Raised when a specific item is not found on the map.
-
-### InsufficientQuantity
-
-- Raised when there is an insufficient quantity of an item for an action.
-
-### GETooMany
-
-- Raised when attempting to list too many items on the Grand Exchange.
-
-### GENoStock
-
-- Raised when there is no stock available for a Grand Exchange offer.
-
-### GENoItem
-
-- Raised when the specified item is not found in the Grand Exchange.
-
-### TransactionInProgress
-
-- Raised when a transaction is already in progress.
-
-### InsufficientGold
-
-- Raised when the character does not have enough gold for an action.
-
-### TaskMasterNoTask
-
-- Raised when the Task Master does not have an assigned task.
-
-### TaskMasterAlreadyHasTask
-
-- Raised when attempting to assign a task to a Task Master that already has one.
-
-### TaskMasterTaskNotComplete
-
-- Raised when the Task Master's assigned task is not yet complete.
-
-### TaskMasterTaskMissing
-
-- Raised when the Task Master's task information is missing.
-
-### TaskMasterTaskAlreadyCompleted
-
-- Raised when attempting to complete a Task Master task that is already completed.
-
-### RecyclingItemNotRecyclable
-
-- Raised when attempting to recycle an item that is not recyclable.
-
-### EquipmentTooMany
-
-- Raised when attempting to equip too many items.
-
-### EquipmentAlreadyEquipped
-
-- Raised when attempting to equip an item that is already equipped.
-
-### EquipmentSlot
-
-- Raised when an invalid equipment slot is specified.
-
-### AlreadyAtDestination
-
-- Raised when the character is already at the specified destination.
-
-### BankFull
-
-- Raised when the bank is full.
-
-### TokenMissingorEmpty
-
-- **Critical exception** raised when the API token is missing or empty.
-- **Terminates the program** after logging the error.
-
-### NameAlreadyUsed
-
-- Raised when attempting to use a character name that is already taken.
-
-### MaxCharactersReached
-
-- Raised when the maximum number of allowed characters has been reached.
+Each exception includes:
+- Descriptive error message
+- Character context
+- Stack trace
+- Automatic logging with appropriate severity
+- Error details for debugging
