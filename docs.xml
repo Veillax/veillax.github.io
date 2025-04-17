@@ -5,9 +5,4 @@
             A Python API Wrapper for ArtifactsMMO
         </description>
     </doc>
-    <doc path="/canvas-spreadsheet-integration" name="Canvas Spreadsheet Integration">
-        <description>
-            A Python API Wrapper for ArtifactsMMO
-        </description>
-    </doc>
 </doclist>
