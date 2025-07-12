@@ -1,4 +1,4 @@
- # Glyphic
+# Glyphic
 
 **Glyphic** is a modular, MQTT-powered macropad system for Windows. It lets you trigger keyboard shortcuts, shell commands, and more on your PC from any MQTT client or device. Macros and plugins are easy to share and extend, making Glyphic a powerful automation companion for creative and productivity workflows.
 
