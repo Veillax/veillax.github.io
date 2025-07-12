@@ -5,4 +5,8 @@
             A Python API Wrapper for ArtifactsMMO
         </description>
     </doc>
+    <doc path="/glyphic" name="Glyphic">
+        <description>
+            Glyphic is a modular, MQTT-powered macropad system for Windows
+        </description>
 </doclist>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filetree>
+    <section path="/index" name="Glyphic">
+        <file path="/about" name="About"/>
+        <file path="/install" name="Installation"/>
+        <file path="/usage" name="Usage"/>
+    </section>
+    <section name="Resources">
+        <file path="/macros" name="Macros"/>
+        <file path="/plugins" name="Plugins"/>
+    </section>
+</filetree>
