@@ -2,7 +2,7 @@
 
 ## Plugin Structure
 
-- Plugins are Python files in `plugins/default_plugins/`.
+- Plugins are Python files in `plugins/`.
 - Each plugin must inherit from `BasePlugin` and implement `execute(self, params)`.
 
 ## Example Plugin
@@ -28,10 +28,10 @@ class MyPlugin(BasePlugin):
 
 ## Adding a Plugin
 
-1. Create a new Python file in `plugins/default_plugins/`.
+1. Create a new Python file in `plugins/`.
 2. Define your plugin class as shown above.
 3. Reload plugins from the system tray or restart Glyphic.
 
 ## Sharing Plugins
 
-Share the `.py` file with others. They can drop it into their `plugins/default_plugins/` folder.
+Share the `.py` file with others. They can drop it into their `plugins/` folder.

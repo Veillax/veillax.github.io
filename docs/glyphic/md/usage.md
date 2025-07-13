@@ -20,12 +20,12 @@ A tray icon will appear in your system tray.
 ## Triggering Macros
 
 1. Use any MQTT client to publish a message.
-2. Topic: `{topic_prefix}/{folder}` (e.g., `macropad/krita`)
-3. Payload: Macro ID (e.g., `zoom_out`)
+2. Topic: `{topic_prefix}/{folder}` (e.g., `macropad/keyboard`)
+3. Payload: Macro ID (e.g., `hello_world`)
 
 Example using `mosquitto_pub`:
 ```sh
-mosquitto_pub -h <broker_ip> -t "macropad/krita" -m "zoom_out"
+mosquitto_pub -h <broker_ip> -t "macropad/keyboard" -m "hello_world"
 ```
 
 ## Creating and Editing Macros
@@ -35,7 +35,7 @@ mosquitto_pub -h <broker_ip> -t "macropad/krita" -m "zoom_out"
 
 ## Creating and Adding Plugins
 
-- Add new Python files to `plugins/default_plugins/`.
+- Add new Python files to `plugins/`.
 - Use the system tray menu to reload plugins after changes.
 
 ## Logs
